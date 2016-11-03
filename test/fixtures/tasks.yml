@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  recurrence: 1
+  recurrence_match: MyString
+  email: MyString
+  notification_subject: MyString
+  notification_body: MyText
+
+two:
+  title: MyString
+  description: MyText
+  recurrence: 1
+  recurrence_match: MyString
+  email: MyString
+  notification_subject: MyString
+  notification_body: MyText

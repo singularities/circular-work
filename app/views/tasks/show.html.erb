@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Recurrence:</strong>
+  <%= @task.recurrence %>
+</p>
+
+<p>
+  <strong>Recurrence match:</strong>
+  <%= @task.recurrence_match %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @task.email %>
+</p>
+
+<p>
+  <strong>Notification subject:</strong>
+  <%= @task.notification_subject %>
+</p>
+
+<p>
+  <strong>Notification body:</strong>
+  <%= @task.notification_body %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

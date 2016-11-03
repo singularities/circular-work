@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   root :to => 'assets#index'
   get 'assets/index'
 

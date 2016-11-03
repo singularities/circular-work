@@ -13,4 +13,6 @@ class Task < ApplicationRecord
   validates_inclusion_of :recurrence, in: 0..(RECURRENCE.length - 1)
   validates_format_of :recurrence_match, with: RECURRENCE_MATCH, allow_blank: true
 
+  has_many :turns
+
 end

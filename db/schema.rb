@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103165139) do
+ActiveRecord::Schema.define(version: 20161103170157) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20161103165139) do
     t.text     "notification_body"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_turns_on_task_id"
   end
 
   create_table "users", force: :cascade do |t|

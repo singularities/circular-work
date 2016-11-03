@@ -10,7 +10,7 @@ class Task < ApplicationRecord
   end
 
   validates_presence_of :title, :recurrence
-  validates_inclusion_of :recurrence, :in => 0..(RECURRENCE.length - 1)
-  validates_format_of :recurrence_match, :with => RECURRENCE_MATCH, :allow_blank => true
+  validates_inclusion_of :recurrence, in: 0..(RECURRENCE.length - 1)
+  validates_format_of :recurrence_match, with: RECURRENCE_MATCH, allow_blank: true
 
 end

@@ -47,6 +47,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'ember-rails', '~> 0.15'
-
 gem 'devise'
+gem "ember-cli-rails"

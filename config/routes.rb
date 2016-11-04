@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
+  mount_ember_app :frontend, to: "/"
   resources :tasks
-  root :to => 'assets#index'
-  get 'assets/index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

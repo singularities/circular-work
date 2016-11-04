@@ -1,7 +1,10 @@
 language: ruby
 rvm:
   - 2.3.0
+node_js:
+  - 4.4.4
 before_script:
   - "bundle exec rake db:migrate RAILS_ENV=test"
+  - "cd frontend; npm install"
 cache:
   - bundler

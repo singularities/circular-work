@@ -1,0 +1,99 @@
+#%RAML 1.0
+title: Circular Works
+version: v1
+baseUri: http://api.circular.works
+/tasks:
+  get:
+    # TODO authentication
+    body:
+      application/json:
+        # Example for showing the index in the app. Maybe we should use a param for this case?
+        example: |
+          [
+            {
+              "title": "Cleaning the space",
+              "recurrence": 2,
+              "current_turn": [
+                {
+                  "id": 3,
+                  "name": "Pepe y Lola"
+                }
+              ]
+            },
+            {
+              "title": "Monthly meeting",
+              "recurrence": 3
+            }
+          ]
+
+  post:
+    # TODO authentication
+    body:
+      application/json:
+        example: |
+          {
+            "title": "Cleaning the space",
+            "description": "Weekly cleaning of the space",
+            "recurrence": 2,
+            "turns": [
+              [
+                # A new group inside a turn
+                {
+                  "name": "Pepe y Lola",
+                  # Force array or allow \n and , ?
+                  "emails": "pepe@mat.com\nlola.mat.com"
+                },
+                # An existing group inside a turn
+                {
+                  id: 3
+                }
+              ]
+            ],
+            "email": "space@lists.mat.com",
+            "notification_subject": "@responsible_users have to clean the space",
+            "notification_body": "This is the monthly reminder for @responsible_users to clean the space"
+          }
+  /{taskId}:
+    get:
+      # TODO authentication
+      body:
+        application/json:
+          example: |
+            {
+              "id": 7,
+              "title": "Cleaning the space",
+              "description": "Weekly cleaning of the space",
+              "recurrence": 2,
+              "turns": [
+                [
+                  {
+                    "id": 4,
+                    "name": "Pepe y Lola",
+                    "emails": [
+                      "pepe@mat.com",
+                      "lola.mat.com"
+                    ]
+                  },
+                  # An existing group inside a turn
+                  {
+                    id: 3,
+                    "name": "Lucas",
+                    "emails": [
+                      "lucas@mat.com"
+                    ]
+                  }
+                ]
+              ],
+              "email": "space@lists.mat.com",
+              "notification_subject": "@responsible_users have to clean the space",
+              "notification_body": "This is the monthly reminder for @responsible_users to clean the space"
+            }
+
+    delete:
+    patch:
+      body:
+        application/json:
+          example: |
+            {
+              "title": "A new title for this task"
+            }

@@ -3,3 +3,5 @@ rvm:
   - 2.3.0
 before_script:
   - "bundle exec rake db:migrate RAILS_ENV=test"
+cache:
+  - bundler

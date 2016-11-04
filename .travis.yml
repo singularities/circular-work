@@ -5,7 +5,8 @@ before_script:
   - "bundle exec rake db:migrate RAILS_ENV=test"
   - "nvm install 4.4.4"
   - "nvm local 4.4.4"
-  - "cd frontend; npm install"
+  - "npm install -g bower"
+  - "cd frontend; npm install; bower install"
 cache:
   - bundler
 script:

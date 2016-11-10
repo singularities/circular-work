@@ -38,3 +38,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem "ember-cli-rails"
+
+# JSON serialization
+gem 'active_model_serializers'

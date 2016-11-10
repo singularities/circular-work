@@ -11,27 +11,30 @@ baseUri: http://api.circular.works
           application/json:
             # Example for showing the index in the app. Maybe we should use a param for this case?
             example: |
-              [
-                {
-                  "title": "Cleaning the space",
-                  "recurrence": 2,
-                  "current_turn": [
-                    {
-                      "id": 3,
-                      "groups": [
-                        {
-                          "id": 4,
-                          "name": "Pepe y Lola"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "title": "Monthly meeting",
-                  "recurrence": 3
-                }
-              ]
+              {
+                data: [
+                  {
+                    "title": "Cleaning the space",
+                    "recurrence": 2,
+                    "current_turn": [
+                      {
+                        "id": 3,
+                        "groups": [
+                          {
+                            "id": 4,
+                            "name": "Pepe y Lola"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Monthly meeting",
+                    "recurrence": 3
+                  }
+                ]
+              }
+
   post:
     # TODO authentication
     body:
@@ -63,38 +66,41 @@ baseUri: http://api.circular.works
             application/json:
               example: |
                 {
-                  "id": 7,
-                  "title": "Cleaning the space",
-                  "description": "Weekly cleaning of the space",
-                  "recurrence": 2,
-                  "email": "space@lists.mat.com",
-                  "notification_subject": "@responsible_users have to clean the space",
-                  "notification_body": "This is the monthly reminder for @responsible_users to clean the space",
-                    {
-                      "id": 7,
-                      "order": 1,
-                      "groups": [
-                        {
-                          "id": 4,
-                          "name": "Pepe y Lola",
-                        },
-                        {
-                          id: 7,
-                          "name": "Lucas",
-                        }
-                      ]
-                    },
-                    {
-                      "id": 3,
-                      "order": 2,
-                      "groups": [
-                        {
-                          "id": 10,
-                          "name": "Facundo el de las pipas"
-                        }
-                      ]
-                    }
-                  ]
+                  "data": {
+                    "id": 7,
+                    "title": "Cleaning the space",
+                    "description": "Weekly cleaning of the space",
+                    "recurrence": 2,
+                    "email": "space@lists.mat.com",
+                    "notification_subject": "@responsible_users have to clean the space",
+                    "notification_body": "This is the monthly reminder for @responsible_users to clean the space",
+                    "turns":
+                      {
+                        "id": 7,
+                        "order": 1,
+                        "groups": [
+                          {
+                            "id": 4,
+                            "name": "Pepe y Lola",
+                          },
+                          {
+                            id: 7,
+                            "name": "Lucas",
+                          }
+                        ]
+                      },
+                      {
+                        "id": 3,
+                        "order": 2,
+                        "groups": [
+                          {
+                            "id": 10,
+                            "name": "Facundo el de las pipas"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
     delete:
     patch:
@@ -118,18 +124,20 @@ baseUri: http://api.circular.works
           application/json:
             example: |
               {
-                "id": 7,
-                "order": 2,
-                "groups": [
-                  {
-                    "id": 4,
-                    "name": "Pepe y Lola",
-                  },
-                  {
-                    id: 7,
-                    "name": "Lucas",
-                  }
-                ]
+                "data": {
+                  "id": 7,
+                  "order": 2,
+                  "groups": [
+                    {
+                      "id": 4,
+                      "name": "Pepe y Lola",
+                    },
+                    {
+                      id: 7,
+                      "name": "Lucas",
+                    }
+                  ]
+                }
               }
   /{turnId}:
     patch:
@@ -146,17 +154,19 @@ baseUri: http://api.circular.works
             application/json:
               example: |
                 {
-                  "id": 3,
-                  "order": 3,
-                  "groups" : [
-                    {
-                      "id": 11,
-                      "name": "Atanasio"
-                      "emails": [
-                        "atan@as.io"
-                      ]
-                    }
-                  ]
+                  "data": {
+                    "id": 3,
+                    "order": 3,
+                    "groups" : [
+                      {
+                        "id": 11,
+                        "name": "Atanasio"
+                        "emails": [
+                          "atan@as.io"
+                        ]
+                      }
+                    ]
+                  }
                 }
 /groups:
   post:
@@ -176,12 +186,14 @@ baseUri: http://api.circular.works
           application/json:
             example: |
               {
-                "id": 3,
-                "name": "Pepe y Lola",
-                "emails": [
-                  "pepe@mat.com",
-                  "lola@mat.com"
-                ]
+                "data": {
+                  "id": 3,
+                  "name": "Pepe y Lola",
+                  "emails": [
+                    "pepe@mat.com",
+                    "lola@mat.com"
+                  ]
+                }
               }
   /{groupId}:
     get:
@@ -191,8 +203,10 @@ baseUri: http://api.circular.works
             application/json:
               example: |
                 {
-                  "id": 3,
-                  "name: "Pepe y Lola"
+                  "data": {
+                    "id": 3,
+                    "name: "Pepe y Lola"
+                  }
                 }
     patch:
       body:
@@ -211,10 +225,12 @@ baseUri: http://api.circular.works
             application/json:
               example: |
                 {
-                  "id": 3,
-                  "name": "Pepe y Lolo"
-                  "emails": [
-                    "pepe@mat.com"
-                    "lolo@mat.com"
-                  ]
+                  "data": {
+                    "id": 3,
+                    "name": "Pepe y Lolo"
+                    "emails": [
+                      "pepe@mat.com"
+                      "lolo@mat.com"
+                    ]
+                  }
                 }

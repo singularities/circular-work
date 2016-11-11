@@ -20,10 +20,7 @@ class TasksController < ApplicationController
     if @task.save
       render json: @task, status: :created, location: @task
     else
-      # probably we should move this to some kind of helper / lib
-      render json: @task, status: :unprocessable_entity,
-            adapter: :json_api,
-            serializer: ActiveModel::Serializer::ErrorSerializer
+      render_json_api_errors(@task)
     end
   end
 
@@ -32,7 +29,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       render json: @task
     else
-      render json: @task.errors, status: :unprocessable_entity
+      render_json_api_errors(@task)
     end
   end
 

@@ -20,7 +20,10 @@ class TasksController < ApplicationController
     if @task.save
       render json: @task, status: :created, location: @task
     else
-      render json: @task.errors, status: :unprocessable_entity
+      # probably we should move this to some kind of helper / lib
+      render json: @task, status: :unprocessable_entity,
+            adapter: :json_api,
+            serializer: ActiveModel::Serializer::ErrorSerializer
     end
   end
 
@@ -47,6 +50,13 @@ class TasksController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def task_params
-    params.require(:task).permit(:title, :description, :recurrence, :recurrence_match, :email, :notification_subject, :notification_body)
+    params.require(:data).require(:attributes).permit(task_valid_attributes)
+  end
+
+  def task_valid_attributes
+    [
+      :title, :description, :recurrence, :recurrence_match, :email,
+      :notification_subject, :notification_body
+    ]
   end
 end

@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 weekly:
-  title: One weekly task
-  description: Every week, I am doing this
+  title: Cleaning the space
+  description: Every week, we are cleaning the space
   recurrence: 2
   recurrence_match: ""
-  email: list@example.org
-  notification_subject: We are doing this this week
-  notification_body: Ey people! Don't forget to do this this week
+  email: space@list.example.org
+  notification_subject: "@responsible_users have to clean the space"
+  notification_body: "This is the monthly reminder for @responsible_users to clean the space"
 
 monthly:
-  title: One monthly task
-  description: This must be done every month
+  title: Monthly meeting
+  description: We meet the second Tuesday of every month
   recurrence: 3
-  recurrence_match: ""
+  recurrence_match: "2 2"
   email: list@example.org
   notification_subject: Remember this monthly
   notification_body: This is a reminder for a monthly task

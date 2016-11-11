@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  group: one
+pepe_pepelola:
+  user: pepe
+  group: pepe_lola
 
-two:
-  user: two
-  group: two
+lola_pepelola:
+  user: lola
+  group: pepe_lola
+
+atanasio:
+  user: atanasio
+  group: atanasio
+
+lucas:
+  user: lucas
+  group: lucas
+
+facundo:
+  user: Facundo
+  group: facundo

@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+pepe_lola:
+  name: Pepe y Lola
 
-two:
-  name: MyString
+atanasio:
+  name: Atanasio
+
+lucas:
+  name: Lucas
+
+facundo:
+  name: Facundo el de las pipas

@@ -6,43 +6,33 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get tasks_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_task_url
+    get tasks_url, as: :json
     assert_response :success
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { description: @task.description, email: @task.email, notification_body: @task.notification_body, notification_subject: @task.notification_subject, recurrence: @task.recurrence, recurrence_match: @task.recurrence_match, title: @task.title } }
+      post tasks_url, params: { task: { description: @task.description, email: @task.email, notification_body: @task.notification_body, notification_subject: @task.notification_subject, recurrence: @task.recurrence, recurrence_match: @task.recurrence_match, title: @task.title } }, as: :json
     end
 
-    assert_redirected_to task_url(Task.last)
+    assert_response 201
   end
 
   test "should show task" do
-    get task_url(@task)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_task_url(@task)
+    get task_url(@task), as: :json
     assert_response :success
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { description: @task.description, email: @task.email, notification_body: @task.notification_body, notification_subject: @task.notification_subject, recurrence: @task.recurrence, recurrence_match: @task.recurrence_match, title: @task.title } }
-    assert_redirected_to task_url(@task)
+    patch task_url(@task), params: { task: { description: @task.description, email: @task.email, notification_body: @task.notification_body, notification_subject: @task.notification_subject, recurrence: @task.recurrence, recurrence_match: @task.recurrence_match, title: @task.title } }, as: :json
+    assert_response 200
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
-      delete task_url(@task)
+      delete task_url(@task), as: :json
     end
 
-    assert_redirected_to tasks_url
+    assert_response 204
   end
 end

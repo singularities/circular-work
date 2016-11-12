@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
     if @group.save
       render json: @group, status: :created, location: @group
     else
-      render json: @group.errors, status: :unprocessable_entity
+      render_json_api_errors(@group)
     end
   end
 
@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       render json: @group
     else
-      render json: @group.errors, status: :unprocessable_entity
+      render_json_api_errors(@group)
     end
   end
 
@@ -47,6 +47,6 @@ class GroupsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def group_params
-    params.fetch(:group, {})
+    params.require(:data).require(:attributes).permit(:name)
   end
 end

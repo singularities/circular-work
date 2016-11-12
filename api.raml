@@ -22,24 +22,17 @@ baseUri: http://api.circular.works
                       "recurrence": 2
                     },
                     "relationships": {
-                      "current_turn": {
-                        "data": {
-                          "type": "turns",
-                          "id": "3",
-                          "relationships": {
-                            "groups": {
-                              "data": [
-                                {
-                                  "type": "groups",
-                                  "id": "4",
-                                  "attributes": {
-                                    "name": "Pepe y Lola"
-                                  }
-                                }
-                              ]
-                            }
+                      "turns": {
+                        "data": [
+                          {
+                            "type": "turns",
+                            "id": "3"
+                          },
+                          {
+                            "type": "turns",
+                            "id": "25"
                           }
-                        }
+                        ]
                       }
                     }
                   },
@@ -50,7 +43,11 @@ baseUri: http://api.circular.works
                       "title": "Monthly meeting",
                       "recurrence": 3,
                       "recurrence_match": "2 2"
-                    }
+                    },
+                    "relationships": {
+                      "turns": {
+                        "data": []
+                      }
                   }
                 ]
               }
@@ -113,49 +110,10 @@ baseUri: http://api.circular.works
                           {
                             "id": "7",
                             "type": "turns",
-                            "attributes": {
-                              "order": 1
-                            },
-                            "relationships": {
-                              "groups": {
-                                "data": [
-                                  {
-                                    "id": "4",
-                                    "type": "groups",
-                                    "attributes": {
-                                      "name": "Pepe y Lola",
-                                    }
-                                  },
-                                  {
-                                    "id": "7",
-                                    "type": "groups",
-                                    "attributes": {
-                                      "name": "Lucas",
-                                    }
-                                  }
-                                ]
-                              }
-                            }
                           },
                           {
-                            "id": "3",
+                            "id": "25",
                             "type": "turns",
-                            "attributes": {
-                              "order": 2
-                            },
-                            "relationships": {
-                              "groups": {
-                                "data": [
-                                  {
-                                    "id": 10,
-                                    "type": "groups",
-                                    "attributes": {
-                                      "name": "Facundo el de las pipas"
-                                    }
-                                  }
-                                ]
-                              }
-                            }
                           }
                         ]
                       }
@@ -185,7 +143,7 @@ baseUri: http://api.circular.works
             "data": {
               "type": "turns",
               "attributes": {
-                "order": 2
+                "position": 2
               },
               "relationships": {
                 "groups": {
@@ -213,7 +171,7 @@ baseUri: http://api.circular.works
                   "id": "7",
                   "type": "turns",
                   "attributes": {
-                    "order": 2
+                    "position": 2
                   },
                   "relationships": {
                     "groups":
@@ -221,16 +179,10 @@ baseUri: http://api.circular.works
                         {
                           "id": "4",
                           "type": "groups",
-                          "attributes": {
-                            "name": "Pepe y Lola"
-                          }
                         },
                         {
                           "id": "7",
                           "type": "groups",
-                          "attributes": {
-                            "name": "Lucas"
-                          }
                         }
                       ]
                     }
@@ -245,7 +197,7 @@ baseUri: http://api.circular.works
               "id": "3",
               "type": "turns"
               "attributes": {
-                "order": 3,
+                "position": 3,
               },
               "relationships": {
                 "groups": {
@@ -268,7 +220,7 @@ baseUri: http://api.circular.works
                     "id": "3",
                     "type": "groups",
                     "attributes": {
-                      "order": 3
+                      "position": 3
                     },
                     "relationships": {
                       "groups": {
@@ -276,9 +228,6 @@ baseUri: http://api.circular.works
                           {
                             "id": "11",
                             "type": "groups",
-                            "attributes": {
-                              "name": "Atanasio"
-                            }
                           }
                         ]
                       }

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tasks
   resources :turns
+  resources :groups
 
   devise_for :users
 end

@@ -1,0 +1,402 @@
+#%RAML 1.0
+title: Circular Works
+version: v1
+baseUri: http://api.circular.works
+/tasks:
+  get:
+
+    # TODO authentication
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+            # Example for showing the index in the app. Maybe we should use a param for this case?
+            example: |
+              {
+                data: [
+                  {
+                    "type": "tasks",
+                    "id": "1",
+                    "attributes": {
+                      "title": "Cleaning the space",
+                      "recurrence": 2
+                    },
+                    "relationships": {
+                      "current_turn": {
+                        "data": {
+                          "type": "turns",
+                          "id": "3",
+                          "relationships": {
+                            "groups": {
+                              "data": [
+                                {
+                                  "type": "groups",
+                                  "id": "4",
+                                  "attributes": {
+                                    "name": "Pepe y Lola"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "tasks",
+                    "id": "2",
+                    "attributes": {
+                      "title": "Monthly meeting",
+                      "recurrence": 3,
+                      "recurrence_match": "2 2"
+                    }
+                  }
+                ]
+              }
+
+  post:
+    # TODO authentication
+    body:
+      application/vnd.api+json:
+        example: |
+          {
+            "data": {
+              "type": "tasks",
+              "attributes": {
+                "title": "Delivery and cleaning",
+                "description": "Weekly delivery of vegetables and cleaning of the space",
+                "recurrence": 2,
+                "email": "space@lists.mat.com",
+                "notification_subject": "@responsible_users have to deliver and clean the space",
+                "notification_body": "This is the weekly reminder for @responsible_users to clean the space"
+              },
+              "relationships": {
+                "turns": {
+                  "data": [
+                    {
+                      "type": "turns",
+                      "id": "7"
+                    },
+                    {
+                      "type": "turns",
+                      "id": "18"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+  /{taskId}:
+    get:
+      # TODO authentication
+      responses:
+        200:
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "7",
+                    "type": "tasks",
+                    "attributes": {
+                        "title": "Cleaning the space",
+                        "description": "Every week, we are cleaning the space",
+                        "recurrence": 2,
+                        "email": "space@lists.mat.com",
+                        "notification_subject": "@responsible_users have to clean the space",
+                        "notification_body": "This is the monthly reminder for @responsible_users to clean the space"
+                    },
+                    "relationships": {
+                      "turns": {
+                        "data": [
+                          {
+                            "id": "7",
+                            "type": "turns",
+                            "attributes": {
+                              "order": 1
+                            },
+                            "relationships": {
+                              "groups": {
+                                "data": [
+                                  {
+                                    "id": "4",
+                                    "type": "groups",
+                                    "attributes": {
+                                      "name": "Pepe y Lola",
+                                    }
+                                  },
+                                  {
+                                    "id": "7",
+                                    "type": "groups",
+                                    "attributes": {
+                                      "name": "Lucas",
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          {
+                            "id": "3",
+                            "type": "turns",
+                            "attributes": {
+                              "order": 2
+                            },
+                            "relationships": {
+                              "groups": {
+                                "data": [
+                                  {
+                                    "id": 10,
+                                    "type": "groups",
+                                    "attributes": {
+                                      "name": "Facundo el de las pipas"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+    delete:
+    patch:
+      body:
+        application/vnd.api+json:
+          example: |
+            {
+              "data": {
+                "type": "tasks",
+                "id": "1",
+                "attributes": {
+                  "title": "A new title for this task"
+                }
+              }
+            }
+/turns:
+  post:
+    body:
+      application/vnd.api+json:
+        example: |
+          {
+            "data": {
+              "type": "turns",
+              "attributes": {
+                "order": 2
+              },
+              "relationships": {
+                "groups": {
+                  "data": [
+                    {
+                      "id": "4",
+                      "type": "groups"
+                    },
+                    {
+                      "id": "7",
+                      "type": "groups"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "data": {
+                  "id": "7",
+                  "type": "turns",
+                  "attributes": {
+                    "order": 2
+                  },
+                  "relationships": {
+                    "groups":
+                      "data": [
+                        {
+                          "id": "4",
+                          "type": "groups",
+                          "attributes": {
+                            "name": "Pepe y Lola"
+                          }
+                        },
+                        {
+                          "id": "7",
+                          "type": "groups",
+                          "attributes": {
+                            "name": "Lucas"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+  /{turnId}:
+    patch:
+      body:
+        application/vnd.api+json:
+          example: |
+            {
+              "id": "3",
+              "type": "turns"
+              "attributes": {
+                "order": 3,
+              },
+              "relationships": {
+                "groups": {
+                  "data": [
+                    {
+                      "id": "11"
+                      "type": "groups"
+                    }
+                  ]
+                }
+              }
+            }
+      responses:
+        200:
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "3",
+                    "type": "groups",
+                    "attributes": {
+                      "order": 3
+                    },
+                    "relationships": {
+                      "groups": {
+                        "data": [
+                          {
+                            "id": "11",
+                            "type": "groups",
+                            "attributes": {
+                              "name": "Atanasio"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+/groups:
+  post:
+    body:
+      application/vnd.api+json:
+        example: |
+          {
+            "data": {
+              "type": "groups",
+              "attributes": {
+                "name": "Pepe y Lola",
+                # FIXME Internally, these emails are mapped to users, with an email
+                # Should we move it to relationships? In that case, we have to create
+                # each user first
+                "emails": [
+                  "pepe@mat.com",
+                  "lola@mat.com"
+                ]
+              }
+            }
+          }
+    responses:
+      200:
+        body:
+          application/vnd.api+json:
+            example: |
+              {
+                "data": {
+                  "id": "3",
+                  "type": "groups",
+                  "attributes": {
+                    "name": "Pepe y Lola",
+                    "emails": [
+                      "pepe@mat.com",
+                      "lola@mat.com"
+                    ]
+                  }
+                  # FIXME alternative description with users
+                  # "relationships": {
+                  #   "users": {
+                  #     "data": [
+                  #       {
+                  #         "id": "1",
+                  #         "type": "users",
+                  #         "attributes": {
+                  #           "email": "pepe@mat.com"
+                  #         }
+                  #       },
+                  #       {
+                  #         "id": "2",
+                  #         "type": "users",
+                  #         "attributes": {
+                  #           "email": "lola@mat.com"
+                  #         }
+                  #       }
+                  #     ]
+                  #   }
+                  # }
+                }
+              }
+  /{groupId}:
+    get:
+      responses:
+        200:
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "3",
+                    "type": "groups",
+                    "attributes": {
+                      "name: "Pepe y Lola",
+                      # FIXME alternative user description (see above)
+                      "emails": [
+                        "pepe@mat.com",
+                        "lola@mat.com"
+                      ]
+                    }
+                  }
+                }
+    patch:
+      body:
+        application/vnd.api+json:
+          example: |
+            {
+              "id": "3",
+              "type": "groups",
+              "attributes": {
+                "name": "Pepe y Lolo"
+                # FIXME alternative user description (see above)
+                "emails": [
+                  "pepe@mat.com",
+                  "lolo@mat.com"
+                ]
+              }
+            }
+      responses:
+        200:
+          body:
+            application/vnd.api+json:
+              example: |
+                {
+                  "data": {
+                    "id": "3",
+                    "type": "groups",
+                    "attributes": {
+                      "name": "Pepe y Lolo"
+                      # FIXME alternative user description (see above)
+                      "emails": [
+                        "pepe@mat.com"
+                        "lolo@mat.com"
+                      ]
+                    }
+                  }
+                }

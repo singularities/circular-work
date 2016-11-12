@@ -1,0 +1,15 @@
+
+{{#each task.errors as |error|}}
+  <div class="error">
+    {{#bs-alert type="danger"}}
+      {{error.attribute}} {{error.message}}
+    {{/bs-alert}}
+  </div>
+{{/each}}
+
+{{#bs-form action="createTask"}}
+  {{bs-form-element label="Title" placeholder="Title" value=task.title}}
+  {{bs-form-element label="Recurrence" placeholder="Recurrence" value=task.recurrence}}
+
+  {{#bs-button type="primary" action="createTask"}}Create task{{/bs-button}}
+{{/bs-form}}

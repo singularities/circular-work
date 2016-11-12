@@ -2,8 +2,11 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <h1>
-      <span class="glyphicon glyphicon-repeat">ircular.Work</span>
+      {{#link-to 'index'}}
+        <span class="glyphicon glyphicon-repeat">ircular.Work</span>
+      {{/link-to}}
     </h1>
+    {{outlet}}
   </div>
   <div class="col-md-1"></div>
 </div>

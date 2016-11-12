@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+pepe_lola:
+  name: Pepe y Lola
+
+atanasio:
+  name: Atanasio
+
+lucas:
+  name: Lucas
+
+facundo:
+  name: Facundo el de las pipas

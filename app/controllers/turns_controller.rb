@@ -20,16 +20,17 @@ class TurnsController < ApplicationController
     if @turn.save
       render json: @turn, status: :created, location: @turn
     else
-      render json: @turn.errors, status: :unprocessable_entity
+      render_json_api_errors(@turn)
     end
   end
 
   # PATCH/PUT /turns/1
   def update
+    puts params.inspect
     if @turn.update(turn_params)
       render json: @turn
     else
-      render json: @turn.errors, status: :unprocessable_entity
+      render_json_api_errors(@turn)
     end
   end
 
@@ -47,6 +48,6 @@ class TurnsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def turn_params
-    params.fetch(:turn, {})
+    params.require(:data).require(:attributes).permit(:task_id)
   end
 end

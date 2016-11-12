@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+weekly_1_pepelola:
+  turn: weekly_1
+  group: pepe_lola
+
+weekly_1_lucas:
+  turn: weekly_1
+  group: lucas
+
+weekly_2_facundo:
+  turn: weekly_2
+  group: facundo

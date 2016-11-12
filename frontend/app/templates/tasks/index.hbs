@@ -1,5 +1,5 @@
 {{#each model as |task|}}
-  <p>{{task.title}}</p>
+  <p>{{#link-to 'tasks.show' task}}{{task.title}}{{/link-to}}</p>
 {{else}}
   No one has created any tasks yet
 {{/each}}

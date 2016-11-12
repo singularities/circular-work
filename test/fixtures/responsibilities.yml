@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  turn: one
-  group: one
+weekly_1_pepelola:
+  turn: weekly_1
+  group: pepe_lola
 
-two:
-  turn: two
-  group: two
+weekly_1_lucas:
+  turn: weekly_1
+  group: lucas
+
+weekly_2_facundo:
+  turn: weekly_2
+  group: facundo

@@ -6,4 +6,8 @@ class Group < ApplicationRecord
   has_many :turns, through: :responsibilities
 
   validates_presence_of :name
+
+  def emails
+    users.map(&:email)
+  end
 end

@@ -11,3 +11,4 @@ cache:
   - bundler
 script:
   - bundle exec rake
+  - cd frontend ; ember test

@@ -8,8 +8,8 @@ export default Ember.Route.extend({
     createTask(task) {
       var route = this;
       task.save().then(function() {
-        route.transitionTo('tasks.index')
-      }).catch(function(error) { })
+        route.transitionTo('tasks.index');
+      }).catch(function() { });
     }
   }
 });

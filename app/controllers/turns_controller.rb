@@ -39,13 +39,14 @@ class TurnsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_turn
-      @turn = Turn.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def turn_params
-      params.fetch(:turn, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_turn
+    @turn = Turn.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def turn_params
+    params.fetch(:turn, {})
+  end
 end

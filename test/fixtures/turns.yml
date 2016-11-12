@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-weekly_1:
-  task: weekly
-#  order: 1
-
-weekly_2:
-  task: weekly
-#  order: 2

@@ -1,0 +1,5 @@
+class AddPositionToTurn < ActiveRecord::Migration[5.0]
+  def change
+    add_column :turns, :position, :integer
+  end
+end

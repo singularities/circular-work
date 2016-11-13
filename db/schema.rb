@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103170531) do
+ActiveRecord::Schema.define(version: 20161113115745) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20161103170531) do
     t.integer  "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "position"
     t.index ["task_id"], name: "index_turns_on_task_id"
   end
 

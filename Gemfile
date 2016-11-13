@@ -43,3 +43,6 @@ gem "ember-cli-rails"
 
 # JSON serialization
 gem 'active_model_serializers'
+
+# Turns as lists
+gem 'acts_as_list'

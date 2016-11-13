@@ -1,5 +1,13 @@
-{{#each model as |task|}}
-  <p>{{task.title}}</p>
-{{else}}
-  No one has created any tasks yet
-{{/each}}
+<ul>
+  {{#each model as |task|}}
+    <li>
+      {{#bs-button type="default"}}
+        {{#link-to 'tasks.show' task}}{{task.title}}{{/link-to}}
+      {{/bs-button}}
+    </li>
+  {{else}}
+    <li>
+      {{#bs-alert type="warning"}}No one has created any tasks yet{{/bs-alert}}
+    </li>
+    {{/each}}
+</ul>

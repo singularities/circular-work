@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('tasks', function() {
     this.route('index');
     this.route('new');
+    this.route('show', { path: ":task_id" });
   });
 });
 

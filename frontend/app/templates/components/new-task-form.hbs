@@ -9,7 +9,22 @@
 
 {{#bs-form action="createTask"}}
   {{bs-form-element label="Title" placeholder="Title" value=task.title}}
-  {{bs-form-element label="Recurrence" placeholder="Recurrence" value=task.recurrence}}
+  {{bs-form-element label="Description"
+                   placeholder="Description"
+                   controlType="textarea"
+                   value=task.description}}
+  {{bs-form-element label="Recurrence"
+                    placeholder="Recurrence"
+                    value=task.recurrence}}
+  {{bs-form-element label="Notification Email"
+                    placeholder="Notification Email"
+                    controlType="email"
+                    value=task.notificationEmail}}
+  {{bs-form-element label="Notification Subject"
+                    placeholder="Notification Subject"
+                    controlType="textarea"
+                    value=task.notificationSubject}}
+
 
   {{#bs-button type="primary" action="createTask"}}Create task{{/bs-button}}
 {{/bs-form}}

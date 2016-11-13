@@ -26,7 +26,6 @@ class TurnsController < ApplicationController
 
   # PATCH/PUT /turns/1
   def update
-    puts params.inspect
     if @turn.update(turn_params)
       render json: @turn
     else

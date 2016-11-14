@@ -2,13 +2,16 @@ language: ruby
 rvm:
   - 2.3.0
 before_script:
-  - "bundle exec rake db:migrate RAILS_ENV=test"
-  - "nvm install 4.4.4"
-  - "nvm local 4.4.4"
-  - "npm install -g bower"
-  - "cd frontend; npm install; bower install"
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - nvm install 4.4.4
+  - nvm local 4.4.4
+  - npm install -g bower
+  - cd frontend; npm install; bower install
 cache:
   - bundler
 script:
   - bundle exec rake
   - cd frontend ; ember test
+notifications:
+  webhooks:
+    - secure: jBARkLflfrZLzYu/qYIK3o90JXyXJEM/lkYsTjch1A0B2u+wndbrF9QBmjjGTVk87RoYj7D4VK5lftayuzSt7Nf7D9I5ysKmjCU0ZixYc6SE1pHQTjpt9HqVyFE7zStdqdjb+3PZH/wDLOE83jpA7TjXu6Py0tPv5Qg2klty73UUlSRCmt/bpzx6vpL9ECVQ3e8j9WR1WXKSsQ4YCrYD5Ts0IOxa9uGwKq9C9O9V7+CyRTjuqMdwzyE1jowuJAxxEq0K9uL0oFg0xNN1DvouGQ6ehJ2ZoAqeWdgJMaQ+/SpynfxnM6C3AwhJNs6c+e4yqYp7Ka3CtFmvK/v+jmegTAyvFjoHQHqwo8ouvXHulEjFSPKGiseIKGGRZfzCsTR64FdJ7PPl3IBWKeRNbkKUB6JTAFJWhAXS6LNjvhYEVh4tpge0ZKQCOv215OvcV0vCTSAnFLWr9qxYx08FlC6Nzlea0NNArLs/SrHq8ySVsCLXcqn2snauJTrNZplbPQPzplXCjLnDCeoBlc/I5j6QGGeF6K0j3w/jHuHTvrhFt7hsgYQyYAYoJcLNvhUmGe6DEFKuUiCFoLHHwvf6qydqwrf5Qjl3ysfA58gruBdbGImY2+H12yBLbmyvZcoy3A4GmhElFGDgSeBk1jqRr3xDeoN0Y4H1wtNNbk/1NBKz2iQ=

@@ -3,8 +3,15 @@ export default {
     'index' : {
       'title' : 'View tasks'
     },
-    'new' {
+    'new' : {
       'title' : 'Create task'
+    },
+    'attributes' : {
+      'title' : 'Title',
+      'description' : 'Description',
+      'recurrence' : 'Recurrence',
+      'notificationEmail' : 'Email for notification',
+      'notificationSubject' : 'Subject for the notification email'
     }
   }
 };

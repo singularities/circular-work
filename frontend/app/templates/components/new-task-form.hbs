@@ -1,4 +1,3 @@
-
 {{#each task.errors as |error|}}
   <div class="error">
     {{#bs-alert type="danger"}}
@@ -8,23 +7,25 @@
 {{/each}}
 
 {{#bs-form action="createTask"}}
-  {{bs-form-element label="Title" placeholder="Title" value=task.title}}
-  {{bs-form-element label="Description"
-                   placeholder="Description"
+  {{bs-form-element label=labels.title placeholder=labels.title value=task.title}}
+  {{bs-form-element label=labels.description
+                   placeholder=labels.description
                    controlType="textarea"
                    value=task.description}}
-  {{bs-form-element label="Recurrence"
-                    placeholder="Recurrence"
+  {{bs-form-element label=labels.recurrence
+                    placeholder=labels.recurrence
                     value=task.recurrence}}
-  {{bs-form-element label="Notification Email"
-                    placeholder="Notification Email"
+  {{bs-form-element label=labels.notificationEmail
+                    placeholder=labels.notificationEmail
                     controlType="email"
                     value=task.notificationEmail}}
-  {{bs-form-element label="Notification Subject"
-                    placeholder="Notification Subject"
+  {{bs-form-element label=labels.notificationSubject
+                    placeholder=labels.notificationSubject
                     controlType="textarea"
                     value=task.notificationSubject}}
 
 
-  {{#bs-button type="primary" action="createTask"}}Create task{{/bs-button}}
+  {{#bs-button type="primary" action="createTask"}}
+    {{t 'tasks.new.title'}}
+  {{/bs-button}}
 {{/bs-form}}

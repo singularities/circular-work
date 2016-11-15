@@ -1,0 +1,13 @@
+.git
+.env
+tmp
+log
+test
+config/database.yml
+
+frontend/node_modules
+frontend/bower_components
+
+vendor/bundle
+
+public/assets

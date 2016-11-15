@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :turns
   resources :groups
 
-  devise_for :users
+  unless ENV['PRECOMPILE']
+    devise_for :users
+  end
 end

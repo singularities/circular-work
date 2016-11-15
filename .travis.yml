@@ -6,7 +6,7 @@ before_script:
   - nvm install 4.4.4
   - nvm local 4.4.4
   - npm install -g bower
-  - cd frontend; npm install; bower install
+  - cd frontend; npm install
 cache:
   - bundler
 script:

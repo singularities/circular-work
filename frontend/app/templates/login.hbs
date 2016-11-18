@@ -1,0 +1,9 @@
+
+{{#bs-form action="authenticate"}}
+  {{bs-form-element label="Login" placeholder="Username" value=identification}}
+  {{bs-form-element label="Password" placeholder="Description" value=password}}
+  {{#bs-button type="primary" action="authenticate"}}Login{{/bs-button}}
+  {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+  {{/if}}
+{{/bs-form}}

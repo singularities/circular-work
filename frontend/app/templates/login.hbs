@@ -1,9 +1,20 @@
-
-{{#bs-form action="authenticate"}}
-  {{bs-form-element label="Login" placeholder="Username" value=identification}}
-  {{bs-form-element label="Password" placeholder="Description" value=password}}
-  {{#bs-button type="primary" action="authenticate"}}Login{{/bs-button}}
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-{{/bs-form}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Login
+  </div>
+  {{#bs-form action="authenticate"}}
+    {{bs-form-element label="Login"
+                      placeholder="Username"
+                      value=identification}}
+    {{bs-form-element label="Password"
+                      controlType="password"
+                      placeholder="Description"
+                      value=password}}
+    {{#bs-button type="primary" action="authenticate"}}
+      Login
+    {{/bs-button}}
+    {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+    {{/if}}
+  {{/bs-form}}
+</div>

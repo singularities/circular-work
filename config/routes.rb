@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :groups
 
   unless ENV['PRECOMPILE']
-    devise_for :users
+    devise_for :users, controllers: { sessions: 'users/sessions' }
   end
 end

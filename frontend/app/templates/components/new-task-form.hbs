@@ -12,18 +12,23 @@
                    placeholder=labels.description
                    controlType="textarea"
                    value=task.description}}
-  {{bs-form-element label=labels.recurrence
-                    placeholder=labels.recurrence
-                    value=task.recurrence}}
+
+   <div class="form-group">
+     <label class="control-label">{{labels.recurrence}}</label>
+     {{select-element choices=recurrenceOptions
+                      value=task.recurrence
+                      classNames="form-control"}}
+   </div>
+
   {{bs-form-element label=labels.notificationEmail
                     placeholder=labels.notificationEmail
                     controlType="email"
                     value=task.notificationEmail}}
+
   {{bs-form-element label=labels.notificationSubject
                     placeholder=labels.notificationSubject
                     controlType="textarea"
                     value=task.notificationSubject}}
-
 
   {{#bs-button type="primary" action="createTask"}}
     {{t 'tasks.new.title'}}

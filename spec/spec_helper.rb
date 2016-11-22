@@ -1,9 +1,7 @@
 require 'pry'
 
-def login_user
-  @request.env["devise.mapping"] = Devise.mappings[:user]
-  sign_in users(:pepe)
-end
+# require all support files
+Dir[File.join(__dir__, "support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

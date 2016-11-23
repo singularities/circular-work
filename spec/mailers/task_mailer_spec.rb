@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe TaskMailer, type: :mailer do
-  fixtures :tasks
+  fixtures :tasks, :responsibilities
 
   describe "when task has turns" do
 

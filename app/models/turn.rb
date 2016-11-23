@@ -6,4 +6,13 @@ class Turn < ApplicationRecord
   has_many :users, through: :groups
 
   acts_as_list scope: :task
+
+  def responsibles
+    groups.map(&:name)
+  end
+
+  def emails
+    users.map(&:email)
+  end
+
 end

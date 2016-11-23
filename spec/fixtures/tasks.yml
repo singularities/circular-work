@@ -6,8 +6,8 @@ weekly:
   recurrence: 1
   recurrence_match: ""
   email: space@list.example.org
-  notification_subject: "@responsible_users have to clean the space"
-  notification_body: "This is the monthly reminder for @responsible_users to clean the space"
+  notification_subject: "@responsibles have to clean the space"
+  notification_body: "This is the monthly reminder for @responsibles to clean the space"
 
 monthly:
   title: Monthly meeting

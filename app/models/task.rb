@@ -24,4 +24,7 @@ class Task < ApplicationRecord
 
     turns.first.move_to_bottom
   end
+
+
+  include Task::Notification
 end

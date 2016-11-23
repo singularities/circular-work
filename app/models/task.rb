@@ -15,4 +15,9 @@ class Task < ApplicationRecord
 
   has_many :turns, -> { order(position: :asc) }
 
+  def rotate
+    return if turns.empty?
+
+    turns.first.move_to_bottom
+  end
 end

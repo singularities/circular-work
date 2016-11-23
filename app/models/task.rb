@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  RECURRENCE       = [ :no_recurrence, :dayly, :weekly, :monthly, :yearly ]
+  RECURRENCE       = [ :dayly, :weekly, :monthly, :yearly ]
   RECURRENCE_MATCH = /(-?[1-5]) ([1-7])/
 
   # Create a named_scope for each recurrence: dayly, weekly, etc..

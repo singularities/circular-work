@@ -1,6 +1,7 @@
 .git
 .env
 tmp
+!tmp/ember-cli
 log
 test
 config/database.yml

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  fixtures :tasks
+  fixtures :tasks, :users
 
   let(:weekly_task)  { tasks(:weekly) }
   let(:monthly_task) { tasks(:monthly) }
@@ -44,6 +44,14 @@ RSpec.describe Task, type: :model do
 
       expect(weekly_task.turns.first).not_to eql(t)
       expect(weekly_task.turns.last).to eql(t)
+    end
+  end
+
+  describe ".author" do
+    let(:pepe) { users(:pepe) }
+
+    it 'returns the right user' do
+      expect(weekly_task.author).to eq(pepe)
     end
   end
 end

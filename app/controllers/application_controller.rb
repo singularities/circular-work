@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::API
-  include ActionController::HttpAuthentication::Token::ControllerMethods
-
   respond_to :json
 
   private

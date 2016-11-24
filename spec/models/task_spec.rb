@@ -33,6 +33,49 @@ RSpec.describe Task, type: :model do
     end
   end
 
+  describe "#recurrence_order_and_day" do
+    it "returns the right string" do
+      expect(monthly_task.recurrence_order_and_day).to match([2, 2])
+    end
+  end
+
+  describe "#recurrence_match?" do
+    it "returns false in task without recurrence_match" do
+      expect(weekly_task.recurrence_matches? Time.now).to be(false)
+    end
+
+    describe "when task has monthly recurrence" do
+
+      it "returns true on monday of same week" do
+        date = Date.new(2016, 11, 7)
+
+        expect(monthly_task.recurrence_matches? date).to be(true)
+      end
+
+      it "returns false on monday of other week" do
+        date = Date.new(2016, 11, 14)
+
+        expect(monthly_task.recurrence_matches? date).to be(false)
+      end
+    end
+
+    describe "when task has monthly recurrence and negative order" do
+      let(:monthly_last_sunday_task) { tasks(:monthly_last_sunday) }
+
+      it "returns true on monday of same week" do
+        date = Date.new(2016, 11, 21)
+
+        expect(monthly_last_sunday_task.recurrence_matches? date).to be(true)
+      end
+
+      it "returns false on monday of other week" do
+        date = Date.new(2016, 11, 28)
+
+        expect(monthly_last_sunday_task.recurrence_matches? date).to be(false)
+      end
+    end
+  end
+
   describe "rotate" do
     it "should move first turn to bottom" do
       # Confirm that we have more than 1 turn for the test

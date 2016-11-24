@@ -21,12 +21,36 @@ class Task < ApplicationRecord
     RECURRENCE[recurrence]
   end
 
+  # Array with: [ order, day of the week ]
+  #
+  # NOTE: RECURRENCE_MATCH is only implemented for weeks
+  def recurrence_order_and_day
+    RECURRENCE_MATCH.match(recurrence_match).captures.map{ |i| i.try(:to_i) }
+  end
+
+  # We only support recurrence matches in monthly tasks for now
+  def recurrence_matches? time
+    return false if recurrence_match.blank?
+
+    order, day = recurrence_order_and_day
+
+    # Calculate the date in this week that would match the recurrent_match.day
+    recurrence_date_this_week = time.to_date + day - time.to_date.wday
+
+    # Assert if recurrence_match.order matches the date in this week
+    if order > 0
+      order == (recurrence_date_this_week.mday / 7.0).ceil
+    else
+      order == ((recurrence_date_this_week - recurrence_date_this_week.next_month.beginning_of_month) / 7.0).floor
+    end
+  end
+
   def rotate
     return if turns.empty?
 
     turns.first.move_to_bottom
   end
 
-
   include Task::Notification
+  include Task::Clock
 end

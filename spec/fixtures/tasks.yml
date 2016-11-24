@@ -18,4 +18,14 @@ monthly:
   email: list@example.org
   notification_subject: Remember this monthly
   notification_body: This is a reminder for a monthly task
-  author: lucas
+  author: lola
+
+monthly_last_sunday:
+  title: Monthly quota
+  description: We have to pay the quota the last sunday of the month
+  recurrence: 2
+  recurrence_match: "-1 7"
+  email: list@example.org
+  notification_subject: Pay your quota!
+  notification_body: This is a reminder for paying your quota
+  author: pepe

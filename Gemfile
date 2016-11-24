@@ -51,3 +51,6 @@ gem 'active_model_serializers'
 
 # Turns as lists
 gem 'acts_as_list'
+
+# Scheduled tasks
+gem 'clockwork', require: false

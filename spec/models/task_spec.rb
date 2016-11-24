@@ -26,4 +26,24 @@ RSpec.describe Task, type: :model do
     end
 
   end
+
+  describe "recurrence_sym" do
+    it "returns the right symbol" do
+      expect(weekly_task.recurrence_sym).to equal(:weekly)
+    end
+  end
+
+  describe "rotate" do
+    it "should move first turn to bottom" do
+      # Confirm that we have more than 1 turn for the test
+      expect(weekly_task.turns.count).to be > 1
+
+      t = weekly_task.turns.first
+
+      weekly_task.rotate
+
+      expect(weekly_task.turns.first).not_to eql(t)
+      expect(weekly_task.turns.last).to eql(t)
+    end
+  end
 end

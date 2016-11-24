@@ -15,4 +15,16 @@ class Task < ApplicationRecord
 
   has_many :turns, -> { order(position: :asc) }
 
+  def recurrence_sym
+    RECURRENCE[recurrence]
+  end
+
+  def rotate
+    return if turns.empty?
+
+    turns.first.move_to_bottom
+  end
+
+
+  include Task::Notification
 end

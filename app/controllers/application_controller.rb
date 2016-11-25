@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  respond_to :json
+
   private
 
   def render_json_api_errors(object)

@@ -6,6 +6,7 @@
 #
 pepe:
   email: pepe@mat.com
+  authentication_token: tOken
 lola:
   email: lola@mat.com
 facundo:

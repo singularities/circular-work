@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
-  fixtures :tasks
+  fixtures :all
 
   describe '#index' do
     before { get :index }
@@ -12,30 +12,28 @@ RSpec.describe TasksController, type: :controller do
   end
 
   describe '#create' do
-    before { post :create, params: task_data }
-
-    context 'with only required parameters' do
-      let(:task_data) do
-        {
-          data: {
-            attributes: {
-              title:      "Limpieza",
-              recurrence: "2"
-            }
+    let(:response) { post :create, params: task_data }
+    let(:task_data) do
+      {
+        data: {
+          attributes: {
+            title:      "Limpieza",
+            recurrence: "2"
           }
         }
-      end
+      }
+    end
 
-      it "responds successfully" do
-        expect(response).to be_success
-      end
-
-      it 'creates the task' do
-        expect(Task.find_by(title: "Limpieza")).not_to be nil
+    context 'when it is not authenticated' do
+      it 'returns an unauthenticated response' do
+        expect(response.code).to eq "302"
+        expect(response.location).to eq "http://test.host/users/sign_in"
       end
     end
 
-    context 'when required parameters are missing' do
+    context 'when the data is invalid' do
+      before { login_user }
+
       let(:task_data) do
         {
           data: {
@@ -47,7 +45,7 @@ RSpec.describe TasksController, type: :controller do
         }
       end
 
-      it "responds successfully" do
+      it "responds unsuccessfully" do
         expect(response).not_to be_success
       end
 
@@ -57,6 +55,21 @@ RSpec.describe TasksController, type: :controller do
 
       it 'does not create the task' do
         expect(Task.find_by(title: "Super Limpieza")).to be nil
+      end
+    end
+
+    context 'when the task is valid' do
+      before { login_user }
+
+      context 'with only required parameters' do
+        it "responds successfully" do
+          expect(response).to be_success
+        end
+
+        it 'creates the task' do
+          response
+          expect(Task.find_by(title: "Limpieza")).not_to be nil
+        end
       end
     end
   end

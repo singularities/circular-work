@@ -2,19 +2,22 @@
   <div class="panel-heading">
     Login
   </div>
-  {{#bs-form action="authenticate"}}
-    {{bs-form-element label="Login"
-                      placeholder="Username"
-                      value=identification}}
-    {{bs-form-element label="Password"
-                      controlType="password"
-                      placeholder="Description"
-                      value=password}}
-    {{#bs-button type="primary" action="authenticate"}}
-      Login
-    {{/bs-button}}
+  <div class="panel-body">
     {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
+      <p class="alert alert-danger">{{errorMessage}}</p>
     {{/if}}
-  {{/bs-form}}
+
+    {{#bs-form action="authenticate" submitOnEnter=true}}
+      {{bs-form-element label="Login"
+                        placeholder="Username"
+                        value=identification}}
+      {{bs-form-element label="Password"
+                        controlType="password"
+                        placeholder="Description"
+                        value=password}}
+      {{#bs-button type="primary" action="authenticate"}}
+        Login
+      {{/bs-button}}
+    {{/bs-form}}
+  </div>
 </div>

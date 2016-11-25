@@ -11,6 +11,9 @@ export default Ember.Component.extend({
     });
     return translations;
   }.property('taskAttributes'),
+  taskRecurreceIsWeekly: function() {
+    return this.get('task.recurrence') === 2;
+  }.property('task.recurrence'),
   actions: {
     createTask() {
       return this.sendAction("createTask", this.task);

@@ -13,12 +13,19 @@
                    controlType="textarea"
                    value=task.description}}
 
-   <div class="form-group">
-     <label class="control-label">{{labels.recurrence}}</label>
-     {{select-element choices=recurrenceOptions
-                      value=task.recurrence
-                      classNames="form-control"}}
-   </div>
+  <div class="form-group">
+    <label class="control-label">{{labels.recurrence}}</label>
+    {{select-element choices=recurrenceOptions
+                     value=task.recurrence
+                     classNames="form-control"}}
+  </div>
+
+  {{#if taskRecurreceIsWeekly}}
+    {{bs-form-element label=labels.recurrenceMatch
+                      placeholder=labels.recurrenceMatch
+                      value=task.recurrenceMatch}}
+
+  {{/if}}
 
   {{bs-form-element label=labels.notificationEmail
                     placeholder=labels.notificationEmail

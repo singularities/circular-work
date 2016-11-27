@@ -11,6 +11,38 @@ export default Ember.Component.extend({
     });
     return translations;
   }.property('taskAttributes'),
+  recurrenceMatchPositionId: Ember.computed('task.recurrenceMatch', {
+    get: function(key) {
+      this.getRecurrencePositionId()
+    },
+    set: function(key, value) {
+      let recurrenceMatch = `${ value } ${ this.getRecurrenceDayId() }`
+      this.set('task.recurrenceMatch', recurrenceMatch);
+    }
+  }),
+  recurrenceMatchDayId: Ember.computed('task.recurrenceMatch', {
+    get: function(key) {
+      this.getRecurrenceDayId()
+    },
+    set: function(key, value) {
+      let recurrenceMatch = `${ this.getRecurrencePositionId() } ${ value }`
+      this.set('task.recurrenceMatch', recurrenceMatch);
+    }
+  }),
+  getRecurrencePositionId: function() {
+    if(this.get('task.recurrenceMatch')) {
+      return this.get('task.recurrenceMatch').split(' ')[0];
+    } else {
+      return 0;
+    }
+  },
+  getRecurrenceDayId: function() {
+    if(this.get('task.recurrenceMatch')) {
+      return this.get('task.recurrenceMatch').split(' ')[1];
+    } else {
+      return 0;
+    }
+  },
   taskRecurreceIsWeekly: function() {
     return this.get('task.recurrence') === 1;
   }.property('task.recurrence'),

@@ -21,9 +21,19 @@
   </div>
 
   {{#if taskRecurreceIsWeekly}}
-    {{bs-form-element label=labels.recurrenceMatch
-                      placeholder=labels.recurrenceMatch
-                      value=task.recurrenceMatch}}
+    <label class="control-label">Position</label>
+    {{select-element choices=recurrenceMatchPositions
+                     value=recurrenceMatchPositionId
+                     classNames="form-control"}}
+
+   <label class="control-label">Day of the Week</label>
+   {{select-element choices=recurrenceMatchDays
+                    value=recurrenceMatchDayId
+                    classNames="form-control"}}
+
+
+   {{bs-form-element controlType="hidden"
+                    value=task.recurrenceMatch}}
 
   {{/if}}
 

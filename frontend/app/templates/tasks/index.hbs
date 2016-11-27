@@ -1,9 +1,7 @@
 <ul>
   {{#each model as |task|}}
     <li>
-      {{#bs-button type="default"}}
-        {{#link-to 'tasks.show' task}}{{task.title}}{{/link-to}}
-      {{/bs-button}}
+      {{#link-to 'tasks.show' task}}{{task.title}}{{/link-to}}
     </li>
   {{else}}
     <li>

@@ -5,5 +5,6 @@ export default [
   Ember.Object.create({ value: 1, label: "Second" }),
   Ember.Object.create({ value: 2, label: "Third" }),
   Ember.Object.create({ value: 3, label: "Fourth" }),
-  Ember.Object.create({ value: 4, label: "Last" })
+  Ember.Object.create({ value: -1, label: "Last" }),
+  Ember.Object.create({ value: -2, label: "Next to last" })
 ];

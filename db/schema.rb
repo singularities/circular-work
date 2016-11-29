@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20161118231517) do
     t.text     "notification_body"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "author_id"
+    t.index ["author_id"], name: "index_tasks_on_author_id"
   end
 
   create_table "turns", force: :cascade do |t|

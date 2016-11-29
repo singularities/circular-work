@@ -8,6 +8,7 @@ weekly:
   email: space@list.example.org
   notification_subject: "@responsibles have to clean the space"
   notification_body: "This is the monthly reminder for @responsibles to clean the space"
+  author: pepe
 
 monthly:
   title: Monthly meeting
@@ -17,3 +18,4 @@ monthly:
   email: list@example.org
   notification_subject: Remember this monthly
   notification_body: This is a reminder for a monthly task
+  author: lucas

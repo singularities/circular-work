@@ -10,6 +10,7 @@ COPY Rakefile /app/
 COPY bin /app/bin
 COPY public /app/public
 COPY db /app/db
+COPY clock.rb /app/
 
 # Gems
 COPY Gemfile /app/

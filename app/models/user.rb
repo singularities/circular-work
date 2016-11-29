@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :groups, through: :memberships
   has_many :turns, through: :groups
-  has_many :authored_tasks, class_name: 'Task', foreign_key: 'user_id'
+  has_many :authored_tasks, class_name: 'Task', foreign_key: 'author_id'
 
   before_save :set_auth_token
 

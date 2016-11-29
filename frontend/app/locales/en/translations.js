@@ -10,6 +10,7 @@ export default {
       'title' : 'Title',
       'description' : 'Description',
       'recurrence' : 'Recurrence',
+      'recurrenceMatch' : 'Recurrence formula',
       'notificationEmail' : 'Email for notification',
       'notificationSubject' : 'Subject for the notification email'
     }

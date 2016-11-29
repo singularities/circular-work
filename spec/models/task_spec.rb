@@ -27,6 +27,58 @@ RSpec.describe Task, type: :model do
 
   end
 
+  describe "" do
+    let(:pepe) { users(:pepe)}
+    let(:lola) { users(:lola)}
+    let(:maria) { users(:maria)}
+    let(:monthly_with_author_only) { tasks(:monthly_with_author_only)}
+
+    describe ".authored_by" do
+      it "returns tasks owned and with that user as member" do
+        expect(Task.authored_by(pepe)).to include(weekly_task)
+      end
+
+      it "does not return tasks with that user as member" do
+        expect(Task.authored_by(lola)).not_to include(weekly_task)
+      end
+
+      it "returns tasks owned by a user" do
+        expect(Task.authored_by(maria)).to include(monthly_with_author_only)
+      end
+
+    end
+
+    describe ".with_member" do
+
+      it "returns tasks owned and with that user as member" do
+        expect(Task.with_member(pepe)).to include(weekly_task)
+      end
+
+      it "does not return tasks owned by a user" do
+        expect(Task.with_member(maria)).not_to include(monthly_with_author_only)
+      end
+
+      it "returns tasks with that user as member" do
+        expect(Task.with_member(lola)).to include(weekly_task)
+      end
+    end
+
+    describe ".for" do
+
+      it "returns tasks owned and with that user as member" do
+        expect(Task.for(pepe)).to include(weekly_task)
+      end
+
+      it "returns tasks owned by a user" do
+        expect(Task.for(maria)).to include(monthly_with_author_only)
+      end
+
+      it "returns tasks with that user as member" do
+        expect(Task.for(lola)).to include(weekly_task)
+      end
+    end
+  end
+
   describe "recurrence_sym" do
     it "returns the right symbol" do
       expect(weekly_task.recurrence_sym).to equal(:weekly)

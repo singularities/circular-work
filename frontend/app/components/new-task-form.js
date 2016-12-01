@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  i18n: Ember.inject.service(),
   labels: function() {
     let translations = Ember.Object.create();
     let translator   = this.get('i18n');

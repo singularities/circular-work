@@ -6,6 +6,9 @@ export default {
     'new' : {
       'title' : 'Create task'
     },
+    'edit' : {
+      'title' : 'Update task'
+    },
     'attributes' : {
       'title' : 'Title',
       'description' : 'Description',

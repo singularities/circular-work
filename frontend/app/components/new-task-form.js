@@ -50,8 +50,8 @@ export default Ember.Component.extend({
     return this.get('task.recurrence') === 2;
   }.property('task.recurrence'),
   actions: {
-    createTask() {
-      return this.sendAction("createTask", this.task);
+    submitForm() {
+      return this.sendAction('formAction', this.task);
     }
   }
 });

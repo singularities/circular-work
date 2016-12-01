@@ -30,17 +30,21 @@ export default Ember.Component.extend({
   }),
   getRecurrencePositionId: function() {
     if(this.get('task.recurrenceMatch')) {
-      return this.get('task.recurrenceMatch').split(' ')[0];
+      return this.recurrenceOptionAt(0);
     } else {
       return 0;
     }
   },
   getRecurrenceDayId: function() {
     if(this.get('task.recurrenceMatch')) {
-      return this.get('task.recurrenceMatch').split(' ')[1];
+      return this.recurrenceOptionAt(1);
     } else {
       return 0;
     }
+  },
+  recurrenceOptionAt: function(index) {
+    let option = this.get('task.recurrenceMatch').split(' ')[index];
+    return parseInt(option);
   },
   taskRecurreceIsMonthly: function() {
     return this.get('task.recurrence') === 2;

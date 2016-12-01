@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   }.property('taskAttributes'),
   recurrenceMatchPositionId: Ember.computed('task.recurrenceMatch', {
     get: function() {
-      this.getRecurrencePositionId();
+      return this.getRecurrencePositionId();
     },
     set: function(_key, value) {
       let recurrenceMatch = `${ value } ${ this.getRecurrenceDayId() }`;
@@ -21,7 +21,7 @@ export default Ember.Component.extend({
   }),
   recurrenceMatchDayId: Ember.computed('task.recurrenceMatch', {
     get: function() {
-      this.getRecurrenceDayId();
+      return this.getRecurrenceDayId();
     },
     set: function(_key, value) {
       let recurrenceMatch = `${ this.getRecurrencePositionId() } ${ value }`;

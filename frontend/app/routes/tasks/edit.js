@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model(params) {
-    return this.get('store').findRecord('task', { id: params.task_id });
+    return this.get('store').find('task', params.task_id);
   },
   actions: {
     updateTask(task) {

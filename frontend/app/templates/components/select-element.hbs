@@ -1,3 +1,5 @@
 {{#each iterableChoices as |choice|}}
-  <option value="{{choice.value}}" {{choice.selected}}>{{choice.label}}</option>
+  <option value="{{choice.value}}" selected="{{choice.selected}}">
+    {{choice.label}}
+  </option>
 {{/each}}

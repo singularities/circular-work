@@ -1,4 +1,7 @@
 export default {
+  'frontpage' : {
+    'description' : 'Your community tasks,<br/>distributed.'
+  },
   'tasks' : {
     'index' : {
       'title' : 'View your tasks'

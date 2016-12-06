@@ -1,13 +1,23 @@
 <div class="frontpage">
 
-  <img src="images/logo_white.svg" />
+  <div class="logo">
+    <img src="images/logo_white.svg" />
+  </div>
 
-  {{#link-to 'tasks.new' class="btn btn-accent btn-lg"}}
-    {{t "tasks.new.title"}}
-  {{/link-to}}
+  <div class="description">
+    {{ t "frontpage.description"}}
+  </div>
 
-  {{#link-to 'tasks.index' class="btn btn-accent btn-lg"}}
-    {{t "tasks.index.title"}}
-  {{/link-to}}
+  <div class="list-button">
+    {{#link-to 'tasks.index' class="btn btn-accent btn-lg"}}
+      {{t "tasks.index.title"}}
+    {{/link-to}}
+  </div>
 
+  <div class="create-button">
+    {{#link-to 'tasks.new' class="btn btn-accent btn-lg"}}
+      {{t "tasks.new.title"}}
+    {{/link-to}}
+  </div>
+  
 </div>

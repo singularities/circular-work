@@ -8,16 +8,19 @@
     {{ t "frontpage.description"}}
   </div>
 
-  <div class="list-button">
-    {{#link-to 'tasks.index' class="btn btn-accent btn-lg"}}
-      {{t "tasks.index.title"}}
-    {{/link-to}}
+  <div class="actions">
+
+    <div class="action-list">
+      {{#link-to 'tasks.index' class="btn btn-accent btn-lg"}}
+        {{t "tasks.index.title"}}
+      {{/link-to}}
+    </div>
+
+    <div class="action-create">
+      {{#link-to 'tasks.new' class="btn btn-accent btn-lg"}}
+        {{t "tasks.new.title"}}
+      {{/link-to}}
+    </div>
   </div>
 
-  <div class="create-button">
-    {{#link-to 'tasks.new' class="btn btn-accent btn-lg"}}
-      {{t "tasks.new.title"}}
-    {{/link-to}}
-  </div>
-  
 </div>

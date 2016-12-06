@@ -1,10 +1,10 @@
 export default {
   'tasks' : {
     'index' : {
-      'title' : 'View tasks'
+      'title' : 'View your tasks'
     },
     'new' : {
-      'title' : 'Create task'
+      'title' : 'Create new task'
     },
     'attributes' : {
       'title' : 'Title',

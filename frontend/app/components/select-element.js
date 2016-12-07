@@ -17,7 +17,8 @@ export default Ember.Component.extend({
         var selected = this.get('value') === choice ? 'selected="selected"' : '';
         return { label: choice, value: choice, selected: selected };
       } else {
-        choice.selected = this.get('value') === choice.value ? 'selected="selected"' : '';
+        let isSelected = this.get('value') === choice.value ? 'selected' : '';
+        choice.set('selected', isSelected);
         return choice;
       }
     }, this);

@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   }.property('taskAttributes'),
   recurrenceMatchPositionId: Ember.computed('task.recurrenceMatch', {
     get: function() {
-      this.getRecurrencePositionId();
+      return this.getRecurrencePositionId();
     },
     set: function(_key, value) {
       let recurrenceMatch = `${ value } ${ this.getRecurrenceDayId() }`;
@@ -22,7 +22,7 @@ export default Ember.Component.extend({
   }),
   recurrenceMatchDayId: Ember.computed('task.recurrenceMatch', {
     get: function() {
-      this.getRecurrenceDayId();
+      return this.getRecurrenceDayId();
     },
     set: function(_key, value) {
       let recurrenceMatch = `${ this.getRecurrencePositionId() } ${ value }`;
@@ -31,24 +31,28 @@ export default Ember.Component.extend({
   }),
   getRecurrencePositionId: function() {
     if(this.get('task.recurrenceMatch')) {
-      return this.get('task.recurrenceMatch').split(' ')[0];
+      return this.recurrenceOptionAt(0);
     } else {
       return 0;
     }
   },
   getRecurrenceDayId: function() {
     if(this.get('task.recurrenceMatch')) {
-      return this.get('task.recurrenceMatch').split(' ')[1];
+      return this.recurrenceOptionAt(1);
     } else {
       return 0;
     }
+  },
+  recurrenceOptionAt: function(index) {
+    let option = this.get('task.recurrenceMatch').split(' ')[index];
+    return parseInt(option);
   },
   taskRecurreceIsMonthly: function() {
     return this.get('task.recurrence') === 2;
   }.property('task.recurrence'),
   actions: {
-    createTask() {
-      return this.sendAction("createTask", this.task);
+    submitForm() {
+      return this.sendAction('formAction', this.task);
     }
   }
 });

@@ -85,6 +85,28 @@ RSpec.describe TasksController, type: :controller do
         end
       end
     end
+
+    context 'when the data is uses dashes in they keys' do
+      before { login_user }
+
+      let(:task_data) do
+        {
+          data: {
+            attributes: {
+              :title              => "Super-Limpieza",
+              :recurrence         => "2",
+              :"recurrence-match" => "1 5"
+            }
+          }
+        }
+      end
+
+      it 'creates the task' do
+        response
+        expect(Task.find_by(recurrence_match: "1 5").title)
+          .to eql "Super-Limpieza"
+      end
+    end
   end
 
   describe '#show' do

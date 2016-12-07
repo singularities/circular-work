@@ -2,6 +2,10 @@
   {{#each model as |task|}}
     <li>
       {{#link-to 'tasks.show' task}}{{task.title}}{{/link-to}}
+      {{#link-to 'tasks.edit' task}}
+        Edit
+      {{/link-to}}
+
     </li>
   {{else}}
     <li>

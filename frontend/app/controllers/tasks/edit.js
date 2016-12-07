@@ -5,8 +5,8 @@ import recurrenceMatchDays from 'frontend/models/recurrence-match-days';
 
 export default Ember.Controller.extend({
   i18n: Ember.inject.service(),
-  actionLabel:              function() {
-    return this.get('i18n').t('tasks.new.title');
+  actionLabel: function() {
+    return this.get('i18n').t('tasks.edit.title');
   }.property(),
   recurrenceOptions:        recurrenceOptions,
   recurrenceMatchPositions: recurrenceMatchPositions,

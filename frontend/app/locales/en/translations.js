@@ -58,7 +58,8 @@ export default {
       'recurrence' : 'Recurrence',
       'recurrenceMatch' : 'Recurrence formula',
       'notificationEmail' : 'Email for notification',
-      'notificationSubject' : 'Subject for the notification email'
+      'notificationSubject' : 'Subject for the notification email',
+      'turns' : 'Turns'
     }
   }
 };

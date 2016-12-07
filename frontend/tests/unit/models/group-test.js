@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('task', 'Unit | Model | task', {
+moduleForModel('group', 'Unit | Model | group', {
   // Specify the other units that are required for this test.
-  needs: [ 'model:turn' ]
+  needs: [  ]
 });
 
 test('it exists', function(assert) {

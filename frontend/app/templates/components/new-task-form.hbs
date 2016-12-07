@@ -37,6 +37,22 @@
 
   {{/if}}
 
+  <div>
+    <label class="control-label">
+      {{t 'tasks.attributes.turns'}}
+    </label>
+
+    <ul>
+      {{#each task.turns as |turn|}}
+        {{turn-row turn=turn}}
+      {{/each}}
+    </ul>
+
+    {{#bs-button type="primary" action="addTurn"}}
+      Add Turn
+    {{/bs-button}}
+  </div>
+
   {{bs-form-element label=labels.notificationEmail
                     placeholder=labels.notificationEmail
                     controlType="email"

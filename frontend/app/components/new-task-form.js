@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   i18n: Ember.inject.service(),
+  store: Ember.inject.service(),
   labels: function() {
     let translations = Ember.Object.create();
     let translator   = this.get('i18n');
@@ -50,9 +51,17 @@ export default Ember.Component.extend({
   taskRecurreceIsMonthly: function() {
     return this.get('task.recurrence') === 2;
   }.property('task.recurrence'),
+  newTurnPosition: function() {
+    // debugger
+  },
   actions: {
     submitForm() {
       return this.sendAction('formAction', this.task);
-    }
+    },
+    addTurn() {
+      let turn = this.get('store')
+        .createRecord('turn', { position: this.get('task.turns.length') });
+      this.get('task.turns').pushObject(turn);
+    },
   }
 });

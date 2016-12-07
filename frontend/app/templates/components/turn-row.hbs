@@ -1,0 +1,22 @@
+{{#each turn.groups as |group|}}
+  {{group.name}} <br />
+{{else}}
+  You haven't created any group for this turn yet.
+{{/each}}
+
+<br />
+
+{{#bs-button type="primary" action="addGroup"}}
+  Add Group
+{{/bs-button}}
+
+{{#bs-modal title="Add group to the task"
+            open=showNewGroupModal
+            footer=false}}
+  {{bs-form-element label="Name" placeholder=labels.title value=newGroupName}}
+  {{bs-form-element label="Emails" placeholder=labels.title value=newGroupEmails}}
+
+  {{#bs-button type="primary" action="createGroup"}}
+    Ok
+  {{/bs-button}}
+{{/bs-modal}}

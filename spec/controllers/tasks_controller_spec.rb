@@ -4,10 +4,23 @@ RSpec.describe TasksController, type: :controller do
   fixtures :all
 
   describe '#index' do
-    before { get :index }
+    context "when it is not authenticated" do
+      
+      before { get :index }
 
-    it "responds successfully" do
-      expect(response).to be_success
+      it 'returns an unauthenticated response' do
+        expect(response.code).to eq "302"
+        expect(response.location).to eq "http://test.host/users/sign_in"
+      end
+    end
+
+    context "when authenticated" do
+      before { login_user }
+      before { get :index }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
     end
   end
 

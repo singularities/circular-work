@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [ :create ]
+  before_action :authenticate_user!, only: [ :index, :create ]
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = Task.for(current_user)
 
     render json: @tasks
   end

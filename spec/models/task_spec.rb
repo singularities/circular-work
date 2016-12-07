@@ -27,7 +27,7 @@ RSpec.describe Task, type: :model do
 
   end
 
-  describe "" do
+  describe "scope" do
     let(:pepe) { users(:pepe)}
     let(:lola) { users(:lola)}
     let(:maria) { users(:maria)}

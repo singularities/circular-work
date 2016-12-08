@@ -12,4 +12,20 @@
     </div>
   </div>
 
+  <div class="session-nav-wrapper">
+    <div class="session-nav-wrapper-inner">
+      {{#bs-nav type="pills"}}
+        {{#bs-nav-item}}
+          {{#link-to 'session.login'}}
+            {{t "session.navigation.login"}}
+          {{/link-to}}
+        {{/bs-nav-item}}
+        {{#bs-nav-item}}
+          {{#link-to 'session.register'}}
+            {{t "session.navigation.register"}}
+          {{/link-to}}
+        {{/bs-nav-item}}
+      {{/bs-nav}}
+    </div>
+  </div>
 </div>

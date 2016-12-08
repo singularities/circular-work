@@ -1,23 +1,18 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    Login
-  </div>
-  <div class="panel-body">
-    {{#if errorMessage}}
-      <p class="alert alert-danger">{{errorMessage}}</p>
-    {{/if}}
+<div class="session-login">
+  {{#if errorMessage}}
+    <p class="alert alert-danger">{{errorMessage}}</p>
+  {{/if}}
 
-    {{#bs-form action="authenticate" submitOnEnter=true}}
-      {{bs-form-element label="Login"
-                        placeholder="Username"
-                        value=identification}}
-      {{bs-form-element label="Password"
-                        controlType="password"
-                        placeholder="Description"
-                        value=password}}
-      {{#bs-button type="primary" action="authenticate"}}
-        Login
-      {{/bs-button}}
-    {{/bs-form}}
-  </div>
+  {{#bs-form action="authenticate" submitOnEnter=true}}
+    {{bs-form-element label="Login"
+                      placeholder="Username"
+                      value=identification}}
+    {{bs-form-element label="Password"
+                      controlType="password"
+                      placeholder="Description"
+                      value=password}}
+    {{#bs-button type="primary" action="authenticate"}}
+      Login
+    {{/bs-button}}
+  {{/bs-form}}
 </div>

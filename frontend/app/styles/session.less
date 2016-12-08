@@ -36,6 +36,28 @@
     margin: auto;
     background-color: @body-bg;
     border: 1px solid @brand-primary;
-    padding: 15px;
+    padding: 35px 15px 15px 15px;
+  }
+
+  .session-nav-wrapper {
+    position: fixed;
+    top: 28%;
+    left: 0;
+    right: 0;
+    margin-top: -20px;
+    .session-nav-wrapper-inner {
+      float: right;
+      position: relative;
+      left: -50%;
+      .nav {
+        position: relative;
+        left: 50%;
+        background-color: @body-bg;
+        border: 1px solid @brand-primary;
+        a {
+          border-radius: 0;
+        }
+      }
+    }
   }
 }

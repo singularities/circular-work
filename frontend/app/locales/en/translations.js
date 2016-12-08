@@ -10,6 +10,9 @@ export default {
     'link': {
       'password_forgotten': 'Forgot your password?'
     },
+    'login': {
+      'button': 'Login'
+    },
     'navigation': {
       'login': 'Login',
       'register': 'Register'
@@ -20,6 +23,9 @@ export default {
     },
     'password_forgotten': {
       'button': 'Send me recovery email'
+    },
+    'register': {
+      'button': 'Register'
     }
   },
   'tasks' : {

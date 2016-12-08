@@ -7,7 +7,10 @@ const Router = Ember.Router.extend().extend({
 });
 
 Router.map(function() {
-  this.route('login');
+  this.route('session', function() {
+    this.route('login');
+  });
+
   this.route('tasks', function() {
     this.route('index');
     this.route('new');

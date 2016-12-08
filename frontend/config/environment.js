@@ -5,6 +5,9 @@ module.exports = function(environment) {
     modulePrefix: 'frontend',
     environment: environment,
     rootURL: '/',
+    'ember-simple-auth': {
+       authenticationRoute: 'session.login'
+    },
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

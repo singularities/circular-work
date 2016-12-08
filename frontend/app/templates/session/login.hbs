@@ -11,6 +11,13 @@
                       controlType="password"
                       placeholder=(t 'session.password.placeholder')
                       value=password}}
+
+    <div class="link-password-forgotten">
+      {{#link-to 'session.password_forgotten'}}
+        {{t "session.link.password_forgotten"}}
+      {{/link-to}}
+    </div>
+
     {{#bs-button type="accent" block="true" action="authenticate"}}
       Login
     {{/bs-button}}

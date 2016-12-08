@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('session', function() {
     this.route('login');
     this.route('register');
+    this.route('password_forgotten');
   });
 
   this.route('tasks', function() {

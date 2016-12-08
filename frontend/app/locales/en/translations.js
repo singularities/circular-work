@@ -7,6 +7,9 @@ export default {
       'label': 'Email',
       'placeholder': 'Your email'
     },
+    'link': {
+      'password_forgotten': 'Forgot your password?'
+    },
     'navigation': {
       'login': 'Login',
       'register': 'Register'
@@ -15,6 +18,9 @@ export default {
       'label': 'Password',
       'placeholder': 'Your password'
     },
+    'password_forgotten': {
+      'button': 'Send me recovery email'
+    }
   },
   'tasks' : {
     'index' : {

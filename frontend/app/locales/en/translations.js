@@ -3,10 +3,18 @@ export default {
     'description' : 'Your community tasks,<br/>distributed.'
   },
   'session': {
+    'email': {
+      'label': 'Email',
+      'placeholder': 'Your email'
+    },
     'navigation': {
       'login': 'Login',
       'register': 'Register'
-    }
+    },
+    'password': {
+      'label': 'Password',
+      'placeholder': 'Your password'
+    },
   },
   'tasks' : {
     'index' : {

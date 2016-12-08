@@ -4,14 +4,14 @@
   {{/if}}
 
   {{#bs-form action="authenticate" submitOnEnter=true}}
-    {{bs-form-element label="Login"
-                      placeholder="Username"
+    {{bs-form-element label=(t 'session.email.label')
+                      placeholder=(t 'session.email.placeholder')
                       value=identification}}
-    {{bs-form-element label="Password"
+    {{bs-form-element label=(t 'session.password.label')
                       controlType="password"
-                      placeholder="Description"
+                      placeholder=(t 'session.password.placeholder')
                       value=password}}
-    {{#bs-button type="primary" action="authenticate"}}
+    {{#bs-button type="accent" block="true" action="authenticate"}}
       Login
     {{/bs-button}}
   {{/bs-form}}

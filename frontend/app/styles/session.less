@@ -19,12 +19,20 @@
     }
   }
 
-  .session-outlet {
+  .session-outlet-wrapper {
     position: fixed;
     top: 28%;
     bottom: 0;
     left: 0;
     right: 0;
+    margin: auto;
+  }
+
+  .session-outlet {
+    max-width: 290px;
+    @media (min-width: @screen-sm-min) {
+      max-width: 400px;
+    }
     margin: auto;
   }
 }

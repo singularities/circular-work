@@ -1,4 +1,13 @@
 <div class="session">
 
-{{ outlet }}
+  <div class="logo">
+    {{#link-to 'index'}}
+      <img src="/images/logo_color.svg" />
+    {{/link-to}}
+  </div>
+
+  <div class="session-outlet">
+    {{ outlet }}
+  </div>
+
 </div>

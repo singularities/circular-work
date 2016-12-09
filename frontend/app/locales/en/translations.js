@@ -1,10 +1,13 @@
 export default {
+  'frontpage' : {
+    'description' : 'Your community tasks,<br/>distributed.'
+  },
   'tasks' : {
     'index' : {
-      'title' : 'View tasks'
+      'title' : 'View your tasks'
     },
     'new' : {
-      'title' : 'Create task'
+      'title' : 'Create new task'
     },
     'edit' : {
       'title' : 'Update task'

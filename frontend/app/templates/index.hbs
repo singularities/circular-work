@@ -1,7 +1,26 @@
-{{#link-to 'tasks.new' class="btn btn-primary btn-lg"}}
-  {{t "tasks.new.title"}}
-{{/link-to}}
+<div class="frontpage">
 
-{{#link-to 'tasks.index' class="btn btn-success  btn-lg"}}
-  {{t "tasks.index.title"}}
-{{/link-to}}
+  <div class="logo">
+    <img src="images/logo_white.svg" />
+  </div>
+
+  <div class="description">
+    {{ t "frontpage.description"}}
+  </div>
+
+  <div class="actions">
+
+    <div class="action-list">
+      {{#link-to 'tasks.index' class="btn btn-accent btn-lg"}}
+        {{t "tasks.index.title"}}
+      {{/link-to}}
+    </div>
+
+    <div class="action-create">
+      {{#link-to 'tasks.new' class="btn btn-accent btn-lg"}}
+        {{t "tasks.new.title"}}
+      {{/link-to}}
+    </div>
+  </div>
+
+</div>

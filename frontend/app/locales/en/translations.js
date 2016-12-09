@@ -1,5 +1,9 @@
 export default {
   'frontpage' : {
+    'action': {
+      'index': 'View your tasks',
+      'new': 'Create new task'
+    },
     'description' : 'Your community tasks,<br/>distributed.'
   },
   'session': {
@@ -29,12 +33,6 @@ export default {
     }
   },
   'tasks' : {
-    'index' : {
-      'title' : 'View your tasks'
-    },
-    'new' : {
-      'title' : 'Create new task'
-    },
     'edit' : {
       'title' : 'Update task'
     },

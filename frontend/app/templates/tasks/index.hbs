@@ -12,7 +12,7 @@
   <div class="list-group">
     {{#each model as |task|}}
       {{#link-to 'tasks.show' task class="list-group-item"}}
-        <h4 class="list-group-item-heading">{{task.title}}</h4>
+        <h3 class="list-group-item-heading">{{task.title}}</h3>
 
         <div class="list-group-item-text">
           {{ fa-icon "clock-o"}}

@@ -24,7 +24,7 @@
   </div>
 
   {{#unless model }}
-    {{#bs-alert type="info"}}
+    {{#bs-alert type="info" dismissible=false}}
     {{ t 'tasks.index.empty.message'}}
     {{#link-to 'tasks.new' class="btn btn-accent"}}
       {{ t 'tasks.index.empty.button'}}

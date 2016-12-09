@@ -1,0 +1,18 @@
+<div class="session-register">
+  {{#if errorMessage}}
+    <p class="alert alert-danger">{{errorMessage}}</p>
+  {{/if}}
+
+  {{#bs-form action="authenticate" submitOnEnter=true}}
+    {{bs-form-element label=(t 'session.email.label')
+                      placeholder=(t 'session.email.placeholder')
+                      value=identification}}
+    {{bs-form-element label=(t 'session.password.label')
+                      controlType="password"
+                      placeholder=(t 'session.password.placeholder')
+                      value=password}}
+    {{#bs-button type="accent" block="true" action="authenticate"}}
+      {{ t 'session.register.button' }}
+    {{/bs-button}}
+  {{/bs-form}}
+</div>

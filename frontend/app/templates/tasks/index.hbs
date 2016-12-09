@@ -1,15 +1,34 @@
-<ul>
-  {{#each model as |task|}}
-    <li>
-      {{#link-to 'tasks.show' task}}{{task.title}}{{/link-to}}
-      {{#link-to 'tasks.edit' task}}
-        Edit
-      {{/link-to}}
+<div class="tasks">
+  <h1>
+    {{ t 'tasks.index.title'}}
 
-    </li>
-  {{else}}
-    <li>
-      {{#bs-alert type="warning"}}No one has created any tasks yet{{/bs-alert}}
-    </li>
+    {{#if model }}
+      {{#link-to 'tasks.new' class="btn btn-accent pull-right"}}
+        {{t 'tasks.index.new.button'}}
+      {{/link-to}}
+    {{/if}}
+  </h1>
+
+  <div class="list-group">
+    {{#each model as |task|}}
+      {{#link-to 'tasks.show' task class="list-group-item"}}
+        <h4 class="list-group-item-heading">{{task.title}}</h4>
+
+        <div class="list-group-item-text">
+          {{ fa-icon "clock-o"}}
+          {{ t 'tasks.index.responsibles' responsibles="Alberto, Irene"}}
+        </div>
+
+      {{/link-to}}
     {{/each}}
-</ul>
+  </div>
+
+  {{#unless model }}
+    {{#bs-alert type="info"}}
+    {{ t 'tasks.index.empty.message'}}
+    {{#link-to 'tasks.new' class="btn btn-accent"}}
+      {{ t 'tasks.index.empty.button'}}
+    {{/link-to}}
+    {{/bs-alert}}
+  {{/unless}}
+</div>

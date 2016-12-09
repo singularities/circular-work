@@ -33,6 +33,17 @@ export default {
     }
   },
   'tasks' : {
+    'index': {
+      'empty': {
+        'button': "Create a new task",
+        'message': "It seems that you are not participating in any task."
+      },
+      'new': {
+        'button': 'New task'
+      },
+      'responsibles': 'This week falls on {{responsibles}}',
+      'title': 'My tasks'
+    },
     'edit' : {
       'title' : 'Update task'
     },

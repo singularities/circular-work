@@ -6,6 +6,11 @@ export default {
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },
+  'navbar': {
+    'login': 'Login',
+    'logout': 'Logout',
+    'tasks': 'My tasks'
+  },
   'session': {
     'email': {
       'label': 'Email',

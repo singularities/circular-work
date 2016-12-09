@@ -1,6 +1,15 @@
 export default {
   'frontpage' : {
+    'action': {
+      'index': 'View your tasks',
+      'new': 'Create new task'
+    },
     'description' : 'Your community tasks,<br/>distributed.'
+  },
+  'navbar': {
+    'login': 'Login',
+    'logout': 'Logout',
+    'tasks': 'My tasks'
   },
   'session': {
     'email': {
@@ -29,11 +38,16 @@ export default {
     }
   },
   'tasks' : {
-    'index' : {
-      'title' : 'View your tasks'
-    },
-    'new' : {
-      'title' : 'Create new task'
+    'index': {
+      'empty': {
+        'button': "Create a new task",
+        'message': "It seems that you are not participating in any task."
+      },
+      'new': {
+        'button': 'New task'
+      },
+      'responsibles': 'This week falls on {{responsibles}}',
+      'title': 'My tasks'
     },
     'edit' : {
       'title' : 'Update task'

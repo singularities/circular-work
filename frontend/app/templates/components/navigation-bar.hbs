@@ -19,7 +19,7 @@
         {{#if session.isAuthenticated}}
           <a {{action 'invalidateSession'}}>Logged as {{loggedAs}}. Logout</a>
         {{else}}
-          {{#link-to 'login'}}Login{{/link-to}}
+          {{#link-to 'session.login'}}Login{{/link-to}}
         {{/if}}
       </li>
     </ul>

@@ -1,9 +1,10 @@
 <div class="turns">
-  <ul class="list-group">
-    {{#each task.turns as |turn|}}
-      <li class="list-group-item">
+  {{#sortable-group tagName="ul" onChange="reorderTurns" class="list-group" as |group|}}
+    {{#each task.sortedTurns as |turn|}}
+      {{#sortable-item tagName="li" model=turn group=group handle=".handle" class="list-group-item"}}
+        {{ fa-icon 'reorder' class="handle" }}
         {{ turn.weekWithResponsibles }}
-      </li>
+      {{/sortable-item}}
     {{/each}}
-  </ul>
+  {{/sortable-group}}
 </div>

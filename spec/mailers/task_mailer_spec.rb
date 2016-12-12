@@ -13,7 +13,7 @@ RSpec.describe TaskMailer, type: :mailer do
     end
 
     it 'the email has the valid CC' do
-      expect(email.cc).to include(task.email)
+      expect(email.cc).to include(task.notification_email)
     end
 
     it 'the email has the valid subject' do
@@ -32,7 +32,7 @@ RSpec.describe TaskMailer, type: :mailer do
     let(:email) { TaskMailer.notification(task) }
 
     it 'the email has the valid TO' do
-      expect(email.to).to include(task.email)
+      expect(email.to).to include(task.notification_email)
     end
 
     it 'the email has the valid subject' do

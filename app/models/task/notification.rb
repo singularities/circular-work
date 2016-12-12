@@ -3,12 +3,12 @@ class Task
     def notification_to
       turns.first ?
         turns.first.emails :
-        email
+        notification_email
     end
 
     def notification_cc
       turns.first ?
-      email :
+      notification_email :
       nil
     end
 

@@ -1,0 +1,9 @@
+<div class="turns">
+  <ul class="list-group">
+    {{#each task.turns as |turn|}}
+      <li class="list-group-item">
+        {{ turn.weekWithResponsibles }}
+      </li>
+    {{/each}}
+  </ul>
+</div>

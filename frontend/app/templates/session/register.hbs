@@ -5,6 +5,7 @@
 
   {{#bs-form action="authenticate" submitOnEnter=true}}
     {{bs-form-element label=(t 'session.email.label')
+                      controlType="email"
                       placeholder=(t 'session.email.placeholder')
                       value=identification}}
     {{bs-form-element label=(t 'session.password.label')

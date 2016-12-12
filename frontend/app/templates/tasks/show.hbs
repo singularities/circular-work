@@ -17,10 +17,6 @@
     {{ fa-icon 'envelope' }}
     {{ t 'tasks.show.notifications.title' }}
   </h2>
-  <div>
-    <p>{{model.notificationEmail}}</p>
-    <p>{{model.notificationSubject}}</p>
-    <p>{{model.notificationBody}}</p>
 
-  </div>
+  {{ task-notifications task=model }}
 </div>

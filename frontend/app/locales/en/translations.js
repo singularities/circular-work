@@ -60,6 +60,12 @@ export default {
     'edit' : {
       'title' : 'Update task'
     },
+    'notifications': {
+      'body': 'Message',
+      'cc': 'CC:',
+      'subject': 'Subject',
+      'to': 'To:'
+    },
     'show': {
       'notifications': {
         'title': 'Notifications'

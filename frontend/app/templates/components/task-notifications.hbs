@@ -1,0 +1,6 @@
+{{#bs-form class="task-notifications" formLayout="horizontal" horizontalLabelGridClass="col-md-2"}}
+  {{bs-form-element label=(t 'tasks.notifications.to') value="@responsibles" disabled=true}}
+  {{bs-form-element label=(t 'tasks.notifications.cc') value=task.notificationEmail disabled=true}}
+  {{bs-form-element label=(t 'tasks.notifications.subject') value=task.notificationSubject disabled=true}}
+  {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=true}}
+{{/bs-form}}

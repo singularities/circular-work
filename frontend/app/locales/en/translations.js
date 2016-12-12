@@ -61,6 +61,9 @@ export default {
       'title' : 'Update task'
     },
     'show': {
+      'notifications': {
+        'title': 'Notifications'
+      },
       'turns': {
         'title': 'Turns'
       }

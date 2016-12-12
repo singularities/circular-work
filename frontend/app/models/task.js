@@ -8,5 +8,6 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   notificationEmail: DS.attr('string'),
   notificationSubject: DS.attr('string'),
-  notificationBody: DS.attr('string')
+  notificationBody: DS.attr('string'),
+  turns: DS.hasMany('turn')
 });

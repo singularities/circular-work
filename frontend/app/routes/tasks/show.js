@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.get('store').findRecord('task', params.task_id);
+    return this.get('store').findRecord('task', params.task_id, {include: 'turns'});
   }
 });

@@ -3,6 +3,16 @@
 
   <p>{{model.description}}</p>
 
+  <h2>{{ t 'tasks.show.turns.title' }}</h2>
+
+  <ul class="list-group">
+    {{#each model.turns as |turn|}}
+      <li class="list-group-item">
+        {{ turn.weekWithResponsibles }}
+      </li>
+    {{/each}}
+  </ul>
+
   <div>
     <span class="glyphicon glyphicon-envelope">Notifications</span>
 

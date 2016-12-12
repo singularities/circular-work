@@ -60,5 +60,17 @@ export default {
     'edit' : {
       'title' : 'Update task'
     },
+    'show': {
+      'turns': {
+        'title': 'Turns'
+      }
+    }
+  },
+  'turns': {
+    'weekWithResponsibles': {
+      'zero': 'This week: {{ responsibles }}',
+      'one': 'The next week: {{ responsibles }}',
+      'other': 'In {{count}} weeks: {{ responsibles }}'
+    }
   }
 };

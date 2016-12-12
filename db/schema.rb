@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118231517) do
+ActiveRecord::Schema.define(version: 20161212125859) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161118231517) do
     t.text     "description"
     t.integer  "recurrence",           default: 0
     t.string   "recurrence_match",     default: ""
-    t.string   "email"
+    t.string   "notification_email"
     t.string   "notification_subject"
     t.text     "notification_body"
     t.datetime "created_at",                        null: false

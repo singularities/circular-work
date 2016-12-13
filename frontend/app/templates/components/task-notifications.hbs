@@ -1,6 +1,34 @@
-{{#bs-form class="task-notifications" formLayout="horizontal" horizontalLabelGridClass="col-md-2"}}
+<h2>
+  {{ fa-icon 'envelope' }}
+  {{ t 'tasks.show.notifications.title' }}
+  {{#if showing}}
+    {{#bs-button type="primary" action="edit" class="pull-right"}}
+      {{ t 'tasks.notifications.edit.button' }}
+    {{/bs-button}}
+  {{/if}}
+</h2>
+
+{{#bs-form class="task-notifications" formLayout="horizontal" horizontalLabelGridClass="col-md-2" action="save"}}
   {{bs-form-element label=(t 'tasks.notifications.to') value="@responsibles" disabled=true}}
-  {{bs-form-element label=(t 'tasks.notifications.cc') value=task.notificationEmail disabled=true}}
-  {{bs-form-element label=(t 'tasks.notifications.subject') value=task.notificationSubject disabled=true}}
-  {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=true}}
+  {{bs-form-element label=(t 'tasks.notifications.cc') value=task.notificationEmail disabled=showing }}
+  {{bs-form-element label=(t 'tasks.notifications.subject') value=task.notificationSubject disabled=showing}}
+  {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=showing}}
+  {{#if editing }}
+    {{bs-button defaultText=(t 'tasks.notifications.save.button') type="primary" buttonType="submit" class="pull-right"}}
+    {{bs-button defaultText=(t 'tasks.notifications.cancel.button') type="default" action="cancel" class="pull-right"}}
+  {{/if}}
+
 {{/bs-form}}
+
+{{#if task.notificationEmpty }}
+  {{#bs-alert type="info"}}
+    <div class="notification-empty-message">
+      {{ t 'tasks.notifications.empty.message' }}
+    </div>
+    <div class="notification-empty-button">
+      {{#bs-button type="primary" action="edit"}}
+        {{ t 'tasks.notifications.empty.button' }}
+      {{/bs-button}}
+    </div>
+  {{/bs-alert}}
+{{/if}}

@@ -62,7 +62,20 @@ export default {
     },
     'notifications': {
       'body': 'Message',
+      'cancel': {
+        'button': 'Cancel'
+      },
       'cc': 'CC:',
+      'edit': {
+        'button': 'Edit'
+      },
+      'empty': {
+        'button': 'Set up notification email',
+        'message': 'Send an email to notify responsibles on their turn'
+      },
+      'save': {
+        'button': 'Save'
+      },
       'subject': 'Subject',
       'to': 'To:'
     },

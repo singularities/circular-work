@@ -46,6 +46,11 @@ export default {
       'recurrenceMatch' : 'Recurrence formula',
       'title' : 'Title'
     },
+    'details': {
+      'save': {
+        'button': 'Save'
+      }
+    },
     'index': {
       'empty': {
         'button': "Create a new task",

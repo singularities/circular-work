@@ -37,10 +37,13 @@
 
   {{/if}}
 
-  {{#bs-button type="primary" action="submitForm" class="pull-right"}}
-    {{actionLabel}}
-  {{/bs-button}}
-  {{bs-button defaultText=(t 'tasks.details.cancel.button') type="default" action=formCancel class="pull-right"}}
+  <div class="btn-toolbar">
+    {{#bs-button type="primary" action="submitForm" class="pull-right"}}
+      {{actionLabel}}
+    {{/bs-button}}
+
+    {{bs-button defaultText=(t 'tasks.details.cancel.button') type="default" action=formCancel class="pull-right"}}
+  </div>
 
   <div class="clearfix"></div><!-- align floating button -->
 {{/bs-form}}

@@ -14,7 +14,7 @@
     {{ fa-icon 'envelope' }}
     {{ t 'tasks.show.notifications.title' }}
     {{#unless editingNotifications}}
-      {{#bs-button type="primary" action=(action 'startEdit' 'editingNotifications') class="pull-right"}}
+      {{#bs-button type="default" action=(action 'startEdit' 'editingNotifications')}}
         {{ t 'tasks.notifications.edit.button' }}
       {{/bs-button}}
     {{/unless}}

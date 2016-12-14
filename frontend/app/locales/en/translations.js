@@ -68,6 +68,9 @@ export default {
     'edit' : {
       'title' : 'Update task'
     },
+    'new': {
+      'title': 'Create task'
+    },
     'notifications': {
       'body': 'Message',
       'cancel': {

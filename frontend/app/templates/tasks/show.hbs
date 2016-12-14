@@ -1,10 +1,14 @@
 <div class="task">
 
-  {{ task-details task=model }}
+  {{ task-details task=model
+                  editing=editingDetails
+                  onCancel=(action 'cancelEdit' 'editingDetails' )}}
 
   <h2>{{ t 'tasks.show.turns.title' }}</h2>
 
   {{ task-turns task=model }}
 
-  {{ task-notifications task=model }}
+  {{ task-notifications task=model
+                        editing=editingNotifications
+                        onCancel=(action 'cancelEdit' 'editingNotifications' )}}
 </div>

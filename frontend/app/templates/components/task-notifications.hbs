@@ -15,7 +15,7 @@
   {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=showing}}
   {{#if editing }}
     {{bs-button defaultText=(t 'tasks.notifications.save.button') type="primary" buttonType="submit" class="pull-right"}}
-    {{bs-button defaultText=(t 'tasks.notifications.cancel.button') type="default" action="cancel" class="pull-right"}}
+    {{bs-button defaultText=(t 'tasks.notifications.cancel.button') type="default" action=onCancel class="pull-right"}}
   {{/if}}
 
 {{/bs-form}}

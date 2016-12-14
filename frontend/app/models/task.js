@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -8,5 +9,7 @@ export default DS.Model.extend({
   notificationEmail: DS.attr('string'),
   notificationSubject: DS.attr('string'),
   notificationBody: DS.attr('string'),
-  turns: DS.hasMany('turn')
+  turns: DS.hasMany('turn'),
+  turnsSorting: ['position'],
+  sortedTurns: Ember.computed.sort('turns', 'turnsSorting')
 });

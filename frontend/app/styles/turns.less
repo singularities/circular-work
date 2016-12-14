@@ -1,0 +1,19 @@
+.turns {
+  .handle {
+    padding-right: 10px;
+    cursor: grab;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+  }
+  .sortable-item {
+    transition: all .125s;
+  }
+  .sortable-item.is-dragging {
+    transition-duration: 0s;
+    background: @primary-color;
+    z-index: 10;
+  }
+  .sortable-item.is-dropping {
+    z-index: 10;
+  }
+}

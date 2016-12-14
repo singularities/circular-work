@@ -2,7 +2,7 @@
   <h1>
     {{task.title}}
     {{#if showing}}
-      {{#bs-button type="primary" action="edit" class="pull-right"}}
+      {{#bs-button type="primary" action=onEdit class="pull-right"}}
         {{ t 'tasks.notifications.edit.button' }}
       {{/bs-button}}
     {{/if }}

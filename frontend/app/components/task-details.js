@@ -4,10 +4,4 @@ export default Ember.Component.extend({
   classNames: ['task-details'],
 
   showing: Ember.computed.not('editing'),
-
-  actions: {
-    edit() {
-      this.set('editing', true);
-    }
-  }
 });

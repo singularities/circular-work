@@ -21,6 +21,9 @@ export default Ember.Controller.extend({
 
       this.set(form, false);
     },
+    startEdit(form) {
+      this.set(form, true);
+    },
     saveEdit(form) {
       this.model.save().then(() => {
         this.set(form, false);

@@ -2,6 +2,7 @@
 
   {{ task-details task=model
                   editing=editingDetails
+                  onEdit=(action 'startEdit' 'editingDetails')
                   onSave=(action 'saveEdit' 'editingDetails')
                   onCancel=(action 'cancelEdit' 'editingDetails' )}}
 
@@ -9,8 +10,19 @@
 
   {{ task-turns task=model }}
 
+  <h2>
+    {{ fa-icon 'envelope' }}
+    {{ t 'tasks.show.notifications.title' }}
+    {{#unless editingNotifications}}
+      {{#bs-button type="primary" action=(action 'startEdit' 'editingNotifications') class="pull-right"}}
+        {{ t 'tasks.notifications.edit.button' }}
+      {{/bs-button}}
+    {{/unless}}
+  </h2>
+
   {{ task-notifications task=model
                         editing=editingNotifications
+                        onEdit=(action 'startEdit' 'editingNotifications')
                         onSave=(action 'saveEdit' 'editingNotifications')
                         onCancel=(action 'cancelEdit' 'editingNotifications' )}}
 </div>

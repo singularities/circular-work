@@ -1,13 +1,3 @@
-<h2>
-  {{ fa-icon 'envelope' }}
-  {{ t 'tasks.show.notifications.title' }}
-  {{#if showing}}
-    {{#bs-button type="primary" action="edit" class="pull-right"}}
-      {{ t 'tasks.notifications.edit.button' }}
-    {{/bs-button}}
-  {{/if}}
-</h2>
-
 {{#bs-form class="task-notifications" formLayout="horizontal" horizontalLabelGridClass="col-md-2" action=onSave}}
   {{bs-form-element label=(t 'tasks.notifications.to') value="@responsibles" disabled=true}}
   {{bs-form-element label=(t 'tasks.notifications.cc') value=task.notificationEmail disabled=showing }}
@@ -26,7 +16,7 @@
       {{ t 'tasks.notifications.empty.message' }}
     </div>
     <div class="notification-empty-button">
-      {{#bs-button type="primary" action="edit"}}
+      {{#bs-button type="primary" action=startEdit}}
         {{ t 'tasks.notifications.empty.button' }}
       {{/bs-button}}
     </div>

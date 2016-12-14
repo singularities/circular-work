@@ -5,11 +5,6 @@ export default Ember.Component.extend({
   actions: {
     edit() {
       this.set('editing', true);
-    },
-    save() {
-      this.task.save().then(() => {
-        this.set('editing', false);
-      });
     }
   }
 });

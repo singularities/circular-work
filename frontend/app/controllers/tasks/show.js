@@ -18,8 +18,13 @@ export default Ember.Controller.extend({
       // });
 
       this.model.rollbackAttributes();
-      
+
       this.set(form, false);
+    },
+    saveEdit(form) {
+      this.model.save().then(() => {
+        this.set(form, false);
+      });
     }
   }
 });

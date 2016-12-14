@@ -2,6 +2,7 @@
 
   {{ task-details task=model
                   editing=editingDetails
+                  onSave=(action 'saveEdit' 'editingDetails')
                   onCancel=(action 'cancelEdit' 'editingDetails' )}}
 
   <h2>{{ t 'tasks.show.turns.title' }}</h2>
@@ -10,5 +11,6 @@
 
   {{ task-notifications task=model
                         editing=editingNotifications
+                        onSave=(action 'saveEdit' 'editingNotifications')
                         onCancel=(action 'cancelEdit' 'editingNotifications' )}}
 </div>

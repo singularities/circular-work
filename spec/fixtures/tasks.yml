@@ -5,7 +5,7 @@ weekly:
   description: Every week, we are cleaning the space
   recurrence: 1
   recurrence_match: ""
-  email: space@list.example.org
+  notification_email: space@list.example.org
   notification_subject: "@responsibles have to clean the space"
   notification_body: "This is the monthly reminder for @responsibles to clean the space"
   author: pepe
@@ -15,7 +15,7 @@ monthly:
   description: We meet the second Tuesday of every month
   recurrence: 2
   recurrence_match: "2 2"
-  email: list@example.org
+  notification_email: list@example.org
   notification_subject: Remember this monthly
   notification_body: This is a reminder for a monthly task
   author: lola
@@ -25,7 +25,7 @@ monthly_last_sunday:
   description: We have to pay the quota the last sunday of the month
   recurrence: 2
   recurrence_match: "-1 7"
-  email: list@example.org
+  notification_email: list@example.org
   notification_subject: Pay your quota!
   notification_body: This is a reminder for paying your quota
   author: pepe
@@ -35,7 +35,7 @@ monthly_with_author_only:
   description: This task has no turns, and its author does not participate in other tasks
   recurrence: 2
   recurrence_match: "-2 7"
-  email: list@example.org
+  notification_email: list@example.org
   notification_subject: Notify to me
   notification_body: Just notify to me
   author: maria

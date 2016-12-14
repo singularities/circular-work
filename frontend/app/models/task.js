@@ -5,7 +5,8 @@ export default DS.Model.extend({
   recurrence: DS.attr('number'),
   recurrenceMatch: DS.attr('string'),
   description: DS.attr('string'),
-  email: DS.attr('string'),
+  notificationEmail: DS.attr('string'),
   notificationSubject: DS.attr('string'),
-  notificationEmail: DS.attr('string')
+  notificationBody: DS.attr('string'),
+  turns: DS.hasMany('turn')
 });

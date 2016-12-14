@@ -38,6 +38,14 @@ export default {
     }
   },
   'tasks' : {
+    'attributes' : {
+      'description' : 'Description',
+      'notificationEmail' : 'Email for notification',
+      'notificationSubject' : 'Subject for the notification email',
+      'recurrence' : 'Recurrence',
+      'recurrenceMatch' : 'Recurrence formula',
+      'title' : 'Title'
+    },
     'index': {
       'empty': {
         'button': "Create a new task",
@@ -52,13 +60,26 @@ export default {
     'edit' : {
       'title' : 'Update task'
     },
-    'attributes' : {
-      'title' : 'Title',
-      'description' : 'Description',
-      'recurrence' : 'Recurrence',
-      'recurrenceMatch' : 'Recurrence formula',
-      'notificationEmail' : 'Email for notification',
-      'notificationSubject' : 'Subject for the notification email'
+    'notifications': {
+      'body': 'Message',
+      'cc': 'CC:',
+      'subject': 'Subject',
+      'to': 'To:'
+    },
+    'show': {
+      'notifications': {
+        'title': 'Notifications'
+      },
+      'turns': {
+        'title': 'Turns'
+      }
+    }
+  },
+  'turns': {
+    'weekWithResponsibles': {
+      'zero': 'This week: {{ responsibles }}',
+      'one': 'The next week: {{ responsibles }}',
+      'other': 'In {{count}} weeks: {{ responsibles }}'
     }
   }
 };

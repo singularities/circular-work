@@ -3,11 +3,20 @@
 
   <p>{{model.description}}</p>
 
-  <div>
-    <span class="glyphicon glyphicon-envelope">Notifications</span>
+  <h2>{{ t 'tasks.show.turns.title' }}</h2>
 
-    <p>{{model.notificationEmail}}</p>
-    <p>{{model.notificationSubject}}</p>
+  <ul class="list-group">
+    {{#each model.turns as |turn|}}
+      <li class="list-group-item">
+        {{ turn.weekWithResponsibles }}
+      </li>
+    {{/each}}
+  </ul>
 
-  </div>
+  <h2>
+    {{ fa-icon 'envelope' }}
+    {{ t 'tasks.show.notifications.title' }}
+  </h2>
+
+  {{ task-notifications task=model }}
 </div>

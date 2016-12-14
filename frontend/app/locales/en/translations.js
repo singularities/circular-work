@@ -47,6 +47,9 @@ export default {
       'title' : 'Title'
     },
     'details': {
+      'cancel': {
+        'button': 'Cancel'
+      },
       'save': {
         'button': 'Save'
       }

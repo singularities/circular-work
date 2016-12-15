@@ -1,10 +1,32 @@
 <div class="turns">
-  {{#sortable-group tagName="ul" onChange="reorderTurns" class="list-group" as |group|}}
+  {{#sortable-group
+    tagName="ul"
+    onChange="reorderTurns"
+    class="list-group"
+    as |group|}}
     {{#each task.sortedTurns as |turn|}}
-      {{#sortable-item tagName="li" model=turn group=group handle=".handle" class="list-group-item"}}
-        {{ fa-icon 'reorder' class="handle" }}
-        {{ turn.weekWithResponsibles }}
+      {{#sortable-item
+        tagName="li"
+        model=turn
+        group=group
+        handle=".handle"
+        class="list-group-item"}}
+        {{ task-turns-row turn=turn excludedGroups=excludedGroups }}
       {{/sortable-item}}
     {{/each}}
+
+    {{#if excludedGroupsJoin}}
+      <li class="list-group-item list-group-item-warning">
+        {{ t 'tasks.turns.excludedGroups.message' groups=excludedGroupsJoin}}
+      </li>
+    {{/if}}
   {{/sortable-group}}
+
+  {{#unless task.turns }}
+    {{#bs-alert type="info" dismissible=false}}
+      {{ t 'tasks.turns.empty.message' }}
+    {{/bs-alert}}
+  {{/unless}}
+
+  {{bs-button type="primary" action="addTurn" defaultText=(t 'tasks.turns.add.button')}}
 </div>

@@ -1,0 +1,21 @@
+{{#if showing }}
+  <h1>
+    {{task.title}}
+    {{#if showing}}
+      {{#bs-button type="default" action=onEdit}}
+        {{ t 'tasks.notifications.edit.button' }}
+      {{/bs-button}}
+    {{/if }}
+  </h1>
+
+  <p>{{task.description}}</p>
+{{/if}}
+
+{{#if editing }}
+
+  {{task-details-form task=task
+                      taskErrors=taskErrors
+                      formAction=onSave
+                      formCancel=onCancel
+                      actionLabel=(t 'tasks.details.save.button')}}
+{{/if }}

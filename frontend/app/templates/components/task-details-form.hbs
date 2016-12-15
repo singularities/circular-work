@@ -37,17 +37,13 @@
 
   {{/if}}
 
-  {{bs-form-element label=labels.notificationEmail
-                    placeholder=labels.notificationEmail
-                    controlType="email"
-                    value=task.notificationEmail}}
+  <div class="btn-toolbar">
+    {{#bs-button type="primary" action="submitForm" class="pull-right"}}
+      {{actionLabel}}
+    {{/bs-button}}
 
-  {{bs-form-element label=labels.notificationSubject
-                    placeholder=labels.notificationSubject
-                    controlType="textarea"
-                    value=task.notificationSubject}}
+    {{bs-button defaultText=(t 'tasks.details.cancel.button') type="default" action=formCancel class="pull-right"}}
+  </div>
 
-  {{#bs-button type="primary" action="submitForm"}}
-    {{actionLabel}}
-  {{/bs-button}}
+  <div class="clearfix"></div><!-- align floating button -->
 {{/bs-form}}

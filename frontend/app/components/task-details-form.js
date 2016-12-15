@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+import recurrenceOptions from 'frontend/models/recurrence-options';
+import recurrenceMatchPositions from 'frontend/models/recurrence-match-positions';
+import recurrenceMatchDays from 'frontend/models/recurrence-match-days';
+
 export default Ember.Component.extend({
   i18n: Ember.inject.service(),
   labels: function() {
@@ -11,6 +15,10 @@ export default Ember.Component.extend({
     });
     return translations;
   }.property('taskAttributes'),
+
+  recurrenceOptions:        recurrenceOptions,
+  recurrenceMatchPositions: recurrenceMatchPositions,
+  recurrenceMatchDays:      recurrenceMatchDays,
   recurrenceMatchPositionId: Ember.computed('task.recurrenceMatch', {
     get: function() {
       return this.getRecurrencePositionId();

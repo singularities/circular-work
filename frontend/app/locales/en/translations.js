@@ -46,6 +46,14 @@ export default {
       'recurrenceMatch' : 'Recurrence formula',
       'title' : 'Title'
     },
+    'details': {
+      'cancel': {
+        'button': 'Cancel'
+      },
+      'save': {
+        'button': 'Save'
+      }
+    },
     'index': {
       'empty': {
         'button': "Create a new task",
@@ -60,9 +68,25 @@ export default {
     'edit' : {
       'title' : 'Update task'
     },
+    'new': {
+      'title': 'Create task'
+    },
     'notifications': {
       'body': 'Message',
+      'cancel': {
+        'button': 'Cancel'
+      },
       'cc': 'CC:',
+      'edit': {
+        'button': 'Edit'
+      },
+      'empty': {
+        'button': 'Set up notification email',
+        'message': 'Send an email to notify responsibles on their turn'
+      },
+      'save': {
+        'button': 'Save'
+      },
       'subject': 'Subject',
       'to': 'To:'
     },
@@ -72,6 +96,44 @@ export default {
       },
       'turns': {
         'title': 'Turns'
+      }
+    },
+    'turns': {
+      'add': {
+        'button': 'Add turn'
+      },
+      'addModal': {
+        'cancel': 'Cancel',
+        'emails': {
+          'label': 'Emails',
+          'placeholder': 'Add emails to send notifications'
+        },
+        'name': {
+          'label': 'Name',
+          'placeholder': 'The group name'
+        },
+        'save': 'Done!',
+        'title': 'Add a group to this turn'
+      },
+      'empty': {
+        'message': 'This task has no turns'
+      },
+      'excludedGroups': {
+        'message': 'Not assigned: {{groups}}'
+      },
+      'row': {
+        'add': {
+          'button': 'Add group'
+        },
+        'cancel': {
+          'button': 'Cancel'
+        },
+        'edit': {
+          'button': 'Edit'
+        },
+        'save': {
+          'button': 'Done!'
+        }
       }
     }
   },

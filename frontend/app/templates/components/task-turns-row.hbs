@@ -1,0 +1,52 @@
+{{#if showing}}
+  {{ turn.weekWithResponsibles }}
+
+  {{bs-button type="default" action="edit" defaultText=(t 'tasks.turns.row.edit.button') class="pull-right"}}
+  <div class="clearfix"></div>
+{{else}}
+  <div class="handle-wrapper">
+    {{ fa-icon 'sort' class="handle" }}
+  </div>
+
+  {{#bs-button-group class="pull-right add-group-wrapper"}}
+    {{bs-button type="primary" action="addGroup" defaultText=(t 'tasks.turns.row.add.button')}}
+  {{/bs-button-group}}
+
+  {{#power-select-multiple
+    options=excludedGroups
+    selected=selectedGroups
+    searchField="name"
+    onchange=(action (mut selectedGroups))
+    class="groups-select"
+    as |group|}}
+    {{group.name}}
+  {{/power-select-multiple}}
+
+  <div class="actions btn-toolbar pull-right">
+    {{bs-button type="default" action="cancel" defaultText=(t 'tasks.turns.row.cancel.button')}}
+    {{bs-button type="accent" action="save" defaultText=(t 'tasks.turns.row.save.button')}}
+  </div>
+  <div class="clearfix"></div>
+
+  {{#bs-modal
+    title=(t 'tasks.turns.addModal.title')
+    open=showNewGroupModal
+    body=false
+    footer=false}}
+    {{#bs-modal-body}}
+      {{#bs-form action=(action "createGroup") model=this}}
+        {{bs-form-element
+          autofocus=true
+          label=(t 'tasks.turns.addModal.name.label')
+          placeholder=(t 'tasks.turns.addModal.name.placeholder')
+          property="newGroupName"}}
+        {{bs-form-element
+          controlType='textarea'
+          label=(t 'tasks.turns.addModal.emails.label')
+          placeholder=(t 'tasks.turns.addModal.emails.placeholder')
+          property="newGroupEmails"}}
+      {{/bs-form}}
+    {{/bs-modal-body}}
+    {{bs-modal-footer closeTitle=(t "tasks.turns.addModal.cancel") submitTitle=(t "tasks.turns.addModal.save")}}
+  {{/bs-modal}}
+{{/if}}

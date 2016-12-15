@@ -7,6 +7,10 @@ module.exports = function(defaults) {
     // Bootstrap is compiled in app/style/app.less
     'ember-bootstrap': {
       'importBootstrapCSS': false
+    },
+    // Import bootstrap theme for power select
+    'ember-power-select': {
+      theme: 'bootstrap'
     }
   });
 

@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import Ember from 'ember';
 
-moduleForComponent('new-task-form', 'Integration | Component | new-task-form', {
+moduleForComponent('task-details-form', 'Integration | Component | task-details-form', {
   integration: true,
   beforeEach: function() {
     let store = this.container.lookup('service:store');
@@ -18,7 +18,7 @@ moduleForComponent('new-task-form', 'Integration | Component | new-task-form', {
     this.set('taskErrors', []);
     this.set('createTask', "");
 
-    this.render(hbs`{{new-task-form
+    this.render(hbs`{{task-details-form
       task=task
       recurrenceOptions=recurrenceOptions
       recurrenceMatchPositions=recurrenceMatchPositions

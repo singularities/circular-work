@@ -19,8 +19,13 @@ RSpec.describe TurnsController, type: :controller do
     let(:turn_data) do
       {
         data: {
-          attributes: {
-            task_id: task.id
+          relationships: {
+            task: {
+              data: {
+                type: 'tasks',
+                id: task.id
+              }
+            }
           }
         }
       }

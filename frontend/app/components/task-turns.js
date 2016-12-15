@@ -16,18 +16,14 @@ export default Ember.Component.extend({
 
       this.get('task.turns').pushObject(turn);
     },
-    reorderTurns (turns, dragged) {
+    reorderTurns (turns) {
       turns.forEach((turn, i) => {
         var newPosition = i + 1;
 
         if (turn.get('position') !== newPosition) {
           turn.set('position', newPosition);
 
-          // We only update the turn that was dragged.
-          // The backend takes care of calculating new positions
-          if (turn === dragged) {
-            turn.save();
-          }
+          // We actually save positions in backend when the turn is saved
         }
       });
     }

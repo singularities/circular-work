@@ -106,7 +106,7 @@ export default {
         'cancel': 'Cancel',
         'emails': {
           'label': 'Emails',
-          'placeholder': 'Add emails to send notifications'
+          'placeholder': 'Add emails, one per line or separated by commas'
         },
         'name': {
           'label': 'Name',

@@ -97,6 +97,11 @@ export default {
       'turns': {
         'title': 'Turns'
       }
+    },
+    'turns': {
+      'empty': {
+        'message': 'This task has no turns'
+      }
     }
   },
   'turns': {

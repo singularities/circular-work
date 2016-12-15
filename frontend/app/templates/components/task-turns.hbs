@@ -7,4 +7,10 @@
       {{/sortable-item}}
     {{/each}}
   {{/sortable-group}}
+
+  {{#unless task.turns }}
+    {{#bs-alert type="info" dismissible=false}}
+      {{ t 'tasks.turns.empty.message' }}
+    {{/bs-alert}}
+  {{/unless}}
 </div>

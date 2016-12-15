@@ -100,7 +100,20 @@ export default {
     },
     'turns': {
       'add': {
-        'button': "Add turn"
+        'button': 'Add turn'
+      },
+      'addModal': {
+        'cancel': 'Cancel',
+        'emails': {
+          'label': 'Emails',
+          'placeholder': 'Add emails to send notifications'
+        },
+        'name': {
+          'label': 'Name',
+          'placeholder': 'The group name'
+        },
+        'save': 'Done!',
+        'title': 'Add a group to this turn'
       },
       'empty': {
         'message': 'This task has no turns'
@@ -109,6 +122,12 @@ export default {
         'message': 'Not assigned: {{groups}}'
       },
       'row': {
+        'add': {
+          'button': 'Add group'
+        },
+        'cancel': {
+          'button': 'Cancel'
+        },
         'edit': {
           'button': 'Edit'
         },

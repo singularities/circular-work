@@ -3,7 +3,24 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['task-turns-row'],
 
+  store: Ember.inject.service(),
+
   showing: Ember.computed.not('editing'),
+  showNewGroupModal: false,
+  newGroupParams: Ember.computed('newGroupName', 'newGroupEmails', {
+    get() {
+      return {
+        name:   this.get('newGroupName'),
+        emails: this.get('newGroupEmails')
+      };
+    },
+    set(key, args) {
+      this.set('newGroupName', args[0]);
+      this.set('newGroupEmails', args[1]);
+
+      return this.get('newGroupParams');
+    }
+  }),
 
   selectedGroups: Ember.computed('turn.groups.@each', {
     get() {
@@ -40,6 +57,24 @@ export default Ember.Component.extend({
   }),
 
   actions: {
+    addGroup: function() {
+      this.set('showNewGroupModal', true);
+    },
+    createGroup: function() {
+      let group = this.get('store')
+        .createRecord('group', this.get('newGroupParams'));
+
+      this.get('turn.groups').pushObject(group);
+
+      this.set('newGroupParams', []);
+
+      this.set('showNewGroupModal', false);
+    },
+    cancel() {
+      // TODO reset turns
+      this.set('editing', false);
+
+    },
     edit() {
       this.set('editing', true);
     },

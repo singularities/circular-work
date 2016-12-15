@@ -105,6 +105,9 @@ export default {
       'empty': {
         'message': 'This task has no turns'
       },
+      'excludedGroups': {
+        'message': 'Not assigned: {{groups}}'
+      },
       'row': {
         'edit': {
           'button': 'Edit'

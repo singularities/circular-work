@@ -80,8 +80,12 @@ export default Ember.Component.extend({
     },
     save() {
       // TODO: save turn
+      this.get('turn').save().then(() => {
+        this.set('editing', false);
+      });
 
-      this.set('editing', false);
     }
   }
+
+
 });

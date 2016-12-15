@@ -47,12 +47,12 @@ class TurnsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def turn_params
-    params.require(:data).require(:attributes).permit(turn_valid_attributes)
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: turn_valid_attributes)
   end
 
   def turn_valid_attributes
     [ 
-      :task_id, :position
+      :task, :position, :groups
     ]
   end
 end

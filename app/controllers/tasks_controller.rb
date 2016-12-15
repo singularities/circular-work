@@ -54,8 +54,8 @@ class TasksController < ApplicationController
 
   def task_valid_attributes
     [
-      :title, :description, :recurrence, :recurrence_match, :email,
-      :notification_subject, :notification_body
+      :title, :description, :recurrence, :recurrence_match,
+      :notification_email, :notification_subject, :notification_body
     ]
   end
 end

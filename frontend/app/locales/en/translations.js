@@ -108,6 +108,9 @@ export default {
       'row': {
         'edit': {
           'button': 'Edit'
+        },
+        'save': {
+          'button': 'Done!'
         }
       }
     }

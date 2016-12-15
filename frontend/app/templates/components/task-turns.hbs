@@ -3,7 +3,7 @@
     {{#each task.sortedTurns as |turn|}}
       {{#sortable-item tagName="li" model=turn group=group handle=".handle" class="list-group-item"}}
         {{ fa-icon 'reorder' class="handle" }}
-        {{ turn.weekWithResponsibles }}
+        {{ task-turns-row turn=turn }}
       {{/sortable-item}}
     {{/each}}
   {{/sortable-group}}

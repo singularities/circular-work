@@ -104,6 +104,11 @@ export default {
       },
       'empty': {
         'message': 'This task has no turns'
+      },
+      'row': {
+        'edit': {
+          'button': 'Edit'
+        }
       }
     }
   },

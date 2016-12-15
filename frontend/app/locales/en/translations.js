@@ -99,6 +99,9 @@ export default {
       }
     },
     'turns': {
+      'add': {
+        'button': "Add turn"
+      },
       'empty': {
         'message': 'This task has no turns'
       }

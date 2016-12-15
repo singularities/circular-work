@@ -6,7 +6,10 @@
                   onSave=(action 'saveEdit' 'editingDetails')
                   onCancel=(action 'cancelEdit' 'editingDetails' )}}
 
-  <h2>{{ t 'tasks.show.turns.title' }}</h2>
+  <h2>
+    {{ fa-icon 'group' }}
+    {{ t 'tasks.show.turns.title' }}
+  </h2>
 
   {{ task-turns task=model }}
 

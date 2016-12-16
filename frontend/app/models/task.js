@@ -10,7 +10,7 @@ export default DS.Model.extend({
   notificationSubject: DS.attr('string'),
   notificationBody: DS.attr('string'),
   notificationEmpty: Ember.computed('notificationSubject', 'notificationBody', function () {
-    return ! (this.get('notificationSubject').length || this.get('notificationBody').length);
+    return ! (this.get('notificationSubject') || this.get('notificationBody'));
   }),
   turns: DS.hasMany('turn'),
   turnsSorting: ['position'],

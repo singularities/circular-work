@@ -1,26 +1,25 @@
-{{#bs-form class="task-notifications" formLayout="horizontal" horizontalLabelGridClass="col-md-2" action=onSave}}
-  {{bs-form-element label=(t 'tasks.notifications.to') value="@responsibles" disabled=true}}
-  {{bs-form-element label=(t 'tasks.notifications.cc') value=task.notificationEmail disabled=showing }}
-  {{bs-form-element label=(t 'tasks.notifications.subject') value=task.notificationSubject disabled=showing}}
-  {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=showing}}
-  {{#if editing }}
-    <div class="btn-toolbar">
-      {{bs-button defaultText=(t 'tasks.notifications.save.button') type="primary" buttonType="submit" class="pull-right"}}
-      {{bs-button defaultText=(t 'tasks.notifications.cancel.button') type="default" action=onCancel class="pull-right"}}
-    </div>
-  {{/if}}
-
-{{/bs-form}}
-
-{{#if task.notificationEmpty }}
-  {{#bs-alert type="info"}}
-    <div class="notification-empty-message">
-      {{ t 'tasks.notifications.empty.message' }}
-    </div>
-    <div class="notification-empty-button">
-      {{#bs-button type="primary" action=startEdit}}
-        {{ t 'tasks.notifications.empty.button' }}
-      {{/bs-button}}
-    </div>
-  {{/bs-alert}}
+{{#if showForm}}
+  {{#bs-form class="task-notifications" formLayout="horizontal" horizontalLabelGridClass="col-md-2" action=onSave}}
+    {{bs-form-element label=(t 'tasks.notifications.to') value="@responsibles" disabled=true}}
+    {{bs-form-element label=(t 'tasks.notifications.cc') value=task.notificationEmail disabled=showing }}
+    {{bs-form-element label=(t 'tasks.notifications.subject') value=task.notificationSubject disabled=showing}}
+    {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=showing}}
+    {{#if editing }}
+      <div class="btn-toolbar">
+        {{bs-button defaultText=(t 'tasks.notifications.save.button') type="primary" buttonType="submit" class="pull-right"}}
+        {{bs-button defaultText=(t 'tasks.notifications.cancel.button') type="default" action=onCancel class="pull-right"}}
+      </div>
+    {{/if}}
+  {{/bs-form}}
 {{/if}}
+
+
+{{#unless showForm }}
+  {{#bs-alert type="info"}}
+    {{ t 'tasks.notifications.empty.message' }}
+  {{/bs-alert}}
+
+  {{#bs-button type="primary" action=onEdit}}
+    {{ t 'tasks.notifications.empty.button' }}
+  {{/bs-button}}
+{{/unless}}

@@ -6,7 +6,9 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     'ember-simple-auth': {
-       authenticationRoute: 'session.login'
+       authenticationRoute: 'session.login',
+       routeAfterAuthentication: 'tasks.index',
+       routeIfAlreadyAuthenticated: 'tasks.index'
     },
     locationType: 'auto',
     i18n: {

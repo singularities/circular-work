@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.for(current_user)
+    @tasks = Task.for(current_user).includes(:turns)
 
     render json: @tasks
   end

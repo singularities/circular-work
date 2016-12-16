@@ -9,6 +9,10 @@ module.exports = function(environment) {
        authenticationRoute: 'session.login'
     },
     locationType: 'auto',
+    i18n: {
+      // TODO: Configure https://github.com/jamesarosen/ember-i18n/wiki/Doc:-Setting-the-Locale
+      defaultLocale: 'es'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

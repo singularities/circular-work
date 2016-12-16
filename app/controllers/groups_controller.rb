@@ -47,6 +47,13 @@ class GroupsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def group_params
-    params.require(:data).require(:attributes).permit(:name)
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: group_valid_attributes)
   end
+
+  def group_valid_attributes
+    [ 
+      :name, :emails
+    ]
+  end
+
 end

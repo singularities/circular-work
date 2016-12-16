@@ -10,4 +10,16 @@ class Group < ApplicationRecord
   def emails
     users.map(&:email)
   end
+
+  def emails= list
+    # Add new emails
+    (list - emails).each do |newEmail|
+      users << User.find_or_create_by!(email: newEmail)
+    end
+
+    # Remove old emails
+    (emails - list).each do |oldEmail|
+      users.destroy users.find(email: oldEmail)
+    end
+  end
 end

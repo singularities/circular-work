@@ -9,9 +9,18 @@ class User < ApplicationRecord
   has_many :turns, through: :groups
   has_many :authored_tasks, class_name: 'Task', foreign_key: 'author_id'
 
+  before_validation :set_password, on: :create
   before_save :set_auth_token
 
   private
+
+  # Allow creation of users through groups that will recover their password
+  # in the future
+  def set_password
+    if password.blank?
+      self.password = Devise.friendly_token
+    end
+  end
 
   def set_auth_token
     if self.authentication_token.blank?

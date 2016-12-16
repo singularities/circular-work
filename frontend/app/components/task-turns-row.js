@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     get() {
       return {
         name:   this.get('newGroupName'),
-        emails: this.get('newGroupEmails')
+        emailsString: this.get('newGroupEmails')
       };
     },
     set(key, args) {
@@ -64,14 +64,23 @@ export default Ember.Component.extend({
       let group = this.get('store')
         .createRecord('group', this.get('newGroupParams'));
 
-      this.get('turn.groups').pushObject(group);
+      group.save().then(() => {
+        this.get('turn.groups').pushObject(group);
 
-      this.set('newGroupParams', []);
+        this.set('newGroupParams', []);
 
-      this.set('showNewGroupModal', false);
+        this.set('groupErrors', null);
+
+        this.set('showNewGroupModal', false);
+      }).catch(() => {
+        // TODO show catched error in group Errors
+        this.set('groupErrors', group.get('errors'));
+      });
+
     },
     cancel() {
-      // TODO reset turns
+      // TODO reset turns that have been altered by position change
+      // TODO reset groups
       this.set('editing', false);
 
     },
@@ -79,9 +88,11 @@ export default Ember.Component.extend({
       this.set('editing', true);
     },
     save() {
-      // TODO: save turn
       this.get('turn').save().then(() => {
         this.set('editing', false);
+
+        // Reload turns that have altered their position,
+        // or mark them as saved, or save them
       });
 
     }

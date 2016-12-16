@@ -34,6 +34,15 @@
     body=false
     footer=false}}
     {{#bs-modal-body}}
+
+      {{#each groupErrors as |error|}}
+        <div class="error">
+          {{#bs-alert type="danger"}}
+            {{error.attribute}} {{error.message}}
+          {{/bs-alert}}
+        </div>
+      {{/each}}
+
       {{#bs-form action=(action "createGroup") model=this}}
         {{bs-form-element
           autofocus=true

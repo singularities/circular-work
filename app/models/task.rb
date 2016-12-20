@@ -3,7 +3,9 @@ class Task < ApplicationRecord
   RECURRENCE_MATCH = /(-?[1-5]) ([1-7])/
 
   validates_presence_of :title, :recurrence
-  validates_inclusion_of :recurrence, in: 0..(RECURRENCE.length - 1)
+  # Recurrence is only implemented for weeks and months
+  # validates_inclusion_of :recurrence, in: 0..(RECURRENCE.length - 1)
+  validates_inclusion_of :recurrence, in: 1..(RECURRENCE.length - 2)
   validates_format_of :recurrence_match, with: RECURRENCE_MATCH, allow_blank: true
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'

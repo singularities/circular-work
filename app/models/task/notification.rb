@@ -23,7 +23,7 @@ class Task
     private
 
     def parse text
-      return text if turns.empty?
+      return text if turns.empty? || text.nil?
 
       text.gsub('@responsibles', turns.first.responsibles.join(', '))
     end

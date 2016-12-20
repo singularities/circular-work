@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  RECURRENCE       = [ :dayly, :weekly, :monthly, :yearly ]
+  RECURRENCE       = [ :daily, :weekly, :monthly, :yearly ]
   RECURRENCE_MATCH = /(-?[1-5]) ([1-7])/
 
   validates_presence_of :title, :recurrence

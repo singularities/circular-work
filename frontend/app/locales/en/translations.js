@@ -139,10 +139,10 @@ export default {
     }
   },
   'turns': {
-    'weekWithResponsibles': {
-      'zero': 'This week: {{ responsibles }}',
-      'one': 'The next week: {{ responsibles }}',
-      'other': 'In {{count}} weeks: {{ responsibles }}'
+    'week': {
+      'zero': 'This week',
+      'one': 'The next week',
+      'other': 'In {{count}} weeks'
     }
   }
 };

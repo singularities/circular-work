@@ -14,13 +14,13 @@ export default DS.Model.extend({
 
   // This property lets use the zero key in languages that don't have
   // that as pluralization
-  weekWithResponsibles: Ember.computed('i18n.locale', 'week', 'responsibles',  function() {
-    var key = 'turns.weekWithResponsibles';
+  weekInWords: Ember.computed('i18n.locale', 'week', function() {
+    var key = 'turns.week';
 
     if (this.get('week') === 0) {
-      return this.get('i18n').t(key + '.zero', { responsibles: this.get('responsibles')});
+      return this.get('i18n').t(key + '.zero');
     } else {
-      return this.get('i18n').t(key, { responsibles: this.get('responsibles'), count: this.get('week')});
+      return this.get('i18n').t(key, { count: this.get('week')});
     }
 
   }),

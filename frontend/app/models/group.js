@@ -18,5 +18,5 @@ export default DS.Model.extend({
 
       return this.set('emails', list);
     }
-  }),
+  })
 });

@@ -56,6 +56,15 @@ export default Ember.Component.extend({
     }
   }),
 
+  init() {
+    this._super(...arguments);
+
+    if (this.get('turn.isNew')) {
+      this.set('editing', true);
+      this.set('showNewGroupModal', true);
+    }
+  },
+
   actions: {
     addGroup: function() {
       this.set('showNewGroupModal', true);
@@ -79,8 +88,16 @@ export default Ember.Component.extend({
 
     },
     cancel() {
+      var turn = this.get('turn');
+
+      if (turn.get('isNew')) {
+        turn.deleteRecord();
+      } else {
+        // TODO reset groups
+      }
+
       // TODO reset turns that have been altered by position change
-      // TODO reset groups
+
       this.set('editing', false);
 
     },

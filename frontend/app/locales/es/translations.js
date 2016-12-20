@@ -124,7 +124,7 @@ export default {
       },
       'row': {
         'add': {
-          'button': 'Añade grupo'
+          'button': 'Añadir grupo'
         },
         'cancel': {
           'button': 'Cancelar'

@@ -63,6 +63,7 @@ export default {
         'button': 'New task'
       },
       'responsibles': 'This week falls on {{responsibles}}',
+      'timeAhead': 'In X days',
       'title': 'My tasks'
     },
     'edit' : {

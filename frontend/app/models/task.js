@@ -14,5 +14,14 @@ export default DS.Model.extend({
   }),
   turns: DS.hasMany('turn'),
   turnsSorting: ['position'],
-  sortedTurns: Ember.computed.sort('turns', 'turnsSorting')
+  sortedTurns: Ember.computed.sort('turns', 'turnsSorting'),
+  responsibles: Ember.computed('sortedTurns', function() {
+    var turns = this.get('sortedTurns');
+
+    if (turns.length) {
+      return turns[0].get('responsibles');
+    } else {
+      return null;
+    }
+  })
 });

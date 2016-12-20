@@ -16,7 +16,12 @@
 
         <div class="list-group-item-text">
           {{ fa-icon "clock-o"}}
-          {{ t 'tasks.index.responsibles' responsibles="Alberto, Irene"}}
+
+          {{#if task.responsibles }}
+            {{ t 'tasks.index.responsibles' responsibles=task.responsibles}}
+          {{else}}
+            {{ t 'tasks.index.timeAhead' }}
+          {{/if}}
         </div>
 
       {{/link-to}}

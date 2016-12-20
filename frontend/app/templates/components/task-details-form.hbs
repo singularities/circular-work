@@ -8,34 +8,57 @@
 
 {{#bs-form action="submitForm"}}
   {{bs-form-element label=labels.title placeholder=labels.title value=task.title}}
+
+  <div class="form-group">
+    <label class="control-label">{{labels.recurrence}}</label>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+        {{#power-select
+          options=Task.recurrenceOptions
+          selected=task.recurrenceObject
+          onchange=(action (mut task.recurrenceObject))
+          searchEnabled=false
+          placeholder=(t 'tasks.recurrence.placeholder')
+          as |option|}}
+          {{ t (concat 'tasks.recurrence.' option.label)}}
+        {{/power-select}}
+      </div>
+
+      {{#if task.recurreceIsMonthly}}
+        <div class="col-sm-3">
+
+        {{#power-select
+          options=Task.recurrenceMatchPositionOptions
+          selected=task.recurrenceMatchPositionObject
+          onchange=(action (mut task.recurrenceMatchPositionObject))
+          searchEnabled=false
+          placeholder=(t 'tasks.recurrenceMatch.position.placeholder')
+          as |option|}}
+          {{ t (concat 'tasks.recurrenceMatch.position.' option.label)}}
+        {{/power-select}}
+        </div>
+        <div class="col-sm-3">
+        {{#power-select
+          options=Task.recurrenceMatchDayOptions
+          selected=task.recurrenceMatchDayObject
+          onchange=(action (mut task.recurrenceMatchDayObject))
+          searchEnabled=false
+          placeholder=(t 'tasks.recurrenceMatch.day.placeholder')
+          as |option|}}
+          {{ t (concat 'tasks.recurrenceMatch.day.' option.label)}}
+        {{/power-select}}
+
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
   {{bs-form-element label=labels.description
                    placeholder=labels.description
                    controlType="textarea"
                    value=task.description}}
-
-  <div class="form-group">
-    <label class="control-label">{{labels.recurrence}}</label>
-    {{select-element choices=recurrenceOptions
-                     value=task.recurrence
-                     classNames="form-control"}}
-  </div>
-
-  {{#if taskRecurreceIsMonthly}}
-    <label class="control-label">Position</label>
-    {{select-element choices=recurrenceMatchPositions
-                     value=recurrenceMatchPositionId
-                     classNames="form-control"}}
-
-   <label class="control-label">Day of the Week</label>
-   {{select-element choices=recurrenceMatchDays
-                    value=recurrenceMatchDayId
-                    classNames="form-control"}}
-
-
-   {{bs-form-element controlType="hidden"
-                    value=task.recurrenceMatch}}
-
-  {{/if}}
 
   <div class="btn-toolbar">
     {{#bs-button type="primary" action="submitForm" class="pull-right"}}

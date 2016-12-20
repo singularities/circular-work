@@ -91,6 +91,32 @@ export default {
       'subject': 'Asunto',
       'to': 'Para'
     },
+    'recurrence': {
+      'montly': 'Cada mes',
+      'placeholder': 'La tarea se lleva a cabo...',
+      'weekly': 'Cada semana'
+    },
+    'recurrenceMatch': {
+      'day': {
+        'monday': 'lunes',
+        'tuesday': 'martes',
+        'wednesday': 'miércoles',
+        'thursday': 'jueves',
+        'friday': 'viernes',
+        'saturday': 'sábado',
+        'sunday': 'domingo',
+        'placeholder': 'día de la semana'
+      },
+      'position': {
+        'first': 'el primer',
+        'second': 'el segundo',
+        'third': 'el tercer',
+        'fourth': 'el cuarto',
+        'nextToLast': 'el penúltimo',
+        'last': 'el último',
+        'placeholder': 'en tal...'
+      }
+    },
     'show': {
       'notifications': {
         'title': 'Notificaciones'

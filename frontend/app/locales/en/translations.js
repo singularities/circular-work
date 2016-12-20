@@ -91,6 +91,32 @@ export default {
       'subject': 'Subject',
       'to': 'To:'
     },
+    'recurrence': {
+      'montly': 'Every month',
+      'placeholder': 'Task is carried out...',
+      'weekly': 'Every week'
+    },
+    'recurrenceMatch': {
+      'day': {
+        'monday': 'Monday',
+        'tuesday': 'Tuesday',
+        'wednesday': 'Wednesday',
+        'thursday': 'Thursday',
+        'friday': 'Friday',
+        'saturday': 'Saturday',
+        'sunday': 'Sunday',
+        'placeholder': 'day of the week'
+      },
+      'position': {
+        'first': 'the first',
+        'second': 'the second',
+        'third': 'the third',
+        'fourth': 'the fourth',
+        'nextToLast': 'the next to last',
+        'last': 'the last',
+        'placeholder': 'at certain...'
+      }
+    },
     'show': {
       'notifications': {
         'title': 'Notifications'

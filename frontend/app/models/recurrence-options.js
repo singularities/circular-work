@@ -1,8 +1,11 @@
 import Ember from 'ember';
 
-export default [
-  Ember.Object.create({ value: 0, label: "Daily" }),
-  Ember.Object.create({ value: 1, label: "Weekly" }),
-  Ember.Object.create({ value: 2, label: "Montly" }),
-  Ember.Object.create({ value: 3, label: "Yearly" })
+const options = [
+// Recurrence is currently implemented for weeks and months
+//  Ember.Object.create({ value: 0, label: "daily" }),
+  Ember.Object.create({ value: 1, label: "weekly" }),
+  Ember.Object.create({ value: 2, label: "montly" })
+//  Ember.Object.create({ value: 3, label: "yearly" })
 ];
+
+export default options;

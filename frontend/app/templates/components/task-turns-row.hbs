@@ -1,8 +1,15 @@
 {{#if showing}}
-  <span class="week-in-works">{{ turn.weekInWords }}</span>:
-  <span class="responsibles">{{ turn.responsibles }}</span>
+  <h3>
+    {{ turn.responsibles }}
 
-  {{bs-button type="default" action="edit" defaultText=(t 'tasks.turns.row.edit.button') class="pull-right"}}
+    {{bs-button type="default" action="edit" defaultText=(t 'tasks.turns.row.edit.button') class="pull-right"}}
+  </h3>
+
+  <div class="week-in-words">
+    {{ fa-icon 'clock-o' }}
+    {{ turn.weekInWords }}
+  </div>
+
   <div class="clearfix"></div>
 {{else}}
   <div class="groups-edit">

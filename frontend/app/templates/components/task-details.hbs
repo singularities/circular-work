@@ -20,7 +20,11 @@
     {{/if}}
   </div>
 
-  <p>{{task.description}}</p>
+  {{#if task.description }}
+    <div class="description">
+      {{task.description}}
+    </div>
+  {{/if}}
 {{/if}}
 
 {{#if editing }}

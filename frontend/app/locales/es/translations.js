@@ -119,7 +119,7 @@ export default {
     },
     'show': {
       'notifications': {
-        'title': 'Notificaciones'
+        'title': 'Recordatorios'
       },
       'turns': {
         'title': 'Turnos'

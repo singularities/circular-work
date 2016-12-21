@@ -1,11 +1,13 @@
 {{#if showing }}
   <h1>
     {{task.title}}
+
     {{#if showing}}
       {{#bs-button type="default" action=onEdit class="pull-right"}}
         {{ t 'tasks.notifications.edit.button' }}
       {{/bs-button}}
     {{/if }}
+
     <div class="clearfix"></div>
   </h1>
 

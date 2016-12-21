@@ -28,6 +28,12 @@ const Task =  DS.Model.extend({
       return this.findOption('recurrence');
     }
   }),
+  recurrenceLabel: Ember.computed('recurrenceObject', function () {
+    return this.get('recurrenceObject').label;
+  }),
+
+  hasRecurrenceMatch: Ember.computed.notEmpty('recurrenceMatch'),
+
   recurrenceMatchPosition: Ember.computed('recurrenceMatch', {
     get() {
       return this.recurrenceMatchAt(0);
@@ -50,6 +56,9 @@ const Task =  DS.Model.extend({
       return this.findOption('recurrenceMatchPosition');
     }
   }),
+  recurrenceMatchPositionLabel: Ember.computed('recurrenceMatchPositionObject', function () {
+    return this.get('recurrenceMatchPositionObject').label;
+  }),
   recurrenceMatchDay: Ember.computed('recurrenceMatch', {
     get() {
       return this.recurrenceMatchAt(1);
@@ -71,6 +80,9 @@ const Task =  DS.Model.extend({
 
       return this.findOption('recurrenceMatchDay');
     }
+  }),
+  recurrenceMatchDayLabel: Ember.computed('recurrenceMatchDayObject', function () {
+    return this.get('recurrenceMatchDayObject').label;
   }),
 
   recurreceIsMonthly: Ember.computed('recurrence', function() {

@@ -9,6 +9,15 @@
     <div class="clearfix"></div>
   </h1>
 
+  <div class="recurrence">
+    {{ fa-icon 'refresh'}}
+    {{ t ( concat 'tasks.recurrence.' task.recurrenceLabel )}}
+    {{#if task.hasRecurrenceMatch}}
+      {{ t ( concat 'tasks.recurrenceMatch.position.' task.recurrenceMatchPositionLabel )}}
+      {{ t ( concat 'tasks.recurrenceMatch.day.' task.recurrenceMatchDayLabel )}}
+    {{/if}}
+  </div>
+
   <p>{{task.description}}</p>
 {{/if}}
 

@@ -116,7 +116,14 @@ const Task =  DS.Model.extend({
     return Task.findOption(name, value);
   },
   recurrenceMatchAt: function(index) {
-    var value = this.get('recurrenceMatch').split(' ')[index];
+    var recurrenceMatch = this.get('recurrenceMatch'),
+        value;
+
+    if (! recurrenceMatch) {
+      return null;
+    }
+
+    value = recurrenceMatch.split(' ')[index];
 
     return parseInt(value);
   },

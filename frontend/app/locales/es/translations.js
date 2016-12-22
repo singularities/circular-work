@@ -158,6 +158,9 @@ export default {
         'edit': {
           'button': 'Editar'
         },
+        'handle': {
+          'tip': 'Arrastra para reordenar el turno'
+        },
         'save': {
           'button': '¡Hecho!'
         }

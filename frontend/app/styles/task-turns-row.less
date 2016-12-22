@@ -16,6 +16,12 @@
 
   .groups-edit {
     margin-bottom: 20px;
+
+    // Bootstrap tooltip creates a div after the .handle element
+    // that breaks inline placement
+    .handle + div:not(.groups-select) {
+      display: inline;
+    }
   }
 
   .groups-select {

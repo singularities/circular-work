@@ -17,6 +17,9 @@
     <span class="handle">
       {{ fa-icon 'sort' }}
     </span>
+    {{bs-tooltip
+      title=(t 'tasks.turns.row.handle.tip')
+      triggerElement=".handle"}}
 
     {{#power-select-multiple
       options=excludedGroups

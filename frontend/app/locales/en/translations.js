@@ -158,6 +158,9 @@ export default {
         'edit': {
           'button': 'Edit'
         },
+        'handle': {
+          'tip': 'Drag and drop to sort the turn'
+        },
         'save': {
           'button': 'Done!'
         }

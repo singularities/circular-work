@@ -92,7 +92,7 @@ export default {
       'to': 'To:'
     },
     'recurrence': {
-      'montly': 'Every month',
+      'monthly': 'Every month',
       'placeholder': 'Task is carried out...',
       'weekly': 'Every week'
     },

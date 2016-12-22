@@ -92,7 +92,7 @@ export default {
       'to': 'Para'
     },
     'recurrence': {
-      'montly': 'Cada mes',
+      'monthly': 'Cada mes',
       'placeholder': 'La tarea se lleva a cabo...',
       'weekly': 'Cada semana'
     },

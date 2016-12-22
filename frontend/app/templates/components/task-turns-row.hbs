@@ -24,6 +24,7 @@
     {{#power-select-multiple
       options=excludedGroups
       selected=selectedGroups
+      selectedItemComponent=(component "task-turn-row-selected-group" onItemClicked=(action "editGroup"))
       searchField="name"
       onchange=(action (mut selectedGroups))
       class="groups-select"
@@ -47,7 +48,8 @@
 
   {{#bs-modal
     title=(t 'tasks.turns.addModal.title')
-    open=showNewGroupModal
+    open=showGroupModal
+    closeAction=(action "cancelGroupModal")
     body=false
     footer=false}}
     {{#bs-modal-body}}
@@ -60,17 +62,17 @@
         </div>
       {{/each}}
 
-      {{#bs-form action=(action "createGroup") model=this}}
+      {{#bs-form action=(action "createGroup") model=modalGroup}}
         {{bs-form-element
           autofocus=true
           label=(t 'tasks.turns.addModal.name.label')
           placeholder=(t 'tasks.turns.addModal.name.placeholder')
-          property="newGroupName"}}
+          property="name"}}
         {{bs-form-element
           controlType='textarea'
           label=(t 'tasks.turns.addModal.emails.label')
           placeholder=(t 'tasks.turns.addModal.emails.placeholder')
-          property="newGroupEmails"}}
+          property="emailsString"}}
       {{/bs-form}}
     {{/bs-modal-body}}
     {{bs-modal-footer closeTitle=(t "tasks.turns.addModal.cancel") submitTitle=(t "tasks.turns.addModal.save")}}

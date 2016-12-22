@@ -6,21 +6,7 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   showing: Ember.computed.not('editing'),
-  showNewGroupModal: false,
-  newGroupParams: Ember.computed('newGroupName', 'newGroupEmails', {
-    get() {
-      return {
-        name:   this.get('newGroupName'),
-        emailsString: this.get('newGroupEmails')
-      };
-    },
-    set(key, args) {
-      this.set('newGroupName', args[0]);
-      this.set('newGroupEmails', args[1]);
-
-      return this.get('newGroupParams');
-    }
-  }),
+  showGroupModal: false,
 
   selectedGroups: Ember.computed('turn.groups.@each', {
     get() {
@@ -61,17 +47,32 @@ export default Ember.Component.extend({
 
     if (this.get('turn.isNew')) {
       this.set('editing', true);
-      this.set('showNewGroupModal', true);
+
+      this.setNewModalGroup();
+      this.set('showGroupModal', true);
     }
+  },
+
+  setNewModalGroup () {
+    let group = this.get('store')
+        .createRecord('group');
+
+    this.set('modalGroup', group);
   },
 
   actions: {
     addGroup: function() {
-      this.set('showNewGroupModal', true);
+      this.setNewModalGroup();
+
+      this.set('showGroupModal', true);
+    },
+    editGroup: function(group) {
+      this.set('modalGroup', group);
+
+      this.set('showGroupModal', true);
     },
     createGroup: function() {
-      let group = this.get('store')
-        .createRecord('group', this.get('newGroupParams'));
+      let group = this.get('modalGroup');
 
       group.save().then(() => {
         this.get('turn.groups').pushObject(group);
@@ -80,12 +81,19 @@ export default Ember.Component.extend({
 
         this.set('groupErrors', null);
 
-        this.set('showNewGroupModal', false);
+        this.set('modalGroup', null);
+
+        this.set('showGroupModal', false);
       }).catch(() => {
         // TODO show catched error in group Errors
         this.set('groupErrors', group.get('errors'));
       });
 
+    },
+    cancelGroupModal () {
+      let group = this.get('modalGroup');
+
+      group.rollbackAttributes();
     },
     cancel() {
       var turn = this.get('turn');
@@ -114,6 +122,4 @@ export default Ember.Component.extend({
 
     }
   }
-
-
 });

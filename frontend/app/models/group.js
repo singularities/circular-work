@@ -7,7 +7,13 @@ export default DS.Model.extend({
   turns: DS.hasMany('turn'),
   emailsString: Ember.computed('emails.@each', {
     get() {
-      return this.get('emails').join("\n");
+      let emails = this.get('emails');
+
+      if (emails) {
+        return emails.join("\n");
+      } else {
+        return '';
+      }
     },
     set(key, string) {
       var list =

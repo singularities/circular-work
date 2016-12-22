@@ -12,8 +12,10 @@ module.exports = function(environment) {
     },
     locationType: 'auto',
     i18n: {
-      // TODO: Configure https://github.com/jamesarosen/ember-i18n/wiki/Doc:-Setting-the-Locale
-      defaultLocale: 'es'
+      defaultLocale: 'en'
+    },
+    moment: {
+      includeLocales: ['es']
     },
     EmberENV: {
       FEATURES: {

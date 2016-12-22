@@ -9,7 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     createTask(task) {
       var route = this;
       task.save().then(function() {
-        route.transitionTo('tasks.index');
+        route.transitionTo('tasks.show', task);
       }).catch(function() { });
     }
   }

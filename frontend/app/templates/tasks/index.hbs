@@ -20,7 +20,7 @@
           {{#if task.responsibles }}
             {{ t 'tasks.index.responsibles' responsibles=task.responsibles}}
           {{else}}
-            {{ t 'tasks.index.timeAhead' }}
+            {{ t 'tasks.index.timeAhead' time=(moment-to-now task.nextOcurrenceAt hidePrefix=true) }}
           {{/if}}
         </div>
 

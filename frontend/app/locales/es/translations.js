@@ -63,7 +63,7 @@ export default {
         'button': 'Nueva tarea'
       },
       'responsibles': 'Esta semana le toca a {{responsibles}}',
-      'timeAhead': 'Toca dentro de X días',
+      'timeAhead': 'Dentro de {{time}}',
       'title': 'Mis tareas'
     },
     'edit' : {

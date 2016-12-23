@@ -17,7 +17,7 @@ export default {
       'placeholder': 'Tu email'
     },
     'link': {
-      'password_forgotten': '¿Olvidate tu contraseña?'
+      'password_forgotten': '¿Olvidaste tu contraseña?'
     },
     'login': {
       'button': 'Entrar'

@@ -1,10 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, except: [ :show ]
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   # GET /tasks
   def index
-    @tasks = Task.for(current_user).includes(:turns)
+    # Temporarily disabling task filtering, before we can asign
+    # external people to tasks
+    # @tasks = Task.for(current_user).includes(:turns)
+    @tasks = Task.all.includes(:turns)
 
     render json: @tasks
   end

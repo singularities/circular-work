@@ -9,6 +9,8 @@ RSpec.describe TasksController, type: :controller do
       before { get :index }
 
       it 'returns an unauthenticated response' do
+        pending "Allowing access to task until we implement task admins"
+
         expect(response.code).to eq "302"
         expect(response.location).to eq "http://test.host/users/sign_in"
       end

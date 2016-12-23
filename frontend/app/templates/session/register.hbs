@@ -1,4 +1,5 @@
 <div class="session-register">
+  <!--
   {{#if errorMessage}}
     <p class="alert alert-danger">{{errorMessage}}</p>
   {{/if}}
@@ -16,4 +17,16 @@
       {{ t 'session.register.button' }}
     {{/bs-button}}
   {{/bs-form}}
+-->
+  {{#bs-alert type="info" dismissible=false}}
+    <p>
+      Aún estamos en periodo de pruebas.
+    </p>
+    <p>
+      Si quieres probar Circular Work.. ¡bienvenidx!
+    </p>
+    <p>
+      Ponte en contacto en <a href="mailto:info@circular.work">info@circular.work</a>
+    </p>
+  {{/bs-alert}}
 </div>

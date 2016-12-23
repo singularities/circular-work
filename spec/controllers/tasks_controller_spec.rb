@@ -120,7 +120,6 @@ RSpec.describe TasksController, type: :controller do
 
   describe '#update' do
     let(:task) { tasks(:weekly) }
-    before     { patch :update, params: task_data.merge(id: task.id) }
 
     let(:task_data) do
       {
@@ -134,25 +133,47 @@ RSpec.describe TasksController, type: :controller do
       }
     end
 
-    it "responds successfully" do
-      expect(response).to be_success
-    end
+    context "when authenticated" do
 
-    it 'updates the task' do
-      expect(task.reload.title).to eql("Limpieza actualizada")
+      before { login_user }
+
+      let(:response) { patch :update, params: task_data.merge(id: task.id) }
+
+      it "responds successfully" do
+        response
+
+        expect(response).to be_success
+      end
+
+      it 'updates the task' do
+        response
+
+        expect(task.reload.title).to eql("Limpieza actualizada")
+      end
     end
   end
 
   describe '#destroy' do
     let(:task) { tasks(:weekly) }
-    before     { delete :destroy, params: { id: task.id } }
 
-    it "responds successfully" do
-      expect(response).to be_success
-    end
+    let(:response) { delete :destroy, params: { id: task.id } }
 
-    it 'destroys the task' do
-      expect(Task.find_by(id: task.id)).to be nil
+    context "when authenticated" do
+
+      before { login_user }
+
+
+      it "responds successfully" do
+        response
+
+        expect(response).to be_success
+      end
+
+      it 'destroys the task' do
+        response
+
+        expect(Task.find_by(id: task.id)).to be nil
+      end
     end
   end
 end

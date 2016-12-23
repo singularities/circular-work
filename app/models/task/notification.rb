@@ -12,6 +12,11 @@ class Task
       nil
     end
 
+    def notification_reply_to
+      Array(notification_to) |
+        Array(notification_cc)
+    end
+
     def parsed_notification_subject
       parse notification_subject
     end

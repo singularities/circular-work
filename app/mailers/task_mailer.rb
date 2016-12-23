@@ -1,5 +1,7 @@
 class TaskMailer < ApplicationMailer
   def notification task
+    headers 'reply-to' => task.notification_reply_to,
+            'bla' => 'ble'
 
     @body = task.parsed_notification_body
 

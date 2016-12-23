@@ -16,6 +16,10 @@ RSpec.describe TaskMailer, type: :mailer do
       expect(email.cc).to include(task.notification_email)
     end
 
+    it 'the emails has the valid reply-to header' do
+      expect(email['reply-to'].value).to match_array(task.turns.first.emails | Array(task.notification_email))
+    end
+
     it 'the email has the valid subject' do
       expect(email.subject).to include(task.turns.first.groups.first.name)
     end
@@ -41,6 +45,10 @@ RSpec.describe TaskMailer, type: :mailer do
 
     it 'the email has the valid text_part' do
       expect(email.text_part.body.to_s).to include(task.notification_body)
+    end
+
+    it 'the emails has the valid reply-to header' do
+      expect(email['reply-to'].value).to match_array(Array(task.notification_email))
     end
   end
 end

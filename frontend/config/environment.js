@@ -17,6 +17,16 @@ module.exports = function(environment) {
     moment: {
       includeLocales: ['es']
     },
+    metricsAdapters: [
+      {
+        name: 'Piwik',
+        environments: [ 'production' ],
+        config: {
+          piwikUrl: 'https://stats.singularities.org',
+          siteId: 1
+        }
+      }
+    ],
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   RECURRENCE       = [ :daily, :weekly, :monthly, :yearly ]
-  RECURRENCE_MATCH = /(-?[1-5]) ([1-7])/
+  RECURRENCE_MATCH = /(-?[1-5]) ([0-6])/
 
   validates_presence_of :title, :recurrence
   # Recurrence is only implemented for weeks and months
@@ -48,6 +48,14 @@ class Task < ApplicationRecord
     return false if recurrence_match.blank?
 
     order, day = recurrence_order_and_day
+
+    # FIXME
+    # We are calculating the recurrence match on Mondays
+    # but the front sends Sundays as 0
+    # We have to calculate the begining of the week depending on the locale
+    if day == 0
+      day = 7
+    end
 
     # Calculate the date in this week that would match the recurrent_match.day
     recurrence_date_this_week = time.to_date + day - time.to_date.wday

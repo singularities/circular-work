@@ -22,7 +22,9 @@ export default DS.Model.extend({
         filter(e => e !== '').
         uniq();
 
-      return this.set('emails', list);
+      this.set('emails', list);
+
+      return string;
     }
   })
 });

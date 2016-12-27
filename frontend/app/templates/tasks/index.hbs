@@ -18,7 +18,7 @@
           {{ fa-icon "clock-o"}}
 
           {{#if task.responsibles }}
-            {{ t 'tasks.index.responsibles' responsibles=task.responsibles}}
+            {{ t (concat 'tasks.index.responsibles.' task.recurrenceLabel) responsibles=task.responsibles}}
           {{else}}
             {{ t 'tasks.index.timeAhead' time=(moment-to-now task.nextOcurrenceAt hidePrefix=true) }}
           {{/if}}

@@ -62,7 +62,10 @@ export default {
       'new': {
         'button': 'Nueva tarea'
       },
-      'responsibles': 'Esta semana le toca a {{responsibles}}',
+      'responsibles': {
+        'monthly': 'Este mes le toca a {{responsibles}}',
+        'weekly': 'Esta semana le toca a {{responsibles}}'
+      },
       'timeAhead': 'Dentro de {{time}}',
       'title': 'Mis tareas'
     },

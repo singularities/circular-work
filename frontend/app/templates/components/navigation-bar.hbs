@@ -17,7 +17,7 @@
 
     {{#if session.isAuthenticated}}
       <p class="navbar-text navbar-right navbar-logged-in">
-        {{loggedAs}}
+        <span class="logged-as">{{loggedAs}}</span>
         <a {{action 'invalidateSession'}} class="btn btn-default navbar-btn">{{ t 'navbar.logout' }}</a>
       </p>
     {{else}}

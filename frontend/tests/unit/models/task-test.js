@@ -21,7 +21,7 @@ test('dayWithPositionOfTheMonth', function(assert) {
 
 
   Ember.run(() => {
-    model.set('recurrence', 3);
+    model.set('recurrence', 2);
   });
 
   //FIXME DRY this!

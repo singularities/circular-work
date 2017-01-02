@@ -156,6 +156,10 @@ const Task =  DS.Model.extend({
     }
   },
 
+  /*
+   * Calculates the day of this month (or month of date argument)
+   * that matches the recurrenceMatch attribute
+   */
   dayWithPositionOfTheMonth (date = moment()) {
     let position = this.get('recurrenceMatchPosition'),
         day = this.get('recurrenceMatchDay'),

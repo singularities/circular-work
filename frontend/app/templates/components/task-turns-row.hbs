@@ -41,10 +41,15 @@
   </div>
 
   <div class="actions btn-toolbar pull-right">
+    {{bs-button type="danger" action="removeTurnModal" defaultText=(t 'tasks.turns.row.remove.button')}}
     {{bs-button type="default" action="cancel" defaultText=(t 'tasks.turns.row.cancel.button')}}
-    {{bs-button type="accent" action="save" defaultText=(t 'tasks.turns.row.save.button')}}
+    {{bs-button type="primary" action="save" defaultText=(t 'tasks.turns.row.save.button')}}
   </div>
   <div class="clearfix"></div>
+
+  {{#bs-modal open=showRemoveTurnModal body=false footer=false title=(t 'tasks.turns.row.remove.modal.title') submitAction=(action "remove")}}
+    {{bs-modal-footer closeTitle=(t 'tasks.turns.row.remove.modal.cancel') submitTitle=(t 'tasks.turns.row.remove.modal.confirm')}}
+  {{/bs-modal}}
 
   {{#bs-modal
     title=(t 'tasks.turns.addModal.title')

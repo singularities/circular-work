@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   showing: Ember.computed.not('editing'),
+  showRemoveTurnModal: false,
   showGroupModal: false,
 
   selectedGroups: Ember.computed('turn.groups.@each', {
@@ -108,6 +109,12 @@ export default Ember.Component.extend({
 
       this.set('editing', false);
 
+    },
+    removeTurnModal () {
+      this.set('showRemoveTurnModal', true);
+    },
+    remove() {
+      this.get('turn').destroyRecord();
     },
     edit() {
       this.set('editing', true);

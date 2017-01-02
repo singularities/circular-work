@@ -164,6 +164,14 @@ export default {
         'handle': {
           'tip': 'Arrastra para reordenar el turno'
         },
+        'remove': {
+          'button': 'Borrar',
+          'modal': {
+            'cancel': 'Cancelar',
+            'confirm': 'Borrar',
+            'title': '¿Borrar turno?'
+          }
+        },
         'save': {
           'button': '¡Hecho!'
         }

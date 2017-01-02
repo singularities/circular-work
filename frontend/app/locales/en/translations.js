@@ -164,6 +164,14 @@ export default {
         'handle': {
           'tip': 'Drag and drop to sort the turn'
         },
+        'remove': {
+          'button': 'Remove',
+          'modal': {
+            'cancel': 'Cancel',
+            'confirm': 'Remove',
+            'title': 'Remove turn?'
+          }
+        },
         'save': {
           'button': 'Done!'
         }

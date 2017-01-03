@@ -41,4 +41,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_options = { from: 'no-reply@example.com' }
+
+  # Debug tests using logging
+  config.logger = Logger.new(STDOUT)
+  config.log_level = :WARN
 end

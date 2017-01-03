@@ -59,8 +59,8 @@ export default {
     },
     'index': {
       'empty': {
-        'button': "Create a new task",
-        'message': "It seems that you are not participating in any task."
+        'button': "Create a task",
+        'message': "This organization hasn't any task"
       },
       'new': {
         'button': 'New task'

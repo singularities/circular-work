@@ -60,7 +60,7 @@ export default {
     'index': {
       'empty': {
         'button': "Crea una tarea",
-        'message': "Parece que no participas en ninguna tarea."
+        'message': "Esta organización no tiene ninguna tarea"
       },
       'new': {
         'button': 'Nueva tarea'

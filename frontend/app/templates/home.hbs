@@ -23,6 +23,17 @@
                     {{/if}}
                   </div>
                 {{/link-to}}
+              {{else}}
+                <div class="list-group-item">
+                  {{#bs-alert type="info" dismissible=false}}
+                    {{ t 'tasks.index.empty.message' }}
+                  {{/bs-alert}}
+
+                  {{#link-to 'tasks.new' class="btn btn-primary pull-right"}}
+                    {{t 'tasks.index.empty.button'}}
+                  {{/link-to}}
+                  <div class="clearfix"></div>
+                </div>
               {{/each}}
             </div>
           </div>

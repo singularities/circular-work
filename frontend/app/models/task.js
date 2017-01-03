@@ -16,6 +16,7 @@ const Task =  DS.Model.extend({
   notificationBody: DS.attr('string'),
 
   // Relations
+  organization: DS.belongsTo('organization'),
   turns: DS.hasMany('turn'),
 
   // Computed properties

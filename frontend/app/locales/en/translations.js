@@ -6,6 +6,9 @@ export default {
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },
+  'home': {
+    'title': 'My tasks'
+  },
   'navbar': {
     'login': 'Login',
     'logout': 'Logout',

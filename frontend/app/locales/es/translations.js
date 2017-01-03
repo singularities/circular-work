@@ -6,6 +6,9 @@ export default {
     },
     'description' : 'Distribuye las tareas de tu colectivo'
   },
+  'home': {
+    'title': 'My tasks'
+  },
   'navbar': {
     'login': 'Entrar',
     'logout': 'Salir',

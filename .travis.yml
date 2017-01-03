@@ -15,7 +15,7 @@ before_script:
   - cd frontend && npm install && cd ..
 script:
   - bundle exec rake
-  - cd frontend && ember test && cd ..
+  - bundle exec rake ember:test
 after_success:
   - RAILS_ENV=production PRECOMPILE=1 bin/rails assets:precompile
   - docker build -t "singularitiesorg/circular-work:$TRAVIS_COMMIT" .

@@ -49,16 +49,13 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:data)
-      .require(:attributes)
-      .transform_keys(&:underscore)
-      .permit(task_valid_attributes)
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: task_valid_attributes)
   end
 
   def task_valid_attributes
     [
-      :title, :description, :recurrence, :recurrence_match,
-      :notification_email, :notification_subject, :notification_body
+      :title, :description, :recurrence, :"recurrence-match",
+      :"notification-email", :"notification-subject", :"notification-body"
     ]
   end
 end

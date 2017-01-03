@@ -10,6 +10,8 @@ Warden::Strategies.add(:token_authenticatable) do
       user_email = options[:email].presence
       user       = user_email && User.find_by_email(user_email)
       if user && Devise.secure_compare(user.authentication_token, token)
+        request.env['devise.skip_trackable'] = true
+
         success!(user)
       else
         fail!("Could not authenticate token")

@@ -7,6 +7,9 @@ export default {
     'description' : 'Your community tasks,<br/>distributed.'
   },
   'home': {
+    'organization': {
+      'more': 'View more'
+    },
     'title': 'My tasks'
   },
   'navbar': {

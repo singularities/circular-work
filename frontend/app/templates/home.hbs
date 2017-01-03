@@ -6,7 +6,12 @@
     {{#each model as |organization index| }}
         <div class="col-md-6">
           <div class="panel panel-default">
-            <div class="panel-heading">{{ organization.name }}</div>
+            <div class="panel-heading">
+              {{ organization.name }}
+              {{#link-to 'organizations.show' organization class="pull-right"}}
+                {{ t 'home.organization.more' }}
+              {{/link-to}}
+            </div>
 
             <div class="list-group">
               {{#each organization.tasks as |task|}}

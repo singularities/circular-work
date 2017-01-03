@@ -24,7 +24,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('home');
-  
+
   this.route('session', function() {
     this.route('login');
     this.route('register');
@@ -36,6 +36,10 @@ Router.map(function() {
     this.route('new');
     this.route('show', { path: ":task_id" });
     this.route('edit', { path: ":task_id/edit" });
+  });
+
+  this.resource('organizations', function() {
+    this.route('show', { path: ":organization_id" });
   });
 });
 

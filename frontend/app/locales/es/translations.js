@@ -7,6 +7,9 @@ export default {
     'description' : 'Distribuye las tareas de tu colectivo'
   },
   'home': {
+    'organization': {
+      'more': 'Ver más'
+    },
     'title': 'My tasks'
   },
   'navbar': {

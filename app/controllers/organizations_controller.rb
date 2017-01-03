@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   # GET /organizations
   def index
@@ -15,7 +16,7 @@ class OrganizationsController < ApplicationController
 
   # POST /organizations
   def create
-    @organization = Organization.new(organization_params)
+    @organization = current_user.authored_organizations.build(organization_params)
 
     if @organization.save
       render json: @organization, status: :created, location: @organization

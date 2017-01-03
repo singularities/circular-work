@@ -38,7 +38,7 @@ Router.map(function() {
     this.route('edit', { path: ":task_id/edit" });
   });
 
-  this.resource('organizations', function() {
+  this.route('organizations', function() {
     this.route('show', { path: ":organization_id" });
   });
 });

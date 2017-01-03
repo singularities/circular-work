@@ -30,7 +30,9 @@ const Task =  DS.Model.extend({
     }
   }),
   recurrenceLabel: Ember.computed('recurrenceObject', function () {
-    return this.get('recurrenceObject').label;
+    var object = this.get('recurrenceObject');
+
+    return object ? object.label : null;
   }),
 
   hasRecurrenceMatch: Ember.computed.notEmpty('recurrenceMatch'),

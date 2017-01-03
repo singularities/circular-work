@@ -17,6 +17,14 @@ export default {
     'logout': 'Salir',
     'tasks': 'Mis tareas'
   },
+  'organizations': {
+    'groups': {
+      'title': 'Grupos'
+    },
+    'tasks': {
+      'title': 'Tareas'
+    }
+  },
   'session': {
     'email': {
       'label': 'Email',

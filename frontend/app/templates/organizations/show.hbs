@@ -1,0 +1,14 @@
+<div class="organization">
+  <h1>{{model.name}}</h1>
+
+  {{#bs-tab}}
+  {{#bs-tab-pane title=(t 'organizations.tasks.title')}}
+
+    {{task-list tasks=model.tasks}}
+  {{/bs-tab-pane}}
+  {{#bs-tab-pane title=(t 'organizations.groups.title')}}
+    <p>Próximamente</p>
+  {{/bs-tab-pane}}
+{{/bs-tab}}
+
+</div>

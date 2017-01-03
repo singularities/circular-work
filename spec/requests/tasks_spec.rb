@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 describe 'Tasks', type: :request do
-  let(:data)       { { data: { attributes: attributes } } }
+  fixtures :organizations
+
+  let(:data)       { { data: { attributes: attributes, relationships: relationships } } }
   let(:attributes) { { title: title, recurrence: recurrence } }
   let(:title)      { "Task title" }
   let(:recurrence) { 2 }
+  let(:relationships) { { organization: organization } }
+  let(:organization) { { data: { id: organizations(:singularities).id, type: 'organization' } } }
 
   describe 'create task' do
     let(:method) { :post }

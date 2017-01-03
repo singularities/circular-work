@@ -34,7 +34,15 @@ RSpec.describe TasksController, type: :controller do
           attributes: {
             title:      "Limpieza",
             recurrence: "2"
-          }
+          },
+          relationships: {
+            organization: {
+              data: {
+                id: organizations(:singularities).id,
+                type: 'organization'
+              }
+            }
+          } 
         }
       }
     end
@@ -98,6 +106,14 @@ RSpec.describe TasksController, type: :controller do
               :title              => "Super-Limpieza",
               :recurrence         => "2",
               :"recurrence-match" => "1 5"
+            },
+            relationships: {
+              organization: {
+                data: {
+                  id: organizations(:singularities).id,
+                  type: 'organization'
+                }
+              }
             }
           }
         }
@@ -105,6 +121,7 @@ RSpec.describe TasksController, type: :controller do
 
       it 'creates the task' do
         response
+
         expect(Task.find_by(recurrence_match: "1 5").title)
           .to eql "Super-Limpieza"
       end

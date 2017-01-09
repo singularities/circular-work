@@ -2,12 +2,13 @@
 
 <div class="container">
   <div class="home">
-      <div class="row">
-    {{#each model as |organization index| }}
+    <div class="row">
+      {{#each model as |organization index| }}
         <div class="col-md-6">
           <div class="panel panel-default">
             <div class="panel-heading">
               {{ organization.name }}
+
               {{#link-to 'organizations.show' organization class="pull-right"}}
                 {{ t 'home.organization.more' }}
               {{/link-to}}
@@ -17,7 +18,7 @@
 
           </div>
         </div>
-    {{/each}}
-  </div>
+      {{/each}}
+    </div>
   </div>
 </div>

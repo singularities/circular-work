@@ -4,7 +4,13 @@
   {{#bs-tab}}
   {{#bs-tab-pane title=(t 'organizations.tasks.title')}}
 
-    {{task-list tasks=model.tasks}}
+    {{task-list organization=model tasks=model.tasks}}
+
+    {{#if model.tasks}}
+      {{#link-to 'tasks.new' (query-params organization_id=model.id) class="btn btn-primary pull-right"}}
+        {{t 'tasks.index.new.button'}}
+      {{/link-to}}
+    {{/if}}
   {{/bs-tab-pane}}
   {{#bs-tab-pane title=(t 'organizations.groups.title')}}
     <p>Próximamente</p>

@@ -18,6 +18,18 @@ export default {
     'tasks': 'Mis tareas'
   },
   'organizations': {
+    'form': {
+      'cancel': {
+        'button': 'Cancelar'
+      },
+      'name': {
+        'label': 'Nombre',
+        'placeholder': 'El nombre de tu colectivo'
+      },
+      'save': {
+        'button': 'Guardar'
+      }
+    },
     'groups': {
       'title': 'Grupos'
     },

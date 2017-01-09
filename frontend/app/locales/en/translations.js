@@ -18,6 +18,18 @@ export default {
     'tasks': 'My tasks'
   },
   'organizations': {
+    'form': {
+      'cancel': {
+        'button': 'Cancel'
+      },
+      'name': {
+        'label': 'Name',
+        'placeholder': 'The name of your community'
+      },
+      'save': {
+        'button': 'Save'
+      }
+    },
     'groups': {
       'title': 'Groups'
     },

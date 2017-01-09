@@ -2,6 +2,12 @@
   <h1>
     {{task.title}}
 
+    <span class="organization">
+      {{#link-to 'organizations.show' task.organization }}
+        {{task.organization.name}}
+      {{/link-to}}
+    </span>
+
     {{#if showing}}
       {{#bs-button type="default" action=onEdit class="pull-right"}}
         {{ t 'tasks.notifications.edit.button' }}

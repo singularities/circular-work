@@ -1,0 +1,12 @@
+{{#bs-button type="default" action="showModal"}}
+  {{ t 'organizations.create.button' }}
+{{/bs-button}}
+
+{{#bs-modal open=openModal title=(t 'organizations.create.modal.title') body=false footer=false}}
+  {{#bs-modal-body}}
+    {{organization-details-form organization=organization
+                                formAction=(action 'create')
+                                formCancel=(action 'cancel')
+                                actionLabel=(t "organizations.create.modal.submit")}}
+    {{/bs-modal-body}}
+{{/bs-modal}}

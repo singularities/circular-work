@@ -8,6 +8,7 @@ export default {
   },
   'home': {
     'organization': {
+      'empty': 'No estás participando en ningunar organización',
       'more': 'Ver más'
     },
     'title': 'My tasks'
@@ -18,13 +19,21 @@ export default {
     'tasks': 'Mis tareas'
   },
   'organizations': {
+    'create': {
+      'button': 'Crear nueva organización',
+      'modal': {
+        'cancel': 'Cancelar',
+        'submit': 'Crear',
+        'title': 'Crear nueva organización'
+      }
+    },
     'form': {
       'cancel': {
         'button': 'Cancelar'
       },
       'name': {
         'label': 'Nombre',
-        'placeholder': 'El nombre de tu colectivo'
+        'placeholder': 'El nombre de tu comunidad o colectivo'
       },
       'save': {
         'button': 'Guardar'

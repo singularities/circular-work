@@ -8,6 +8,7 @@ export default {
   },
   'home': {
     'organization': {
+      'empty': 'You aren\'t currently participating in any organization',
       'more': 'View more'
     },
     'title': 'My tasks'
@@ -18,6 +19,14 @@ export default {
     'tasks': 'My tasks'
   },
   'organizations': {
+    'create': {
+      'button': 'Create new organization',
+      'modal': {
+        'cancel': 'Cancel',
+        'submit': 'Create',
+        'title': 'Create new organization'
+      }
+    },
     'form': {
       'cancel': {
         'button': 'Cancel'

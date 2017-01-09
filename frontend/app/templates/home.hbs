@@ -18,7 +18,18 @@
 
           </div>
         </div>
+      {{ else }}
+        {{#bs-alert type="info" dismissible=false}}
+          {{ t 'home.organization.empty.message'}}
+        {{/bs-alert}}
       {{/each}}
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pull-right">
+          {{ organization-new }}
+        </div>
+      </div>
     </div>
   </div>
 </div>

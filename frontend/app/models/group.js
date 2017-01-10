@@ -4,7 +4,10 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr('string'),
   emails: DS.attr(),
+
+  organization: DS.belongsTo('organization'),
   turns: DS.hasMany('turn'),
+
   emailsString: Ember.computed('emails.@each', {
     get() {
       let emails = this.get('emails');

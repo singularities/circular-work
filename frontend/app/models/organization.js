@@ -5,6 +5,7 @@ const Organization = DS.Model.extend({
 
   // Relations
   tasks: DS.hasMany('task'),
+  groups: DS.hasMany('groups'),
 
 
 });

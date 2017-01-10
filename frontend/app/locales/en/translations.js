@@ -6,6 +6,11 @@ export default {
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },
+  'groups': {
+    'tasks': {
+      'length': 'Participating in {{count}} tasks'
+    }
+  },
   'home': {
     'organization': {
       'empty': {

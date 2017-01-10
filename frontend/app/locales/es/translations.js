@@ -6,6 +6,11 @@ export default {
     },
     'description' : 'Distribuye las tareas de tu colectivo'
   },
+  'groups': {
+    'tasks': {
+      'length': 'Participando en {{count}} tareas'
+    }
+  },
   'home': {
     'organization': {
       'empty': {

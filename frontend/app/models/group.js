@@ -6,7 +6,7 @@ export default DS.Model.extend({
   emails: DS.attr(),
 
   organization: DS.belongsTo('organization'),
-  turns: DS.hasMany('turn'),
+  tasks: DS.hasMany('tasks'),
 
   emailsString: Ember.computed('emails.@each', {
     get() {
@@ -29,5 +29,10 @@ export default DS.Model.extend({
 
       return string;
     }
-  })
+  }),
+
+  hasSameTasksThanOrganization: Ember.computed('organization.tasks.@each', 'tasks.@each', function() {
+    return this.get('organization').get('tasks').length === this.get('tasks').length;
+  }),
+
 });

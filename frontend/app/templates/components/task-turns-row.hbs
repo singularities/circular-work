@@ -51,35 +51,9 @@
     {{bs-modal-footer closeTitle=(t 'tasks.turns.row.remove.modal.cancel') submitTitle=(t 'tasks.turns.row.remove.modal.confirm')}}
   {{/bs-modal}}
 
-  {{#bs-modal
-    title=(t 'tasks.turns.addModal.title')
-    open=showGroupModal
-    closeAction=(action "cancelGroupModal")
-    body=false
-    footer=false}}
-    {{#bs-modal-body}}
+  {{group-form-modal group=modalGroup
+                     title=modalGroupTitle
+                     open=showGroupModal
+                     onSave=(action 'createGroup')}}
 
-      {{#each groupErrors as |error|}}
-        <div class="error">
-          {{#bs-alert type="danger"}}
-            {{error.attribute}} {{error.message}}
-          {{/bs-alert}}
-        </div>
-      {{/each}}
-
-      {{#bs-form action=(action "createGroup") model=modalGroup}}
-        {{bs-form-element
-          autofocus=true
-          label=(t 'tasks.turns.addModal.name.label')
-          placeholder=(t 'tasks.turns.addModal.name.placeholder')
-          property="name"}}
-        {{bs-form-element
-          controlType='textarea'
-          label=(t 'tasks.turns.addModal.emails.label')
-          placeholder=(t 'tasks.turns.addModal.emails.placeholder')
-          property="emailsString"}}
-      {{/bs-form}}
-    {{/bs-modal-body}}
-    {{bs-modal-footer closeTitle=(t "tasks.turns.addModal.cancel") submitTitle=(t "tasks.turns.addModal.save")}}
-  {{/bs-modal}}
 {{/if}}

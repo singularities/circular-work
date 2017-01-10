@@ -7,6 +7,21 @@ export default {
     'description' : 'Distribuye las tareas de tu colectivo'
   },
   'groups': {
+    'emails': {
+      'label': 'Emails',
+      'placeholder': 'Añade emails para enviar notificaciones'
+    },
+    'modal': {
+      'cancel': 'Cancelar',
+      'edit': {
+        'title': 'Editar grupo'
+      },
+      'save': '¡Hecho!',
+    },
+    'name': {
+      'label': 'Nombre',
+      'placeholder': 'El nombre del grupo'
+    },
     'tasks': {
       'length': 'Participando en {{count}} tareas'
     }
@@ -175,16 +190,6 @@ export default {
         'button': 'Añadir turno'
       },
       'addModal': {
-        'cancel': 'Cancelar',
-        'emails': {
-          'label': 'Emails',
-          'placeholder': 'Añade emails para enviar notificaciones'
-        },
-        'name': {
-          'label': 'Nombre',
-          'placeholder': 'El nombre del grupo'
-        },
-        'save': '¡Hecho!',
         'title': 'Añade un grupo a este turno'
       },
       'empty': {

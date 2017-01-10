@@ -1,0 +1,32 @@
+{{#bs-modal
+  title=title
+  open=open
+  closeAction=(action "cancel")
+  body=false
+  footer=false}}
+
+  {{#bs-modal-body}}
+    {{#each groupErrors as |error|}}
+      <div class="error">
+        {{#bs-alert type="danger"}}
+          {{error.attribute}} {{error.message}}
+        {{/bs-alert}}
+      </div>
+    {{/each}}
+
+    {{#bs-form action=(action "save") model=group}}
+      {{bs-form-element
+        autofocus=true
+        label=(t 'groups.name.label')
+        placeholder=(t 'groups.name.placeholder')
+        property="name"}}
+      {{bs-form-element
+        controlType='textarea'
+        label=(t 'groups.emails.label')
+        placeholder=(t 'groups.emails.placeholder')
+        property="emailsString"}}
+    {{/bs-form}}
+  {{/bs-modal-body}}
+
+  {{bs-modal-footer closeTitle=(t "groups.modal.cancel") submitTitle=(t "groups.modal.save")}}
+{{/bs-modal}}

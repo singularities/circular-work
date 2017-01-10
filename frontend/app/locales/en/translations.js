@@ -7,6 +7,21 @@ export default {
     'description' : 'Your community tasks,<br/>distributed.'
   },
   'groups': {
+    'emails': {
+      'label': 'Emails',
+      'placeholder': 'Add emails, one per line or separated by commas'
+    },
+    'modal': {
+      'cancel': 'Cancel',
+      'edit': {
+        'title': 'Edit group'
+      },
+      'save': 'Done!',
+    },
+    'name': {
+      'label': 'Name',
+      'placeholder': 'The group name'
+    },
     'tasks': {
       'length': 'Participating in {{count}} tasks'
     }
@@ -175,16 +190,6 @@ export default {
         'button': 'Add turn'
       },
       'addModal': {
-        'cancel': 'Cancel',
-        'emails': {
-          'label': 'Emails',
-          'placeholder': 'Add emails, one per line or separated by commas'
-        },
-        'name': {
-          'label': 'Name',
-          'placeholder': 'The group name'
-        },
-        'save': 'Done!',
         'title': 'Add a group to this turn'
       },
       'empty': {

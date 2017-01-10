@@ -8,6 +8,10 @@ export default DS.Model.extend({
   task: DS.belongsTo('task'),
   groups: DS.hasMany('group'),
 
+  organization: Ember.computed('task.organization', function() {
+    return this.get('task.organization');
+  }),
+
   week: Ember.computed('position', function() {
     return this.get('position') - 1;
   }),

@@ -51,8 +51,9 @@ class GroupsController < ApplicationController
   end
 
   def group_valid_attributes
-    [ 
-      :name, :emails
+    [
+      :name, :emails,
+      :organization
     ]
   end
 

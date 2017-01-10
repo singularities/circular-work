@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GroupsController, type: :controller do
-  fixtures :groups
+  fixtures :groups, :organizations
 
   describe '#index' do
     before { get :index }
@@ -19,7 +19,15 @@ RSpec.describe GroupsController, type: :controller do
         {
           data: {
             attributes: {
-              name: "Super grupo",
+              name: "Super grupo"
+            },
+            relationships: {
+              organization: {
+                data: {
+                  id: organizations(:singularities).id,
+                  type: 'organization'
+                }
+              }
             }
           }
         }

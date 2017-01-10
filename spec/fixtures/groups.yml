@@ -2,12 +2,16 @@
 
 pepe_lola:
   name: Pepe y Lola
+  organization: singularities
 
 atanasio:
   name: Atanasio
+  organization: singularities
 
 lucas:
   name: Lucas
+  organization: singularities
 
 facundo:
   name: Facundo el de las pipas
+  organization: singularities

@@ -3,7 +3,7 @@ class AddOrganizationToGroup < ActiveRecord::Migration[5.0]
     add_reference :groups, :organization, foreign_key: true
 
     Group.all.each do |group|
-      if group.tasks.any?
+      if group.tasks.any? && group.tasks.first.organization
         group.organization = group.tasks.first.organization
         group.save!
       else

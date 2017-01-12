@@ -21,12 +21,19 @@ export default {
     },
     'modal': {
       'cancel': 'Cancelar',
+      'confirmRemove': {
+        'cancel': 'Cancelar',
+        'body': 'Esta acción borrará el grupo de todas las tareas y turnos!',
+        'submit': '¡Sí, borrarlo!',
+        'title': '¿Borrar el grupo?'
+      },
       'edit': {
         'title': 'Editar grupo'
       },
       'new': {
         'title': 'Nuevo grupo'
       },
+      'remove': 'Borrar',
       'save': '¡Hecho!',
     },
     'name': {

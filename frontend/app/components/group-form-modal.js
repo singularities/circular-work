@@ -2,9 +2,30 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  openConfirmRemove: false,
+
   actions: {
     cancel () {
       this.get('group').rollbackAttributes();
+    },
+
+    cancelRemove () {
+      this.set('open', true);
+    },
+
+    confirmRemove () {
+      this.set('open', false);
+
+      this.set('openConfirmRemove', true);
+    },
+
+    remove () {
+
+      this.get('group').destroyRecord().then(() => {
+        this.set('openConfirmRemove', false);
+      }).catch(() => {
+        // TODO show catched error in group Errors
+      });
     },
 
     save () {

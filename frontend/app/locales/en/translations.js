@@ -21,12 +21,19 @@ export default {
     },
     'modal': {
       'cancel': 'Cancel',
+      'confirmRemove': {
+        'cancel': 'Cancel',
+        'body': 'This action will remove the group from all tasks and turns!',
+        'submit': 'Yes, remove it!',
+        'title': 'Remove group?'
+      },
       'edit': {
         'title': 'Edit group'
       },
       'new': {
         'title': 'New group'
       },
+      'remove': 'Remove',
       'save': 'Done!',
     },
     'name': {

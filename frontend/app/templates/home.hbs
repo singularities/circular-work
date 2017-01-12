@@ -1,0 +1,35 @@
+{{navigation-bar session=session}}
+
+<div class="container">
+  <div class="home">
+    <div class="row">
+      {{#each model as |organization index| }}
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              {{ organization.name }}
+
+              {{#link-to 'organizations.show' organization class="pull-right"}}
+                {{ t 'home.organization.more' }}
+              {{/link-to}}
+            </div>
+
+            {{ task-list organization=organization tasks=organization.tasks }}
+
+          </div>
+        </div>
+      {{ else }}
+        {{#bs-alert type="info" dismissible=false}}
+          {{ t 'home.organization.empty.message'}}
+        {{/bs-alert}}
+      {{/each}}
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pull-right">
+          {{ organization-new }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

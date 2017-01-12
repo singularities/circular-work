@@ -16,6 +16,7 @@ const Task =  DS.Model.extend({
   notificationBody: DS.attr('string'),
 
   // Relations
+  organization: DS.belongsTo('organization'),
   turns: DS.hasMany('turn'),
 
   // Computed properties
@@ -30,7 +31,9 @@ const Task =  DS.Model.extend({
     }
   }),
   recurrenceLabel: Ember.computed('recurrenceObject', function () {
-    return this.get('recurrenceObject').label;
+    var object = this.get('recurrenceObject');
+
+    return object ? object.label : null;
   }),
 
   hasRecurrenceMatch: Ember.computed.notEmpty('recurrenceMatch'),

@@ -1,0 +1,21 @@
+{{#each organization.errors as |error|}}
+  <div class="error">
+    {{#bs-alert type="danger"}}
+      {{error.attribute}} {{error.message}}
+    {{/bs-alert}}
+  </div>
+{{/each}}
+
+{{#bs-form action=formAction}}
+  {{bs-form-element label=(t 'organizations.form.name.label') placeholder=(t 'organizations.form.name.placeholder') value=organization.name}}
+
+  <div class="btn-toolbar">
+    {{#bs-button type="primary" buttonType="submit" class="pull-right"}}
+      {{actionLabel}}
+    {{/bs-button}}
+
+    {{bs-button defaultText=(t 'organizations.form.cancel.button') type="default" action=formCancel class="pull-right"}}
+  </div>
+
+  <div class="clearfix"></div><!-- align floating button -->
+{{/bs-form}}

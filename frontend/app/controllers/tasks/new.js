@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
     return this.get('i18n').t('tasks.new.title');
   }.property(),
 
+  queryParams: [ 'organization_id' ],
+
   actions: {
     cancelTask() {
       var controller = this;

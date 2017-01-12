@@ -6,10 +6,45 @@ export default {
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },
+  'home': {
+    'organization': {
+      'empty': 'You aren\'t currently participating in any organization',
+      'more': 'View more'
+    },
+    'title': 'My tasks'
+  },
   'navbar': {
     'login': 'Login',
     'logout': 'Logout',
     'tasks': 'My tasks'
+  },
+  'organizations': {
+    'create': {
+      'button': 'Create new organization',
+      'modal': {
+        'cancel': 'Cancel',
+        'submit': 'Create',
+        'title': 'Create new organization'
+      }
+    },
+    'form': {
+      'cancel': {
+        'button': 'Cancel'
+      },
+      'name': {
+        'label': 'Name',
+        'placeholder': 'The name of your community'
+      },
+      'save': {
+        'button': 'Save'
+      }
+    },
+    'groups': {
+      'title': 'Groups'
+    },
+    'tasks': {
+      'title': 'Tasks'
+    }
   },
   'session': {
     'email': {
@@ -56,8 +91,8 @@ export default {
     },
     'index': {
       'empty': {
-        'button': "Create a new task",
-        'message': "It seems that you are not participating in any task."
+        'button': "Create a task",
+        'message': "This organization hasn't any task"
       },
       'new': {
         'button': 'New task'

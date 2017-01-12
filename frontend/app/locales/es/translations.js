@@ -6,10 +6,45 @@ export default {
     },
     'description' : 'Distribuye las tareas de tu colectivo'
   },
+  'home': {
+    'organization': {
+      'empty': 'No estás participando en ningunar organización',
+      'more': 'Ver más'
+    },
+    'title': 'My tasks'
+  },
   'navbar': {
     'login': 'Entrar',
     'logout': 'Salir',
     'tasks': 'Mis tareas'
+  },
+  'organizations': {
+    'create': {
+      'button': 'Crear nueva organización',
+      'modal': {
+        'cancel': 'Cancelar',
+        'submit': 'Crear',
+        'title': 'Crear nueva organización'
+      }
+    },
+    'form': {
+      'cancel': {
+        'button': 'Cancelar'
+      },
+      'name': {
+        'label': 'Nombre',
+        'placeholder': 'El nombre de tu comunidad o colectivo'
+      },
+      'save': {
+        'button': 'Guardar'
+      }
+    },
+    'groups': {
+      'title': 'Grupos'
+    },
+    'tasks': {
+      'title': 'Tareas'
+    }
   },
   'session': {
     'email': {
@@ -57,7 +92,7 @@ export default {
     'index': {
       'empty': {
         'button': "Crea una tarea",
-        'message': "Parece que no participas en ninguna tarea."
+        'message': "Esta organización no tiene ninguna tarea"
       },
       'new': {
         'button': 'Nueva tarea'

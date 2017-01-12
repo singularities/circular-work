@@ -1,0 +1,18 @@
+{{#if showing }}
+  <h1>
+    {{organization.name}}
+
+    {{#bs-button type="default" action=(action "showEdit") class="pull-right"}}
+      {{ t 'tasks.notifications.edit.button' }}
+    {{/bs-button}}
+
+    <div class="clearfix"></div>
+  </h1>
+
+{{else}}
+
+  {{organization-details-form organization=organization
+                              formAction=(action 'saveEdit')
+                              formCancel=(action 'cancelEdit')
+                              actionLabel=(t 'organizations.form.save.button')}}
+{{/if }}

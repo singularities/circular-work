@@ -9,6 +9,7 @@ weekly:
   notification_subject: "@responsibles have to clean the space"
   notification_body: "This is the monthly reminder for @responsibles to clean the space"
   author: pepe
+  organization: singularities
 
 monthly:
   title: Monthly meeting
@@ -19,6 +20,7 @@ monthly:
   notification_subject: Remember this monthly
   notification_body: This is a reminder for a monthly task
   author: lola
+  organization: singularities
 
 monthly_last_sunday:
   title: Monthly quota
@@ -29,6 +31,7 @@ monthly_last_sunday:
   notification_subject: Pay your quota!
   notification_body: This is a reminder for paying your quota
   author: pepe
+  organization: singularities
 
 monthly_with_author_only:
   title: Monthly with author only
@@ -39,3 +42,4 @@ monthly_with_author_only:
   notification_subject: Notify to me
   notification_body: Just notify to me
   author: maria
+  organization: singularities

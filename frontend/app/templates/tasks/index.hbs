@@ -3,41 +3,11 @@
     {{ t 'tasks.index.title'}}
 
     {{#if model }}
-      {{#link-to 'tasks.new' class="btn btn-accent pull-right"}}
+      {{#link-to 'tasks.new' class="btn btn-primary pull-right"}}
         {{t 'tasks.index.new.button'}}
       {{/link-to}}
     {{/if}}
   </h1>
 
-  <div class="list-group">
-    {{#each model as |task|}}
-      {{#link-to 'tasks.show' task class="list-group-item"}}
-        <h3 class="list-group-item-heading">{{task.title}}</h3>
-
-        <div class="list-group-item-text">
-          {{ fa-icon "clock-o"}}
-
-          {{#if task.responsibles }}
-            {{ t (concat 'tasks.index.responsibles.' task.recurrenceLabel) responsibles=task.responsibles}}
-          {{else}}
-            {{ t 'tasks.index.timeAhead' time=(moment-to-now task.nextOcurrenceAt hidePrefix=true) }}
-          {{/if}}
-        </div>
-
-      {{/link-to}}
-    {{/each}}
-  </div>
-
-  {{#unless model }}
-    {{#bs-alert type="info" dismissible=false}}
-    <div class="empty-message">
-      {{ t 'tasks.index.empty.message'}}
-    </div>
-    <div>
-      {{#link-to 'tasks.new' class="btn btn-accent"}}
-        {{ t 'tasks.index.empty.button'}}
-      {{/link-to}}
-    </div>
-    {{/bs-alert}}
-  {{/unless}}
+  {{task-list tasks=model}}
 </div>

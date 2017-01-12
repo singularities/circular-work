@@ -11,6 +11,11 @@ export default {
       'label': 'Emails',
       'placeholder': 'Add emails, one per line or separated by commas'
     },
+    'list': {
+      'edit': {
+        'button': 'Edit'
+      }
+    },
     'modal': {
       'cancel': 'Cancel',
       'edit': {

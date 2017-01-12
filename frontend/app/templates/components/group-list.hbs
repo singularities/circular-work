@@ -1,8 +1,18 @@
-  {{#each groups as |group|}}
-    <div class="list-group-item">
-      <h3 class="list-group-item-heading">{{group.name}}</h3>
-      <div class="{{ concat 'tasks' (if group.hasSameTasksThanOrganization '' ' text-warning')}}">
-        {{ t "groups.tasks.length" count=group.tasks.length }}
-      </div>
+{{#each groups as |group|}}
+  <div class="list-group-item">
+
+    <h3 class="list-group-item-heading">
+      {{group.name}}
+
+      {{bs-button type="default" action=(action "edit" group) defaultText=(t 'groups.list.edit.button') class="pull-right"}}
+    </h3>
+
+    <div class="{{ concat 'tasks' (if group.hasSameTasksThanOrganization '' ' text-warning')}}">
+      {{ t "groups.tasks.length" count=group.tasks.length }}
     </div>
-  {{/each}}
+  </div>
+{{/each}}
+
+{{group-form-modal group=modalGroup
+                   title=modalGroupTitle
+                   open=showGroupModal}}

@@ -11,6 +11,11 @@ export default {
       'label': 'Emails',
       'placeholder': 'Añade emails para enviar notificaciones'
     },
+    'list': {
+      'edit': {
+        'button': 'Editar'
+      }
+    },
     'modal': {
       'cancel': 'Cancelar',
       'edit': {

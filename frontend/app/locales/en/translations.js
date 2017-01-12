@@ -8,7 +8,9 @@ export default {
   },
   'home': {
     'organization': {
-      'empty': 'You aren\'t currently participating in any organization',
+      'empty': {
+        'message': 'You aren\'t currently participating in any organization'
+      },
       'more': 'View more'
     },
     'title': 'My tasks'

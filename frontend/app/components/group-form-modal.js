@@ -3,16 +3,16 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   actions: {
-    cancel() {
+    cancel () {
       this.get('group').rollbackAttributes();
     },
 
-    save: function() {
+    save () {
       let group  = this.get('group'),
           onSave = this.get('onSave');
 
       group.save().then(() => {
-        
+
         if (onSave) {
           onSave(group);
         }

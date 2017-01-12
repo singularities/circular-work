@@ -14,12 +14,18 @@ export default {
     'list': {
       'edit': {
         'button': 'Edit'
+      },
+      'new': {
+        'button': 'New group'
       }
     },
     'modal': {
       'cancel': 'Cancel',
       'edit': {
         'title': 'Edit group'
+      },
+      'new': {
+        'title': 'New group'
       },
       'save': 'Done!',
     },

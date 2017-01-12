@@ -13,6 +13,10 @@
   </div>
 {{/each}}
 
+<div class="new-group">
+  {{bs-button type="primary" action=(action "newGroup") defaultText=(t 'groups.list.new.button') class="pull-right"}}
+</div>
+
 {{group-form-modal group=modalGroup
                    title=modalGroupTitle
                    open=showGroupModal}}

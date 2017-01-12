@@ -29,6 +29,11 @@ export default DS.Model.extend({
 
   }),
 
+  // Computed property to watch in group changes, used by task.includedGroups
+  groupsArray: Ember.computed('groups.[]', function() {
+    return this.get('groups');
+  }),
+
   responsibles: Ember.computed('groups.@each.name', function() {
     return this.get('groups').map(function(e) { return e.get('name'); }).join(', ');
   })

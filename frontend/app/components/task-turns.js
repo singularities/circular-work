@@ -2,13 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['task-turns'],
-  
-  store: Ember.inject.service(),
 
-  excludedGroups: [],
-  excludedGroupsJoin: Ember.computed('excludedGroups.[]', function() {
-    return this.get('excludedGroups').mapBy('name').join(', ');
-  }),
+  store: Ember.inject.service(),
 
   actions: {
     addTurn () {

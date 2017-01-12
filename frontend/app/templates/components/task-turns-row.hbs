@@ -22,7 +22,7 @@
       triggerElement=".handle"}}
 
     {{#power-select-multiple
-      options=excludedGroups
+      options=turn.task.excludedGroups
       selected=selectedGroups
       selectedItemComponent=(component "task-turn-row-selected-group" onItemClicked=(action "editGroup"))
       searchField="name"

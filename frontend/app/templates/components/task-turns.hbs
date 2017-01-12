@@ -10,13 +10,13 @@
       group=group
       handle=".handle"
       class="list-group-item"}}
-      {{ task-turns-row turn=turn excludedGroups=excludedGroups }}
+      {{ task-turns-row turn=turn }}
     {{/sortable-item}}
   {{/each}}
 
-  {{#if excludedGroupsJoin}}
+  {{#if task.excludedGroupsJoin}}
     <li class="list-group-item list-group-item-warning">
-      {{ t 'tasks.turns.excludedGroups.message' groups=excludedGroupsJoin}}
+      {{ t 'tasks.turns.excludedGroups.message' groups=task.excludedGroupsJoin}}
     </li>
   {{/if}}
 {{/sortable-group}}

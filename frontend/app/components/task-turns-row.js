@@ -15,28 +15,17 @@ export default Ember.Component.extend({
       return this.get('turn.groups');
     },
     set(key, newGroups) {
-      var oldGroups = this.get('turn.groups'),
-          excluded = this.get('excludedGroups');
+      var oldGroups = this.get('turn.groups');
 
       newGroups.forEach(function(newGroup) {
         if (! oldGroups.includes(newGroup)) {
           oldGroups.pushObject(newGroup);
-
-          // TODO save newGroup?
-
-          if (excluded.includes(newGroup)) {
-            excluded.removeObject(newGroup);
-          }
         }
       });
 
       oldGroups.forEach(function(oldGroup) {
         if (! newGroups.includes(oldGroup)) {
           oldGroups.removeObject(oldGroup);
-
-          // TODO save turn?
-
-          excluded.pushObject(oldGroup);
         }
       });
 

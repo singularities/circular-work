@@ -101,6 +101,23 @@ const Task =  DS.Model.extend({
 
   hasTurns: Ember.computed.notEmpty('turns'),
 
+  includedGroups: Ember.computed('turns.@each.groupsArray', function() {
+    return this.get('turns').
+      reduce((groups, currentTurn) => {
+        currentTurn.get('groupsArray').forEach((group) => {
+          groups.pushObject(group);
+        });
+
+        return groups;
+      }, new Ember.A([])).uniq();
+  }),
+
+  excludedGroups: Ember.computed.setDiff('organization.groups', 'includedGroups'),
+
+  excludedGroupsJoin: Ember.computed('excludedGroups.@each.name', function() {
+    return this.get('excludedGroups').mapBy('name').join(', ');
+  }),
+
   responsibles: Ember.computed('sortedTurns.@each.responsibles', function() {
     var turns = this.get('sortedTurns');
 

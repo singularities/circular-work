@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 const Organization = DS.Model.extend({
@@ -7,6 +8,8 @@ const Organization = DS.Model.extend({
   tasks: DS.hasMany('task'),
   groups: DS.hasMany('groups'),
 
+  // Computed properties
+  tasksWithTurns: Ember.computed.filterBy('tasks', 'hasTurns')
 
 });
 

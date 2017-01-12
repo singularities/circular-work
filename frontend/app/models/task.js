@@ -98,6 +98,9 @@ const Task =  DS.Model.extend({
   }),
   turnsSorting: ['position'],
   sortedTurns: Ember.computed.sort('turns', 'turnsSorting'),
+
+  hasTurns: Ember.computed.notEmpty('turns'),
+
   responsibles: Ember.computed('sortedTurns.@each.responsibles', function() {
     var turns = this.get('sortedTurns');
 

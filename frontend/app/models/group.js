@@ -31,8 +31,8 @@ export default DS.Model.extend({
     }
   }),
 
-  hasSameTasksThanOrganization: Ember.computed('organization.tasks.@each', 'tasks.@each', function() {
-    return this.get('organization').get('tasks').length === this.get('tasks').length;
+  hasSameTasksThanOrganization: Ember.computed('organization.tasksWithTurns.length', 'tasks.length', function() {
+    return this.get('organization.tasksWithTurns.length') === this.get('tasks.length');
   }),
 
 });

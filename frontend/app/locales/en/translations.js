@@ -229,6 +229,10 @@ export default {
         'handle': {
           'tip': 'Drag and drop to sort the turn'
         },
+        'newGroup': {
+          'create': 'Create new group'
+        },
+        'noMatches': 'No more groups available',
         'remove': {
           'button': 'Remove',
           'modal': {

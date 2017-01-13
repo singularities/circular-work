@@ -25,15 +25,18 @@
       options=turn.task.excludedGroups
       selected=selectedGroups
       selectedItemComponent=(component "task-turn-row-selected-group" onItemClicked=(action "editGroup"))
+      beforeOptionsComponent=(component "task-turn-row-new-group" onClick=(action "addGroup"))
       searchField="name"
       onchange=(action (mut selectedGroups))
+      noMatchesMessage=(t 'tasks.turns.row.noMatches')
+      registerAPI=(action (mut groupsSelectController))
       class="groups-select"
       as |group|}}
       {{group.name}}
     {{/power-select-multiple}}
 
     {{#bs-button-group class="add-group-wrapper"}}
-      {{#bs-button type="primary" action="addGroup"}}
+      {{#bs-button type="primary" action="openSelect"}}
         {{ fa-icon 'plus-circle'}}
         {{ t 'tasks.turns.row.add.button' }}
       {{/bs-button}}

@@ -61,6 +61,9 @@ export default Ember.Component.extend({
   },
 
   actions: {
+    openSelect () {
+      this.get('groupsSelectController').actions.open();
+    },
     addGroup: function() {
       this.setNewModal();
     },

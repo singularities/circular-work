@@ -229,6 +229,10 @@ export default {
         'handle': {
           'tip': 'Arrastra para reordenar el turno'
         },
+        'newGroup': {
+          'create': 'Crear un grupo nuevo'
+        },
+        'noMatches': 'No hay más grupos',
         'remove': {
           'button': 'Borrar',
           'modal': {

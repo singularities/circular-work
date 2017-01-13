@@ -44,7 +44,9 @@
   </div>
 
   <div class="actions btn-toolbar pull-right">
-    {{bs-button type="danger" action="removeTurnModal" defaultText=(t 'tasks.turns.row.remove.button')}}
+    {{#unless turn.isNew }}
+      {{bs-button type="danger" action="removeTurnModal" defaultText=(t 'tasks.turns.row.remove.button')}}
+    {{/unless}}
     {{bs-button type="default" action="cancel" defaultText=(t 'tasks.turns.row.cancel.button')}}
     {{bs-button type="primary" action="save" defaultText=(t 'tasks.turns.row.save.button')}}
   </div>

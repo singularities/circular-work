@@ -167,6 +167,7 @@ export default {
         'button': 'Guardar'
       },
       'subject': 'Asunto',
+      'tip': 'Usa el término @responsibles para incluir los nombres de los responsables en el asunto o en el mensaje',
       'to': 'Para'
     },
     'recurrence': {

@@ -167,6 +167,7 @@ export default {
         'button': 'Save'
       },
       'subject': 'Subject',
+      'tip': 'Use the term @responsibles to include the names of the turn responsibles into the subject or message',
       'to': 'To:'
     },
     'recurrence': {

@@ -39,7 +39,9 @@ export default Ember.Component.extend({
     if (this.get('turn.isNew')) {
       this.set('editing', true);
 
-      this.setNewModal();
+      if (! this.get('turn.task.excludedGroups.length')) {
+        this.setNewModal();
+      }
     }
   },
 

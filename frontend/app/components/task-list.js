@@ -3,8 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['task-list', 'list-group'],
 
-  taskSorting: ['nextOcurrenceAt'],
-
   tasksWatchingNextOcurrenceAt: Ember.computed('tasks.@each.nextOcurrenceAt', function () {
     return this.get('tasks');
   }),

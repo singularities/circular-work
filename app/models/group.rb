@@ -1,10 +1,10 @@
 class Group < ApplicationRecord
   belongs_to :organization
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
 
-  has_many :responsibilities
+  has_many :responsibilities, dependent: :destroy
   has_many :turns, through: :responsibilities
   has_many :tasks, through: :turns
 

@@ -16,11 +16,19 @@
   <h2>
     {{ fa-icon 'envelope' }}
     {{ t 'tasks.show.notifications.title' }}
-    {{#unless editingNotifications}}
+    {{#if editingNotifications}}
+
+    <div class="task-notification-tip pull-right">
+      {{ fa-icon 'info-circle' }}
+    </div>
+    {{bs-tooltip
+      title=(t 'tasks.notifications.tip')
+      triggerElement=".task-notification-tip"}}
+    {{else}}
       {{#bs-button type="default" action=(action 'startEdit' 'editingNotifications') class="pull-right"}}
         {{ t 'tasks.notifications.edit.button' }}
       {{/bs-button}}
-    {{/unless}}
+    {{/if}}
     <div class="clearfix"></div>
   </h2>
 

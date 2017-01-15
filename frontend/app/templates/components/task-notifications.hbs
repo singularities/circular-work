@@ -6,6 +6,7 @@
     {{bs-form-element label=(t (concat 'tasks.notifications.' (if task.turns 'cc' 'to'))) value=task.notificationEmail disabled=showing }}
     {{bs-form-element label=(t 'tasks.notifications.subject') value=task.notificationSubject disabled=showing}}
     {{bs-form-element label=(t 'tasks.notifications.body') controlType="textarea" value=task.notificationBody disabled=showing}}
+
     {{#if editing }}
       <div class="btn-toolbar">
         {{bs-button defaultText=(t 'tasks.notifications.save.button') type="primary" buttonType="submit" class="pull-right"}}

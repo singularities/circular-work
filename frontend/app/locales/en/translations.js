@@ -6,6 +6,44 @@ export default {
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },
+  'groups': {
+    'emails': {
+      'label': 'Emails',
+      'placeholder': 'Add emails, one per line or separated by commas'
+    },
+    'list': {
+      'edit': {
+        'button': 'Edit'
+      },
+      'new': {
+        'button': 'New group'
+      }
+    },
+    'modal': {
+      'cancel': 'Cancel',
+      'confirmRemove': {
+        'cancel': 'Cancel',
+        'body': 'This action will remove the group from all tasks and turns!',
+        'submit': 'Yes, remove it!',
+        'title': 'Remove group?'
+      },
+      'edit': {
+        'title': 'Edit group'
+      },
+      'new': {
+        'title': 'New group'
+      },
+      'remove': 'Remove',
+      'save': 'Done!',
+    },
+    'name': {
+      'label': 'Name',
+      'placeholder': 'The group name'
+    },
+    'tasks': {
+      'length': 'Participating in {{count}} tasks'
+    }
+  },
   'home': {
     'organization': {
       'empty': {
@@ -170,16 +208,6 @@ export default {
         'button': 'Add turn'
       },
       'addModal': {
-        'cancel': 'Cancel',
-        'emails': {
-          'label': 'Emails',
-          'placeholder': 'Add emails, one per line or separated by commas'
-        },
-        'name': {
-          'label': 'Name',
-          'placeholder': 'The group name'
-        },
-        'save': 'Done!',
         'title': 'Add a group to this turn'
       },
       'empty': {
@@ -201,6 +229,10 @@ export default {
         'handle': {
           'tip': 'Drag and drop to sort the turn'
         },
+        'newGroup': {
+          'create': 'Create new group'
+        },
+        'noMatches': 'No more groups available',
         'remove': {
           'button': 'Remove',
           'modal': {

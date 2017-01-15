@@ -22,18 +22,21 @@
       triggerElement=".handle"}}
 
     {{#power-select-multiple
-      options=excludedGroups
+      options=turn.task.excludedGroups
       selected=selectedGroups
       selectedItemComponent=(component "task-turn-row-selected-group" onItemClicked=(action "editGroup"))
+      beforeOptionsComponent=(component "task-turn-row-new-group" onClick=(action "addGroup"))
       searchField="name"
       onchange=(action (mut selectedGroups))
+      noMatchesMessage=(t 'tasks.turns.row.noMatches')
+      registerAPI=(action (mut groupsSelectController))
       class="groups-select"
       as |group|}}
       {{group.name}}
     {{/power-select-multiple}}
 
     {{#bs-button-group class="add-group-wrapper"}}
-      {{#bs-button type="primary" action="addGroup"}}
+      {{#bs-button type="primary" action="openSelect"}}
         {{ fa-icon 'plus-circle'}}
         {{ t 'tasks.turns.row.add.button' }}
       {{/bs-button}}
@@ -41,7 +44,9 @@
   </div>
 
   <div class="actions btn-toolbar pull-right">
-    {{bs-button type="danger" action="removeTurnModal" defaultText=(t 'tasks.turns.row.remove.button')}}
+    {{#unless turn.isNew }}
+      {{bs-button type="danger" action="removeTurnModal" defaultText=(t 'tasks.turns.row.remove.button')}}
+    {{/unless}}
     {{bs-button type="default" action="cancel" defaultText=(t 'tasks.turns.row.cancel.button')}}
     {{bs-button type="primary" action="save" defaultText=(t 'tasks.turns.row.save.button')}}
   </div>
@@ -51,35 +56,9 @@
     {{bs-modal-footer closeTitle=(t 'tasks.turns.row.remove.modal.cancel') submitTitle=(t 'tasks.turns.row.remove.modal.confirm')}}
   {{/bs-modal}}
 
-  {{#bs-modal
-    title=(t 'tasks.turns.addModal.title')
-    open=showGroupModal
-    closeAction=(action "cancelGroupModal")
-    body=false
-    footer=false}}
-    {{#bs-modal-body}}
+  {{group-form-modal group=modalGroup
+                     title=modalGroupTitle
+                     open=showGroupModal
+                     onSave=(action 'createGroup')}}
 
-      {{#each groupErrors as |error|}}
-        <div class="error">
-          {{#bs-alert type="danger"}}
-            {{error.attribute}} {{error.message}}
-          {{/bs-alert}}
-        </div>
-      {{/each}}
-
-      {{#bs-form action=(action "createGroup") model=modalGroup}}
-        {{bs-form-element
-          autofocus=true
-          label=(t 'tasks.turns.addModal.name.label')
-          placeholder=(t 'tasks.turns.addModal.name.placeholder')
-          property="name"}}
-        {{bs-form-element
-          controlType='textarea'
-          label=(t 'tasks.turns.addModal.emails.label')
-          placeholder=(t 'tasks.turns.addModal.emails.placeholder')
-          property="emailsString"}}
-      {{/bs-form}}
-    {{/bs-modal-body}}
-    {{bs-modal-footer closeTitle=(t "tasks.turns.addModal.cancel") submitTitle=(t "tasks.turns.addModal.save")}}
-  {{/bs-modal}}
 {{/if}}

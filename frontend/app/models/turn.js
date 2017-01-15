@@ -8,6 +8,10 @@ export default DS.Model.extend({
   task: DS.belongsTo('task'),
   groups: DS.hasMany('group'),
 
+  organization: Ember.computed('task.organization', function() {
+    return this.get('task.organization');
+  }),
+
   week: Ember.computed('position', function() {
     return this.get('position') - 1;
   }),
@@ -23,6 +27,11 @@ export default DS.Model.extend({
       return this.get('i18n').t(key, { count: this.get('week')});
     }
 
+  }),
+
+  // Computed property to watch in group changes, used by task.includedGroups
+  groupsArray: Ember.computed('groups.[]', function() {
+    return this.get('groups');
   }),
 
   responsibles: Ember.computed('groups.@each.name', function() {

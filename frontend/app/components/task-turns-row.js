@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   classNames: ['task-turns-row'],
 
   store: Ember.inject.service(),
+  i18n: Ember.inject.service(),
 
   showing: Ember.computed.not('editing'),
   showRemoveTurnModal: false,
@@ -14,28 +15,17 @@ export default Ember.Component.extend({
       return this.get('turn.groups');
     },
     set(key, newGroups) {
-      var oldGroups = this.get('turn.groups'),
-          excluded = this.get('excludedGroups');
+      var oldGroups = this.get('turn.groups');
 
       newGroups.forEach(function(newGroup) {
         if (! oldGroups.includes(newGroup)) {
           oldGroups.pushObject(newGroup);
-
-          // TODO save newGroup?
-
-          if (excluded.includes(newGroup)) {
-            excluded.removeObject(newGroup);
-          }
         }
       });
 
       oldGroups.forEach(function(oldGroup) {
         if (! newGroups.includes(oldGroup)) {
           oldGroups.removeObject(oldGroup);
-
-          // TODO save turn?
-
-          excluded.pushObject(oldGroup);
         }
       });
 
@@ -49,8 +39,9 @@ export default Ember.Component.extend({
     if (this.get('turn.isNew')) {
       this.set('editing', true);
 
-      this.setNewModalGroup();
-      this.set('showGroupModal', true);
+      if (! this.get('turn.task.excludedGroups.length')) {
+        this.setNewModal();
+      }
     }
   },
 
@@ -58,43 +49,37 @@ export default Ember.Component.extend({
     let group = this.get('store')
         .createRecord('group');
 
+    group.set('organization', this.get('turn.organization'));
+
     this.set('modalGroup', group);
   },
 
-  actions: {
-    addGroup: function() {
-      this.setNewModalGroup();
+  setNewModal () {
+    this.setNewModalGroup();
 
-      this.set('showGroupModal', true);
+    this.set('modalGroupTitle', this.get('i18n').t('tasks.turns.addModal.title'));
+
+    this.set('showGroupModal', true);
+  },
+
+  actions: {
+    openSelect () {
+      this.get('groupsSelectController').actions.open();
+    },
+    addGroup: function() {
+      this.setNewModal();
     },
     editGroup: function(group) {
       this.set('modalGroup', group);
 
+      this.set('modalGroupTitle', this.get('i18n').t('groups.modal.edit.title'));
+
       this.set('showGroupModal', true);
     },
-    createGroup: function() {
-      let group = this.get('modalGroup');
+    createGroup: function(group) {
+      this.get('turn.groups').pushObject(group);
 
-      group.save().then(() => {
-        this.get('turn.groups').pushObject(group);
-
-        this.set('newGroupParams', []);
-
-        this.set('groupErrors', null);
-
-        this.set('modalGroup', null);
-
-        this.set('showGroupModal', false);
-      }).catch(() => {
-        // TODO show catched error in group Errors
-        this.set('groupErrors', group.get('errors'));
-      });
-
-    },
-    cancelGroupModal () {
-      let group = this.get('modalGroup');
-
-      group.rollbackAttributes();
+      this.set('modalGroup', null);
     },
     cancel() {
       var turn = this.get('turn');

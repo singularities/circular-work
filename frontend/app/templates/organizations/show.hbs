@@ -13,7 +13,9 @@
     {{/if}}
   {{/bs-tab-pane}}
   {{#bs-tab-pane title=(t 'organizations.groups.title')}}
-    <p>Próximamente</p>
+
+    {{group-list organization=model groups=model.groups}}
+    
   {{/bs-tab-pane}}
 {{/bs-tab}}
 

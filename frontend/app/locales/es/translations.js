@@ -6,6 +6,44 @@ export default {
     },
     'description' : 'Distribuye las tareas de tu colectivo'
   },
+  'groups': {
+    'emails': {
+      'label': 'Emails',
+      'placeholder': 'Añade emails para enviar notificaciones'
+    },
+    'list': {
+      'edit': {
+        'button': 'Editar'
+      },
+      'new': {
+        'button': 'Nuevo grupo'
+      }
+    },
+    'modal': {
+      'cancel': 'Cancelar',
+      'confirmRemove': {
+        'cancel': 'Cancelar',
+        'body': 'Esta acción borrará el grupo de todas las tareas y turnos!',
+        'submit': '¡Sí, borrarlo!',
+        'title': '¿Borrar el grupo?'
+      },
+      'edit': {
+        'title': 'Editar grupo'
+      },
+      'new': {
+        'title': 'Nuevo grupo'
+      },
+      'remove': 'Borrar',
+      'save': '¡Hecho!',
+    },
+    'name': {
+      'label': 'Nombre',
+      'placeholder': 'El nombre del grupo'
+    },
+    'tasks': {
+      'length': 'Participando en {{count}} tareas'
+    }
+  },
   'home': {
     'organization': {
       'empty': {
@@ -170,16 +208,6 @@ export default {
         'button': 'Añadir turno'
       },
       'addModal': {
-        'cancel': 'Cancelar',
-        'emails': {
-          'label': 'Emails',
-          'placeholder': 'Añade emails para enviar notificaciones'
-        },
-        'name': {
-          'label': 'Nombre',
-          'placeholder': 'El nombre del grupo'
-        },
-        'save': '¡Hecho!',
         'title': 'Añade un grupo a este turno'
       },
       'empty': {
@@ -201,6 +229,10 @@ export default {
         'handle': {
           'tip': 'Arrastra para reordenar el turno'
         },
+        'newGroup': {
+          'create': 'Crear un grupo nuevo'
+        },
+        'noMatches': 'No hay más grupos',
         'remove': {
           'button': 'Borrar',
           'modal': {

@@ -4,7 +4,10 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr('string'),
   emails: DS.attr(),
-  turns: DS.hasMany('turn'),
+
+  organization: DS.belongsTo('organization'),
+  tasks: DS.hasMany('tasks'),
+
   emailsString: Ember.computed('emails.@each', {
     get() {
       let emails = this.get('emails');
@@ -26,5 +29,10 @@ export default DS.Model.extend({
 
       return string;
     }
-  })
+  }),
+
+  hasSameTasksThanOrganization: Ember.computed('organization.tasksWithTurns.length', 'tasks.length', function() {
+    return this.get('organization.tasksWithTurns.length') === this.get('tasks.length');
+  }),
+
 });

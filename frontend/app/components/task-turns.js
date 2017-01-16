@@ -5,6 +5,10 @@ export default Ember.Component.extend({
 
   store: Ember.inject.service(),
 
+  showExcludedGroups: Ember.computed('task.excludedGroupsJoin', 'task.sortedTurns.[]', function() {
+    return this.get('task.excludedGroupsJoin') && this.get('task.sortedTurns.length');
+  }),
+
   actions: {
     addTurn () {
       let turn =

@@ -14,7 +14,7 @@
     {{/sortable-item}}
   {{/each}}
 
-  {{#if task.excludedGroupsJoin}}
+  {{#if showExcludedGroups}}
     <li class="list-group-item list-group-item-warning">
       {{ t 'tasks.turns.excludedGroups.message' groups=task.excludedGroupsJoin}}
     </li>

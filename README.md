@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/singularities/circular-works.svg?branch=master)](https://travis-ci.org/singularities/circular-works)
+[![Build Status](https://travis-ci.org/singularities/circular-work.svg?branch=master)](https://travis-ci.org/singularities/circular-work)
 
 # README
 

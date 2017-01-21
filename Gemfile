@@ -36,6 +36,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended by cucumber-rails
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'pg'
 end

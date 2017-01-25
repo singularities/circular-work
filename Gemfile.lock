@@ -49,6 +49,8 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.2)
     byebug (9.0.6)
+    childprocess (0.6.1)
+      ffi (~> 1.0, >= 1.0.11)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     clockwork (2.0.0)
@@ -140,6 +142,10 @@ GEM
       ffi (>= 0.5.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -157,6 +163,11 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rubyzip (1.2.0)
+    selenium-webdriver (3.0.5)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     slop (3.6.0)
     spring (2.0.0)
       activesupport (>= 4.2)
@@ -177,6 +188,16 @@ GEM
       thread_safe (~> 0.1)
     warden (1.2.6)
       rack (>= 1.0)
+    watir (6.1.0)
+      selenium-webdriver (~> 3.0)
+    watir-rails (2.0.0)
+      rack
+      rails
+      watir (>= 6.0.0.beta4)
+    watir-rspec (3.0.0)
+      rspec (~> 3.0)
+      watir (>= 6.0.0.beta4)
+    websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -201,6 +222,8 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   tzinfo-data
+  watir-rails
+  watir-rspec
 
 BUNDLED WITH
    1.13.6

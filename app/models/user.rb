@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # This include must be after the devise statement
+  include DeviseTokenAuth::Concerns::User
 
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
@@ -11,7 +13,6 @@ class User < ApplicationRecord
   has_many :authored_organizations, class_name: 'Organization', foreign_key: 'author_id'
 
   before_validation :set_password, on: :create
-  before_save :set_auth_token
 
   private
 
@@ -20,19 +21,6 @@ class User < ApplicationRecord
   def set_password
     if password.blank?
       self.password = Devise.friendly_token
-    end
-  end
-
-  def set_auth_token
-    if self.authentication_token.blank?
-      self.authentication_token = generate_authentication_token
-    end
-  end
-
-  def generate_authentication_token
-    loop do
-      token = Devise.friendly_token
-      break token unless User.where(authentication_token: token).first
     end
   end
 end

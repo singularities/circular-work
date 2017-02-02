@@ -6,15 +6,26 @@
 #
 pepe:
   email: pepe@mat.com
-  authentication_token: tOken
+  provider: email
+  uid: pepe@mat.com
   encrypted_password:  <%= User.new.send(:password_digest, 'pepepepe') %>
 lola:
   email: lola@mat.com
+  provider: email
+  uid: lola@mat.com
 facundo:
   email: facundo@pip.as
+  provider: email
+  uid: facundo@pip.as
 atanasio:
   email: atan@as.io
+  provider: email
+  uid: atan@as.io
 lucas:
   email: lucas@mati.org
+  provider: email
+  uid: lucas@mati.org
 maria:
   email: maria@foo.bar
+  provider: email
+  uid: maria@foo.bar

@@ -28,8 +28,7 @@ RSpec.describe OrganizationsController, type: :controller do
 
     context 'when it is not authenticated' do
       it 'returns an unauthenticated response' do
-        expect(response.code).to eq "302"
-        expect(response.location).to eq "http://test.host/users/sign_in"
+        expect(response.code).to eq "401"
       end
     end
 

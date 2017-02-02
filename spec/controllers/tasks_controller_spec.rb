@@ -5,13 +5,13 @@ RSpec.describe TasksController, type: :controller do
 
   describe '#index' do
     context "when it is not authenticated" do
-      
+
       before { get :index }
 
       it 'returns an unauthenticated response' do
         pending "Allowing access to task until we implement task admins"
 
-        expect(response.code).to eq "302"
+        expect(response.code).to eq "401"
         expect(response.location).to eq "http://test.host/users/sign_in"
       end
     end
@@ -42,15 +42,14 @@ RSpec.describe TasksController, type: :controller do
                 type: 'organization'
               }
             }
-          } 
+          }
         }
       }
     end
 
     context 'when it is not authenticated' do
       it 'returns an unauthenticated response' do
-        expect(response.code).to eq "302"
-        expect(response.location).to eq "http://test.host/users/sign_in"
+        expect(response.code).to eq "401"
       end
     end
 

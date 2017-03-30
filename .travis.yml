@@ -3,6 +3,10 @@ rvm:
   - 2.3.0
 services:
   - docker
+addons:
+  apt:
+    packages:
+      - chromium-chromedriver
 cache:
   - bundler
   - frontend/node_modules
@@ -16,9 +20,14 @@ before_install:
 before_script:
   - bundle exec rake db:migrate RAILS_ENV=test
   - cd frontend && npm install && cd ..
+  - export PATH=$PATH:/usr/lib/chromium-browser/
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 script:
   - bundle exec rake
   - bundle exec rake ember:test
+
 after_success:
   - RAILS_ENV=production PRECOMPILE=1 bin/rails assets:precompile
   - docker build -t "singularitiesorg/circular-work:$TRAVIS_COMMIT" .

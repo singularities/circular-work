@@ -7,4 +7,4 @@ Background:
 Scenario: View my tasks
   Given I am in the front page
   When I click in the view tasks button
-  Then I should see my tasks
+  Then PENDING FIXTURES I should see my tasks

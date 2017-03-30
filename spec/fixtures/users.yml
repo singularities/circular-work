@@ -7,6 +7,7 @@
 pepe:
   email: pepe@mat.com
   authentication_token: tOken
+  encrypted_password:  <%= User.new.send(:password_digest, 'pepepepe') %>
 lola:
   email: lola@mat.com
 facundo:

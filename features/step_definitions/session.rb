@@ -1,5 +1,11 @@
-Given(/^A user with email ([\w@\.]+) and password (\w+)$/) do |email, password|
-  @email, @password = email, password
+Given(/^A user (\w+) with email and password/) do |user|
+  fixture = users(user.to_sym)
+  
+  @email = fixture.email
+  # FIXME get password from fixture
+  # current error:
+  # table "users" has no column named "password". (ActiveRecord::Fixture::FixtureError)
+  @password = 'pepepepe'
 end
 
 Given(/^I login with the credentials$/) do

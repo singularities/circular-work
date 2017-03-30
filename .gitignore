@@ -17,6 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
+.rake_tasks~
+
 # Ignore Byebug command history file.
 .byebug_history
 

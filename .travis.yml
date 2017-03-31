@@ -3,6 +3,10 @@ rvm:
   - 2.3.0
 services:
   - docker
+addons:
+  apt:
+    packages:
+      - chromium-chromedriver
 cache:
   - bundler
   - frontend/node_modules
@@ -16,12 +20,24 @@ before_install:
 before_script:
   - bundle exec rake db:migrate RAILS_ENV=test
   - cd frontend && npm install && cd ..
+  - export PATH=$PATH:/usr/lib/chromium-browser/
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 script:
   - bundle exec rake
   - bundle exec rake ember:test
-after_success:
+  # Test e2e against docker image
   - RAILS_ENV=production PRECOMPILE=1 bin/rails assets:precompile
-  - docker build -t "singularitiesorg/circular-work:$TRAVIS_COMMIT" .
+  - docker build -t "singularitiesorg/circular-work" .
+  - docker-compose up -d
+  # Wait for the db to start
+  - sleep 10
+  - DATABASE_URL=postgresql://postgres:dbpass@localhost:8054/postgres?pool=10 bundle exec rake db:schema:load
+  - DATABASE_URL=postgresql://postgres:dbpass@localhost:8054/postgres?pool=10 bundle exec rake cucumber
+
+after_success:
+  - docker tag singularitiesorg/circular-work "singularitiesorg/circular-work:$TRAVIS_COMMIT"
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push "singularitiesorg/circular-work:$TRAVIS_COMMIT"
 

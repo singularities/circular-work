@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app:
+    image: singularitiesorg/circular-work
+    ports:
+      - "127.0.0.1:8030:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:dbpass@db:5432?pool=10
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: 1
+      SECRET_KEY_BASE: cf9ee5b6300d945af5b86e0f85edc2f3f730314b3115833beadea5aa7c0851cef06cf8acaf60e452891c686d2de6c5084213603c625f26f4830aabf78cfa8853
+    depends_on:
+      - db
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: dbpass
+    ports:
+      - "127.0.0.1:8054:5432"

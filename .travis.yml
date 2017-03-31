@@ -27,10 +27,17 @@ before_script:
 script:
   - bundle exec rake
   - bundle exec rake ember:test
+  # Test e2e against docker image
+  - RAILS_ENV=production PRECOMPILE=1 bin/rails assets:precompile
+  - docker build -t "singularitiesorg/circular-work" .
+  - docker-compose up -d
+  # Wait for the db to start
+  - sleep 10
+  - DATABASE_URL=postgresql://postgres:dbpass@localhost:8054/postgres?pool=10 bundle exec rake db:schema:load
+  - DATABASE_URL=postgresql://postgres:dbpass@localhost:8054/postgres?pool=10 bundle exec rake cucumber
 
 after_success:
-  - RAILS_ENV=production PRECOMPILE=1 bin/rails assets:precompile
-  - docker build -t "singularitiesorg/circular-work:$TRAVIS_COMMIT" .
+  - docker tag singularitiesorg/circular-work "singularitiesorg/circular-work:$TRAVIS_COMMIT"
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push "singularitiesorg/circular-work:$TRAVIS_COMMIT"
 

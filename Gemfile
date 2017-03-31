@@ -41,6 +41,11 @@ group :test do
   # database_cleaner is not required, but highly recommended by cucumber-rails
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+
+  # Test integration using docker image
+  if ENV['CI']
+    gem 'pg'
+  end
 end
 
 group :production do

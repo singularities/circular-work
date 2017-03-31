@@ -53,7 +53,10 @@ begin
   desc 'Alias for cucumber:ok'
   task :cucumber => 'cucumber:ok'
 
-  task :default => :cucumber
+  # In CI, we run cucumber against the final docker image
+  unless ENV['CI']
+    task :default => :cucumber
+  end
 
   task :features => :cucumber do
     STDERR.puts "*** The 'features' task is deprecated. See rake -T cucumber ***"

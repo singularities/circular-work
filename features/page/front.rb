@@ -13,5 +13,13 @@ module Page
     def visit_task_list
       task_list.click_link
     end
+
+    def create_item
+      find '.action-create'
+    end
+
+    def visit_create_item
+      create_item.click_link
+    end
   end
 end

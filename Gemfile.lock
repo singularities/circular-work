@@ -104,6 +104,8 @@ GEM
       railties (>= 3.2)
     ember-cli-rails-assets (0.6.2)
     erubis (2.7.0)
+    faker (1.7.2)
+      i18n (~> 0.5)
     ffi (1.9.14)
     gherkin (4.0.0)
     globalid (0.3.7)
@@ -238,6 +240,7 @@ DEPENDENCIES
   devise
   devise_token_auth
   ember-cli-rails
+  faker
   listen (~> 3.0.5)
   pg
   pry-byebug

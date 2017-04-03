@@ -2,7 +2,7 @@ export default {
   'frontpage' : {
     'action': {
       'index': 'View your tasks',
-      'new': 'Create new task'
+      'new': 'Create new organization'
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },

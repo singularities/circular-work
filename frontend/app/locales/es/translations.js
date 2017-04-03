@@ -2,7 +2,7 @@ export default {
   'frontpage' : {
     'action': {
       'index': 'Ver tus tareas',
-      'new': 'Crear una tarea'
+      'new': 'Crear nuevo colectivo'
     },
     'description' : 'Distribuye las tareas de tu colectivo'
   },

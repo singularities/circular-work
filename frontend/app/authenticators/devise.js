@@ -5,7 +5,13 @@ const { RSVP: { Promise }, run } = Ember;
 
 export default DeviseAuthenticator.extend({
   resourceName: 'data',
-  
+
+  /*
+   * Overwrite authenticate method
+   *
+   * devise-token-auth sends the credentials (token, client_id, uid) as
+   * headers, while ember-simple-auth expects them inside the json data
+   */
   authenticate(identification, password) {
     return new Promise((resolve, reject) => {
       const useResponse = this.get('rejectWithResponse');
@@ -21,8 +27,9 @@ export default DeviseAuthenticator.extend({
             const resourceName = this.get('resourceName');
 
             // devise_token_auth provides with the token in the headers
-            // Copy access-token from headers to json
+            // Copy access-token and client id from headers to json
             json[resourceName][tokenAttributeName] = response.headers.get('access-token');
+            json[resourceName].client = response.headers.get('client');
 
             if (this._validate(json)) {
               const _json = json[resourceName] ? json[resourceName] : json;

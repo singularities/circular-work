@@ -2,12 +2,22 @@ module Page
   class Organization
     include Capybara::DSL
 
+    attr_accessor :new_organization_name
+
     def create name
       visit '/home'
 
       new_organization.click
 
       self.name = name
+
+      create_btn.click
+    end
+
+    def fill_form_and_submit
+      self.new_organization_name = Faker::Name.name
+
+      self.name = new_organization_name
 
       create_btn.click
     end

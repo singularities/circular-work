@@ -5,9 +5,8 @@ Feature: User sessions
   (register, recover password soon)
 
 Scenario: Login
-  Given A user pepe with email and password
-  And I am in the home page
+  Given I am in the home page
   And I click the login button
-  When I login with the credentials
+  When I login with pepe credentials
   Then I should be at the home page
   And I should be logged in

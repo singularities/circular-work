@@ -6,12 +6,12 @@ module Page
 
     self.path = '/home'
 
-    def login_button
-      find_link 'Login'
+    def new_organization_button
+      find_button 'Create new organization'
     end
 
-    def visit_login
-      login_button.click
+    def visit_new_organization
+      new_organization_button.click
     end
   end
 end

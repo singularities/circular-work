@@ -1,6 +1,7 @@
 module Page
   class Organization
     include Capybara::DSL
+    include Capybara::RSpecMatchers
 
     attr_accessor :new_organization_name
 
@@ -16,6 +17,8 @@ module Page
 
     def fill_form_and_submit
       self.new_organization_name = Faker::Name.name
+
+      page.should have_css(".organization-details-form input", visible: true)
 
       self.name = new_organization_name
 

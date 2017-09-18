@@ -1,26 +1,17 @@
+# Circular Work
+
 [![Build Status](https://travis-ci.org/singularities/circular-work.svg?branch=master)](https://travis-ci.org/singularities/circular-work)
 
-# README
+Your community tasks, distributed
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+Despite communities expect horizontal participation among
+their members, the same behaviour is reproduced: only few people
+do most of the work, and most participants contribute little.
 
-* Ruby version
+Circular Work tries to help to distribute community tasks,
+showing clearly the turns in repetitive tasks, 
+making easy their management, and sending reminders
+when the turn approaches.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

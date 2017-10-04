@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :groups
 
   unless ENV['PRECOMPILE']
-    devise_for :users, controllers: { sessions: 'users/sessions' }
+    mount_devise_token_auth_for 'User', at: 'users', skip: [:omniauth_callbacks]
   end
 end

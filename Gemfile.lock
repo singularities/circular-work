@@ -93,6 +93,9 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (0.1.40)
+      devise (> 3.5.2, <= 4.2)
+      rails (< 6)
     diff-lcs (1.2.5)
     ember-cli-rails (0.8.3)
       cocaine (~> 0.5.8)
@@ -233,6 +236,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  devise_token_auth
   ember-cli-rails
   listen (~> 3.0.5)
   pg

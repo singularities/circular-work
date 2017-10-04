@@ -11,7 +11,7 @@ class Group < ApplicationRecord
   validates_presence_of :name
 
   def emails
-    users.map(&:email)
+    users.pluck(:email)
   end
 
   def emails= list

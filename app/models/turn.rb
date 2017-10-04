@@ -8,11 +8,11 @@ class Turn < ApplicationRecord
   acts_as_list scope: :task
 
   def responsibles
-    groups.map(&:name)
+    groups.pluck(:name)
   end
 
   def emails
-    users.map(&:email)
+    users.pluck(:email)
   end
 
 end

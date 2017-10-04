@@ -1,6 +1,4 @@
 Given(/^I login with (\w+) credentials$/) do |user|
-  @login_page ||= Page::Session::Login.new
-
   fixture = users(user.to_sym)
 
   @email = fixture.email
@@ -9,7 +7,7 @@ Given(/^I login with (\w+) credentials$/) do |user|
   # table "users" has no column named "password". (ActiveRecord::Fixture::FixtureError)
   @password = 'pepepepe'
 
-  @login_page.login_with_credentials @email, @password
+  session_login_page.login_with_credentials @email, @password
 end
 
 Then(/^I should see the login page$/) do

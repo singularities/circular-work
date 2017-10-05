@@ -3,6 +3,10 @@ module Page
     class Login
       include Capybara::DSL
 
+      cattr_accessor :path
+
+      self.path = '/session/login'
+
       def login_with_credentials email, password
         self.email = email
         self.password = password

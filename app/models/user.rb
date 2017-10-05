@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :turns, through: :groups
   has_many :authored_tasks, class_name: 'Task', foreign_key: 'author_id'
   has_many :authored_organizations, class_name: 'Organization', foreign_key: 'author_id'
+  has_many :admins
+  has_many :admin_organizations, through: :admins, source: :organization
 
   before_validation :set_password, on: :create
 

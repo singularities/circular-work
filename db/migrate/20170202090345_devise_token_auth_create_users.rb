@@ -16,8 +16,12 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.0]
       dir.up do
         remove_column :users, :authentication_token
 
+        User.reset_column_information
+
         User.all.each do |user|
-          user.update_attribute :uid, user.email
+          user.uid = user.email
+          user.tokens = nil
+          user.save!
         end
       end
 

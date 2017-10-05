@@ -1,11 +1,9 @@
 Given(/^I am in the home page$/) do
   visit Page::Home.path
-
-  @home_page = Page::Home.new
 end
 
 Given(/^I click in the home page new organization button$/) do
-  @home_page.visit_new_organization
+  home_page.visit_new_organization
 end
 
 

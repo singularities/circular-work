@@ -3,4 +3,5 @@ class OrganizationSerializer < ActiveModel::Serializer
 
   has_many :tasks
   has_many :groups
+  has_many :admin_emails
 end

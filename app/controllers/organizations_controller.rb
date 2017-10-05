@@ -53,7 +53,8 @@ class OrganizationsController < ApplicationController
 
   def organization_valid_attributes
     [
-      :name
+      :name,
+      :"admin-emails"
     ]
   end
 end

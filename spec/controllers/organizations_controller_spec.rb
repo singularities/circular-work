@@ -80,6 +80,10 @@ RSpec.describe OrganizationsController, type: :controller do
     it "responds successfully" do
       expect(response).to be_success
     end
+
+    it "includes author email" do
+      expect(response.body).to include(organizations(:singularities).author.email)
+    end
   end
 
   describe '#update' do

@@ -1,0 +1,37 @@
+{{#bs-modal
+  title=(t "admins.modal.title")
+  open=open
+  closeAction=(action "cancel")
+  body=false
+  footer=false}}
+
+  {{#bs-modal-body}}
+    {{#each organizationErrors as |error|}}
+      <div class="error">
+        {{#bs-alert type="danger"}}
+          {{error.attribute}} {{error.message}}
+        {{/bs-alert}}
+      </div>
+    {{/each}}
+    {{#each requestErrors as |error|}}
+      <div class="error">
+        {{#bs-alert type="danger"}}
+          {{error}}
+        {{/bs-alert}}
+      </div>
+    {{/each}}
+
+    {{#bs-form action=(action "save") model=organization}}
+      {{bs-form-element
+        controlType='textarea'
+        label=(t 'organizations.adminEmails.label')
+        placeholder=(t 'organizations.adminEmails.placeholder')
+        property="adminEmailsString"}}
+    {{/bs-form}}
+  {{/bs-modal-body}}
+
+  {{#bs-modal-footer as |footer|}}
+    {{bs-button type="default" defaultText=(t "admins.modal.cancel") action=(action 'close' target=footer)}}
+    {{bs-button type="primary" defaultText=(t "admins.modal.save") buttonType='submit'}}
+  {{/bs-modal-footer}}
+{{/bs-modal}}

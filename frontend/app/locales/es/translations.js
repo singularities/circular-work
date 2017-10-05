@@ -1,4 +1,17 @@
 export default {
+  'admins': {
+    'list': {
+      'edit': {
+        'button': 'Editar admins'
+      },
+      'message': 'Lxs admins de esta organización pueden dar de alta nuevos grupos, modificar las tareas y los turnos. ¡Contacta con ellxs si tienes alguna cuestión!'
+    },
+    'modal': {
+      'cancel': 'Cancelar',
+      'save': 'Actualizar',
+      'title': 'Editar lxs admins de esta organización'
+    },
+  },
   'frontpage' : {
     'action': {
       'index': 'Ver tus tareas',
@@ -59,6 +72,13 @@ export default {
     'tasks': 'Mis tareas'
   },
   'organizations': {
+    'adminEmails': {
+      'label': 'Introduce los emails, uno por línea o separados por comas',
+      'placeholder': '¡No se puede dejar vacío!'
+    },
+    'admins': {
+      'title': 'Admins'
+    },
     'create': {
       'button': 'Crear nueva organización',
       'modal': {

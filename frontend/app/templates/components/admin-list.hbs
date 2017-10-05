@@ -1,0 +1,16 @@
+{{#bs-alert type="info" dismissible=false}}
+  {{ t 'admins.list.message' }}
+{{/bs-alert}}
+
+{{#each organization.adminEmails as |email|}}
+  <div class="list-group-item">
+    {{email}}
+  </div>
+{{/each}}
+
+<div class="edit-admins">
+  {{bs-button type="primary" action=(action "edit") defaultText=(t 'admins.list.edit.button') class="pull-right"}}
+</div>
+
+{{admin-form-modal organization=organization
+                   open=showFormModal}}

@@ -1,4 +1,17 @@
 export default {
+  'admins': {
+    'list': {
+      'edit': {
+        'button': 'Edit admins'
+      },
+      'message': 'The admins in this organization can register new groups, modify tasks and turns. Contact with them if you have any request!'
+    },
+    'modal': {
+      'cancel': 'Cancel',
+      'save': 'Update',
+      'title': 'Edit the admins of this organization'
+    },
+  },
   'frontpage' : {
     'action': {
       'index': 'View your tasks',
@@ -59,6 +72,13 @@ export default {
     'tasks': 'My tasks'
   },
   'organizations': {
+    'adminEmails': {
+      'label': 'Enter admin emails, one per line or separated by commas',
+      'placeholder': 'Can\'t leave empty!'
+    },
+    'admins': {
+      'title': 'Admins'
+    },
     'create': {
       'button': 'Create new organization',
       'modal': {

@@ -1,7 +1,6 @@
 class OrganizationSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :admin_emails
 
   has_many :tasks
   has_many :groups
-  has_many :admin_emails
 end

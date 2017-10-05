@@ -12,10 +12,13 @@
       {{/link-to}}
     {{/if}}
   {{/bs-tab-pane}}
-  {{#bs-tab-pane title=(t 'organizations.groups.title')}}
 
+  {{#bs-tab-pane title=(t 'organizations.groups.title')}}
     {{group-list organization=model groups=model.groups}}
-    
+  {{/bs-tab-pane}}
+
+  {{#bs-tab-pane title=(t 'organizations.admins.title')}}
+    {{admin-list organization=model}}
   {{/bs-tab-pane}}
 {{/bs-tab}}
 

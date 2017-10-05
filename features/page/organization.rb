@@ -25,6 +25,10 @@ module Page
       create_btn.click
     end
 
+    def show_tab tab
+      click_link tab
+    end
+
     def new_organization
       find_button 'Create new organization'
     end

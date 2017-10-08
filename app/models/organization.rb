@@ -3,10 +3,10 @@ class Organization < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  has_many :admins
+  has_many :admins, dependent: :destroy
   has_many :admin_users, through: :admins, source: :user
-  has_many :tasks
-  has_many :groups
+  has_many :tasks, dependent: :destroy
+  has_many :groups, dependent: :destroy
 
   after_create :add_author_as_admin
 

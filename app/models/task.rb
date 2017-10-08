@@ -11,7 +11,7 @@ class Task < ApplicationRecord
   belongs_to :organization
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  has_many :turns, -> { order(position: :asc) }
+  has_many :turns, -> { order(position: :asc) }, dependent: :destroy
   has_many :users, through: :turns
 
   # Create a named_scope for each recurrence: dayly, weekly, etc..

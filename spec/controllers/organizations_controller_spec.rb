@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe OrganizationsController, type: :controller do
 
-  fixtures :organizations, :users
+  fixtures :organizations, :users, :admins
 
   describe '#index' do
     before { get :index }

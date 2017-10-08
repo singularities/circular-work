@@ -1,9 +1,9 @@
 # From https://github.com/cucumber/cucumber/wiki/Fixtures
 
 # Sets up the Rails environment for Cucumber
-#require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
-#require 'cucumber/rails/world'
-Cucumber::Rails::World.use_transactional_fixtures
+require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
+require 'cucumber/rails/world'
+Cucumber::Rails::World.use_transactional_tests
 
 module FixtureAccess
 

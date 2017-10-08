@@ -22,7 +22,7 @@ class Group < ApplicationRecord
 
     # Remove old emails
     (emails - list).each do |oldEmail|
-      users.destroy users.find(email: oldEmail)
+      users.destroy users.find_by(email: oldEmail)
     end
   end
 end

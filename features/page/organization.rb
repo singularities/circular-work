@@ -23,6 +23,8 @@ module Page
       self.name = new_organization_name
 
       create_btn.click
+
+      page.should_not have_css(".organization-details-form input", visible: true)
     end
 
     def show_tab tab

@@ -2,6 +2,7 @@ module Page
   module Session
     class Login
       include Capybara::DSL
+      include Capybara::RSpecMatchers
 
       cattr_accessor :path
 
@@ -12,6 +13,8 @@ module Page
         self.password = password
 
         login_button.click
+
+        page.should_not have_current_path(self.class.path);
       end
 
       def email= value

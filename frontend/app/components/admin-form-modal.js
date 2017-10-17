@@ -20,6 +20,14 @@ export default Ember.Component.extend({
 
         this.set('open', false);
       }).catch((error) => {
+        /* TODO
+         * Better handling of errors
+         * Currently it is dealing with
+         * AdapterError.errors // => ["You need to sign in...."]
+         * but also there are:
+         * ErrorClass.errors // => [{ detail: 'The adapter ... invalid', title: 'AdapterError'}]
+         * but maybe these should be prevented on client
+         */
         this.set('organizationErrors', organization.get('errors'));
         this.set('requestErrors', error.errors);
       });

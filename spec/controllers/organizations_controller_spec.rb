@@ -28,7 +28,7 @@ RSpec.describe OrganizationsController, type: :controller do
 
     context 'when it is not authenticated' do
       it 'returns an unauthenticated response' do
-        expect(response.code).to eq "401"
+        expect(response.status).to eq 401
       end
     end
 
@@ -88,37 +88,80 @@ RSpec.describe OrganizationsController, type: :controller do
 
   describe '#update' do
     let(:organization) { organizations(:singularities) }
-
-    before { login_user }
-    before     { patch :update, params: organization_data.merge(id: organization.id) }
+    let(:new_name) { 'New Singularities' }
 
     let(:organization_data) do
       {
         data: {
           attributes: {
-            name: 'New Singularties'
+            name: new_name
           }
         }
       }
     end
 
-    it "responds successfully" do
-      expect(response).to be_success
+    let(:response) { patch :update, params: organization_data.merge(id: organization.id) }
+
+    context "when logged in as admin" do
+      before { login_user }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "updates the organization" do
+        response
+
+        expect(Organization.find(organization.id).name).to eq(new_name)
+      end
+    end
+
+    context "when logged in as other user" do
+      before { login_user users(:lola)}
+
+      it "responds forbidden" do
+        expect(response.response_code).to be(403)
+      end
+
+      it "does not update the organization" do
+        response
+
+        expect(Organization.find(organization.id).name).not_to eq(new_name)
+      end
     end
   end
 
   describe '#destroy' do
     let(:organization) { organizations(:singularities) }
+    let(:response) { delete :destroy, params: { id: organization.id } }
 
-    before { login_user }
-    before     { delete :destroy, params: { id: organization.id } }
+    context "when logged in as admin" do
+      before { login_user }
 
-    it "responds successfully" do
-      expect(response).to be_success
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it 'destroys the organization' do
+        response
+
+        expect(Organization.find_by(id: organization.id)).to be nil
+      end
     end
 
-    it 'destroys the organization' do
-      expect(Organization.find_by(id: organization.id)).to be nil
+    context "when logged in as other user" do
+
+      before { login_user users(:lola)}
+
+      it "responds forbidden" do
+        expect(response.response_code).to be(403)
+      end
+
+      it 'does not destroy the organization' do
+        response
+
+        expect(Organization.find_by(id: organization.id)).not_to be nil
+      end
     end
   end
 end

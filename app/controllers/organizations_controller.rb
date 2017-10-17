@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :update, :destroy]
   before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :organization_admin!, except: [ :index, :show, :create ]
 
   # GET /organizations
   def index
@@ -44,6 +45,12 @@ class OrganizationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_organization
     @organization = Organization.find(params[:id])
+  end
+
+  def organization_admin!
+    unless @organization.admin_users.include? current_user
+      render status: :forbidden
+    end
   end
 
   # Only allow a trusted parameter "white list" through.

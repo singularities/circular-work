@@ -6,6 +6,8 @@ export default Ember.Component.extend({
 
   actions: {
     cancel () {
+      this.cleanErrors();
+      
       this.get('organization').rollbackAttributes();
     },
 
@@ -14,8 +16,7 @@ export default Ember.Component.extend({
 
       organization.save().then(() => {
 
-        this.set('organizationErrors', null);
-        this.set('requestErrors', null);
+        this.cleanErrors();
 
         this.set('open', false);
       }).catch((error) => {
@@ -23,5 +24,10 @@ export default Ember.Component.extend({
         this.set('requestErrors', error.errors);
       });
     },
+  },
+
+  cleanErrors () {
+    this.set('organizationErrors', null);
+    this.set('requestErrors', null);
   }
 });

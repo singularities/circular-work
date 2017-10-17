@@ -44,4 +44,14 @@ RSpec.describe Organization, type: :model do
       expect(@organization.admin_emails).to include(@new_admin_email)
     end
   end
+
+  describe "when removing all admins" do
+    before do
+      @organization = organizations(:singularities)
+    end
+
+    it "raises an error" do
+      expect { @organization.admin_emails = [] }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
 end

@@ -3,8 +3,12 @@ class Organization < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
-  has_many :admins, dependent: :destroy
-  has_many :admin_users, through: :admins, source: :user
+  has_many :admins,
+           dependent: :destroy
+  has_many :admin_users,
+           through: :admins,
+           source: :user,
+           before_remove: :check_not_empty_admins
   has_many :tasks, dependent: :destroy
   has_many :groups, dependent: :destroy
 
@@ -30,5 +34,12 @@ class Organization < ApplicationRecord
 
   def add_author_as_admin
     self.admin_users << author
+  end
+
+  def check_not_empty_admins user
+    if admin_users.count == 1 && admin_users.include?(user)
+      errors.add(:admin_users, "can't be blank")
+      raise ActiveRecord::RecordInvalid, self
+    end
   end
 end

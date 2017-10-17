@@ -9,9 +9,9 @@ RSpec.describe TasksController, type: :controller do
       before { get :index }
 
       it 'returns an unauthenticated response' do
-        pending "Allowing access to task until we implement task admins"
+        pending "Allowing access to task until we implement index authorization"
 
-        expect(response.code).to eq "401"
+        expect(response.status).to eq 401
         expect(response.location).to eq "http://test.host/users/sign_in"
       end
     end
@@ -23,6 +23,15 @@ RSpec.describe TasksController, type: :controller do
       it "responds successfully" do
         expect(response).to be_success
       end
+    end
+  end
+
+  describe '#show' do
+    let(:task) { tasks(:weekly) }
+    before     { get :show, params: { id: task.id } }
+
+    it "responds successfully" do
+      expect(response).to be_success
     end
   end
 
@@ -47,92 +56,105 @@ RSpec.describe TasksController, type: :controller do
       }
     end
 
-    context 'when it is not authenticated' do
+    context 'when not authenticated' do
       it 'returns an unauthenticated response' do
-        expect(response.code).to eq "401"
+        expect(response.status).to eq 401
       end
     end
 
-    context 'when the data is invalid' do
+    context "when authenticated as admin" do
       before { login_user }
 
-      let(:task_data) do
-        {
-          data: {
-            attributes: {
-              title:      "Super Limpieza",
-              recurrence: nil
-            }
-          }
-        }
-      end
+      context 'when the data is invalid' do
 
-      it "responds unsuccessfully" do
-        expect(response).not_to be_success
-      end
-
-      it 'returns a 422 status' do
-        expect(response.status).to be 422
-      end
-
-      it 'does not create the task' do
-        expect(Task.find_by(title: "Super Limpieza")).to be nil
-      end
-    end
-
-    context 'when the task is valid' do
-      before { login_user }
-
-      context 'with only required parameters' do
-        it "responds successfully" do
-          expect(response).to be_success
-        end
-
-        it 'creates the task' do
-          response
-          expect(Task.find_by(title: "Limpieza")).not_to be nil
-        end
-      end
-    end
-
-    context 'when the data is uses dashes in they keys' do
-      before { login_user }
-
-      let(:task_data) do
-        {
-          data: {
-            attributes: {
-              :title              => "Super-Limpieza",
-              :recurrence         => "2",
-              :"recurrence-match" => "1 5"
-            },
-            relationships: {
-              organization: {
-                data: {
-                  id: organizations(:singularities).id,
-                  type: 'organization'
+        let(:task_data) do
+          {
+            data: {
+              attributes: {
+                title:      "Super Limpieza",
+                recurrence: nil
+              },
+              relationships: {
+                organization: {
+                  data: {
+                    id: organizations(:singularities).id,
+                    type: 'organization'
+                  }
                 }
               }
             }
           }
-        }
+        end
+
+        it "responds unsuccessfully" do
+          expect(response).not_to be_success
+        end
+
+        it 'returns a 422 status' do
+          expect(response.status).to be 422
+        end
+
+        it 'does not create the task' do
+          expect(Task.find_by(title: "Super Limpieza")).to be nil
+        end
       end
 
-      it 'creates the task' do
-        response
+      context 'when the task is valid' do
+        context 'with only required parameters' do
+          it "responds successfully" do
+            expect(response).to be_success
+          end
 
-        expect(Task.find_by(recurrence_match: "1 5").title)
-          .to eql "Super-Limpieza"
+          it 'creates the task' do
+            response
+            expect(Task.find_by(title: "Limpieza")).not_to be nil
+          end
+        end
+      end
+
+      context 'when the data is uses dashes in they keys' do
+
+        let(:task_data) do
+          {
+            data: {
+              attributes: {
+                :title              => "Super-Limpieza",
+                :recurrence         => "2",
+                :"recurrence-match" => "1 5"
+              },
+              relationships: {
+                organization: {
+                  data: {
+                    id: organizations(:singularities).id,
+                    type: 'organization'
+                  }
+                }
+              }
+            }
+          }
+        end
+
+        it 'creates the task' do
+          response
+
+          expect(Task.find_by(recurrence_match: "1 5").title)
+            .to eql "Super-Limpieza"
+        end
       end
     end
-  end
 
-  describe '#show' do
-    let(:task) { tasks(:weekly) }
-    before     { get :show, params: { id: task.id } }
+    context "when authenticated as other user" do
+      before { login_user users(:lola)}
 
-    it "responds successfully" do
-      expect(response).to be_success
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not create the task" do
+        response
+
+        expect(Task.find_by(title: "Limpieza")).to be nil
+      end
     end
   end
 
@@ -151,15 +173,25 @@ RSpec.describe TasksController, type: :controller do
       }
     end
 
-    context "when authenticated" do
+    let(:response) { patch :update, params: task_data.merge(id: task.id) }
+
+    context "when not authenticated" do
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
+      end
+
+      it 'does not update the task' do
+        response
+
+        expect(task.reload.title).not_to eql("Limpieza actualizada")
+      end
+    end
+
+    context "when authenticated as admin" do
 
       before { login_user }
 
-      let(:response) { patch :update, params: task_data.merge(id: task.id) }
-
       it "responds successfully" do
-        response
-
         expect(response).to be_success
       end
 
@@ -169,6 +201,21 @@ RSpec.describe TasksController, type: :controller do
         expect(task.reload.title).to eql("Limpieza actualizada")
       end
     end
+
+    context "when authenticated as other user" do
+
+      before { login_user users(:lola)}
+
+      it "responds forbidden" do
+        expect(response.response_code).to be 403
+      end
+
+      it 'does not update the task' do
+        response
+
+        expect(task.reload.title).not_to eql("Limpieza actualizada")
+      end
+    end
   end
 
   describe '#destroy' do
@@ -176,10 +223,20 @@ RSpec.describe TasksController, type: :controller do
 
     let(:response) { delete :destroy, params: { id: task.id } }
 
+    context "when not authenticated" do
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
+      end
+
+      it 'does not destroy the task' do
+        response
+
+        expect(Task.find_by(id: task.id)).not_to be nil
+      end
+    end
+
     context "when authenticated" do
-
       before { login_user }
-
 
       it "responds successfully" do
         response
@@ -191,6 +248,21 @@ RSpec.describe TasksController, type: :controller do
         response
 
         expect(Task.find_by(id: task.id)).to be nil
+      end
+    end
+
+    context "when authenticated as other user" do
+
+      before { login_user users(:lola)}
+
+      it "responds forbidden" do
+        expect(response.response_code).to be 403
+      end
+
+      it 'does not destroy the task' do
+        response
+
+        expect(Task.find_by(id: task.id)).not_to be nil
       end
     end
   end

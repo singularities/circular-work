@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :update, :destroy]
   before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :set_task, except: [ :index ]
+  before_action :organization_admin!, except: [ :index, :show ]
 
   # GET /tasks
   def index
@@ -19,8 +20,6 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = current_user.authored_tasks.build(task_params)
-
     if @task.save
       render json: @task, status: :created, location: @task
     else
@@ -45,7 +44,15 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = action_name == 'create' ?
+      current_user.authored_tasks.build(task_params) :
+      Task.find(params[:id])
+  end
+
+  def organization_admin!
+    unless @task.admin_users.include? current_user
+      render status: :forbidden
+    end
   end
 
   def task_params

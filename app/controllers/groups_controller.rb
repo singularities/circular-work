@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :set_group, except: [ :index ]
+  before_action :organization_admin!, except: [ :index, :show ]
 
   # GET /groups
   def index
@@ -15,8 +17,6 @@ class GroupsController < ApplicationController
 
   # POST /groups
   def create
-    @group = Group.new(group_params)
-
     if @group.save
       render json: @group, status: :created, location: @group
     else
@@ -42,7 +42,15 @@ class GroupsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_group
-    @group = Group.find(params[:id])
+    @group = action_name == 'create' ?
+      Group.new(group_params) :
+      Group.find(params[:id])
+  end
+
+  def organization_admin!
+    unless @group.admin_users.include? current_user
+      render status: :forbidden
+    end
   end
 
   # Only allow a trusted parameter "white list" through.

@@ -1,5 +1,6 @@
 class Group < ApplicationRecord
   belongs_to :organization
+  has_many :admin_users, through: :organization
 
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships

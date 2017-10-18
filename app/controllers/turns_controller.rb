@@ -1,5 +1,7 @@
 class TurnsController < ApplicationController
-  before_action :set_turn, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :set_turn, except: [ :index ]
+  before_action :organization_admin!, except: [ :index, :show ]
 
   # GET /turns
   def index
@@ -15,8 +17,6 @@ class TurnsController < ApplicationController
 
   # POST /turns
   def create
-    @turn = Turn.new(turn_params)
-
     if @turn.save
       render json: @turn, status: :created, location: @turn
     else
@@ -42,7 +42,15 @@ class TurnsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_turn
-    @turn = Turn.find(params[:id])
+    @turn = action_name == 'create' ?
+      Turn.new(turn_params) :
+      Turn.find(params[:id])
+  end
+
+  def organization_admin!
+    unless @turn.admin_users.include? current_user
+      render status: :forbidden
+    end
   end
 
   # Only allow a trusted parameter "white list" through.
@@ -51,7 +59,7 @@ class TurnsController < ApplicationController
   end
 
   def turn_valid_attributes
-    [ 
+    [
       :task, :position, :groups
     ]
   end

@@ -9,7 +9,9 @@
 {{/each}}
 
 <div class="edit-admins">
-  {{bs-button type="primary" action=(action "edit") defaultText=(t 'admins.list.edit.button') class="pull-right"}}
+  {{#if canEditAdmins}}
+    {{bs-button type="primary" action=(action "edit") defaultText=(t 'admins.list.edit.button') class="pull-right"}}
+  {{/if}}
 </div>
 
 {{admin-form-modal organization=organization

@@ -2,7 +2,9 @@
   <h3>
     {{ turn.responsibles }}
 
-    {{bs-button type="default" action="edit" defaultText=(t 'tasks.turns.row.edit.button') class="pull-right"}}
+    {{#if canEditTurn}}
+      {{bs-button type="default" action="edit" defaultText=(t 'tasks.turns.row.edit.button') class="pull-right"}}
+    {{/if}}
   </h3>
 
   <div class="week-in-words">

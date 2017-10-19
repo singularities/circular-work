@@ -9,6 +9,10 @@ export default Ember.Component.extend({
     return this.get('task.excludedGroupsJoin') && this.get('task.sortedTurns.length');
   }),
 
+  canCreateTurn: Ember.computed('task.organization.isAdmin', function() {
+    return this.get('task.organization.isAdmin');
+  }),
+
   actions: {
     addTurn () {
       let turn =

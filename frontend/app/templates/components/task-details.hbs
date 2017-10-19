@@ -9,9 +9,11 @@
     </span>
 
     {{#if showing}}
-      {{#bs-button type="default" action=onEdit class="pull-right"}}
-        {{ t 'tasks.notifications.edit.button' }}
-      {{/bs-button}}
+      {{#if canEditTask}}
+        {{#bs-button type="default" action=onEdit class="pull-right"}}
+          {{ t 'tasks.notifications.edit.button' }}
+        {{/bs-button}}
+      {{/if}}
     {{/if }}
 
     <div class="clearfix"></div>

@@ -5,6 +5,10 @@ export default Ember.Component.extend({
 
   showFormModal: false,
 
+  canEditAdmins: Ember.computed('organization.isAdmin', function() {
+    return this.get('organization.isAdmin');
+  }),
+
   actions: {
     edit () {
       this.set('showFormModal', true);

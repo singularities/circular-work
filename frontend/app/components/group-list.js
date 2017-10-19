@@ -7,6 +7,12 @@ export default Ember.Component.extend({
   i18n: Ember.inject.service(),
 
   showGroupModal: false,
+  canCreateGroup: Ember.computed('organization.isAdmin', function() {
+    return this.get('organization.isAdmin');
+  }),
+  canEditGroup: Ember.computed('organization.isAdmin', function() {
+    return this.get('organization.isAdmin');
+  }),
 
   actions: {
     newGroup () {

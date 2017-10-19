@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['task-list', 'list-group'],
 
+  canCreateTask: Ember.computed('organization.isAdmin', function () {
+    return this.get('organization.isAdmin');
+  }),
+
   tasksWatchingNextOcurrenceAt: Ember.computed('tasks.@each.nextOcurrenceAt', function () {
     return this.get('tasks');
   }),

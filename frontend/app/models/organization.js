@@ -9,6 +9,8 @@ const Organization = DS.Model.extend({
   tasks: DS.hasMany('task'),
   groups: DS.hasMany('groups'),
 
+  session: Ember.inject.service('session'),
+
   // Computed properties
   tasksWithTurns: Ember.computed.filterBy('tasks', 'hasTurns'),
 
@@ -33,6 +35,12 @@ const Organization = DS.Model.extend({
 
       return string;
     }
+  }),
+
+  isAdmin: Ember.computed('session.isAuthenticated', 'adminEmails', function() {
+    return this.get('session.isAuthenticated') &&
+      this.get('adminEmails') &&
+      this.get('adminEmails').indexOf(this.get('session.data.authenticated.email')) > -1;
   }),
 });
 

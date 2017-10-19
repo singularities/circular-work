@@ -22,7 +22,9 @@
     {{ t 'tasks.notifications.empty.message' }}
   {{/bs-alert}}
 
-  {{#bs-button type="primary" action=onEdit}}
-    {{ t 'tasks.notifications.empty.button' }}
-  {{/bs-button}}
+  {{#if canEditNotifications}}
+    {{#bs-button type="primary" action=onEdit}}
+      {{ t 'tasks.notifications.empty.button' }}
+    {{/bs-button}}
+  {{/if}}
 {{/unless}}

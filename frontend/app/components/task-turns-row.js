@@ -10,6 +10,10 @@ export default Ember.Component.extend({
   showRemoveTurnModal: false,
   showGroupModal: false,
 
+  canEditTurn: Ember.computed('turn.organization.isAdmin', function() {
+    return this.get('turn.organization.isAdmin');
+  }),
+
   selectedGroups: Ember.computed('turn.groups.@each', {
     get() {
       return this.get('turn.groups');

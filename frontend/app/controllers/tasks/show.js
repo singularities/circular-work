@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+  canEditNotifications: Ember.computed('model.organization.isAdmin', function() {
+    return this.get('model.organization.isAdmin');
+  }),
+
   actions: {
     cancelEdit (form) {
 

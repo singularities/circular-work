@@ -27,4 +27,6 @@
   {{/bs-alert}}
 {{/unless}}
 
-{{bs-button type="primary" action="addTurn" defaultText=(t 'tasks.turns.add.button')}}
+{{#if canCreateTurn}}
+  {{bs-button type="primary" action="addTurn" defaultText=(t 'tasks.turns.add.button')}}
+{{/if}}

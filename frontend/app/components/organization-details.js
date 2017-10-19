@@ -5,6 +5,10 @@ export default Ember.Component.extend({
 
   showing: Ember.computed.not('editing'),
 
+  canEdit: Ember.computed('organization.isAdmin', function() {
+    return this.get('organization.isAdmin');
+  }),
+
   actions: {
     showEdit () {
       this.set('editing', true);

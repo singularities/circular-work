@@ -25,9 +25,11 @@
       title=(t 'tasks.notifications.tip')
       triggerElement=".task-notification-tip"}}
     {{else}}
-      {{#bs-button type="default" action=(action 'startEdit' 'editingNotifications') class="pull-right"}}
-        {{ t 'tasks.notifications.edit.button' }}
-      {{/bs-button}}
+      {{#if canEditNotifications}}
+        {{#bs-button type="default" action=(action 'startEdit' 'editingNotifications') class="pull-right"}}
+          {{ t 'tasks.notifications.edit.button' }}
+        {{/bs-button}}
+      {{/if}}
     {{/if}}
     <div class="clearfix"></div>
   </h2>

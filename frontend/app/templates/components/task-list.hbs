@@ -19,9 +19,11 @@
         {{ t 'tasks.index.empty.message'}}
       {{/bs-alert}}
 
-      {{#link-to 'tasks.new' (query-params organization_id=organization.id) class="btn btn-primary pull-right"}}
-        {{ t 'tasks.index.empty.button'}}
-      {{/link-to}}
+      {{#if canCreateTask}}
+        {{#link-to 'tasks.new' (query-params organization_id=organization.id) class="btn btn-primary pull-right"}}
+          {{ t 'tasks.index.empty.button'}}
+        {{/link-to}}
+      {{/if}}
       <div class="clearfix"></div>
     </div>
   {{/each}}

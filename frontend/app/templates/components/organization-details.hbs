@@ -2,9 +2,11 @@
   <h1>
     {{organization.name}}
 
-    {{#bs-button type="default" action=(action "showEdit") class="pull-right"}}
-      {{ t 'tasks.notifications.edit.button' }}
-    {{/bs-button}}
+    {{#if canEdit}}
+      {{#bs-button type="default" action=(action "showEdit") class="pull-right"}}
+        {{ t 'tasks.notifications.edit.button' }}
+      {{/bs-button}}
+    {{/if}}
 
     <div class="clearfix"></div>
   </h1>

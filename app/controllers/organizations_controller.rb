@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :update, :destroy]
   before_action :authenticate_user!, except: [ :show ]
+  before_action :set_organization, only: [:show, :update, :destroy]
   before_action :user_or_admin_or_token, only: [ :show ]
   before_action :organization_admin!, except: [ :index, :show, :create ]
 

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, except: [ :show ]
   before_action :set_group
+  before_action :user_or_admin_or_token, only: [ :show ]
   before_action :organization_admin!, except: [ :show ]
 
   # GET /groups/1
@@ -38,6 +39,14 @@ class GroupsController < ApplicationController
     @group = action_name == 'create' ?
       Group.new(group_params) :
       Group.find(params[:id])
+  end
+
+  # Only render the group when the authenticated user belongs to
+  # the organization, or it is using the organization token
+  def user_or_admin_or_token
+    unless @group.organization.shows_to?(user: current_user, token: params[:token])
+      render status: 403
+    end
   end
 
   def organization_admin!

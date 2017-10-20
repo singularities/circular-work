@@ -5,10 +5,87 @@ RSpec.describe GroupsController, type: :controller do
 
   describe '#show' do
     let(:group) { groups(:pepe_lola) }
-    before      { get :show, params: { id: group.id } }
+    let(:params) { { id: group.id }}
+    let(:response) { get :show, params: params }
 
-    it "responds successfully" do
-      expect(response).to be_success
+    before { group.organization.refresh_token }
+
+    context 'when it is not authenticated' do
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+    end
+
+    context "when logged in as admin" do
+      before { login_user }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes group name" do
+        expect(response.body).to include(group.name)
+      end
+    end
+
+    context "when logged in as member" do
+      before { login_user users(:lola) }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes group name" do
+        expect(response.body).to include(group.name)
+      end
+    end
+
+    context "when logged in as external user" do
+      before { login_user users(:maria) }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include group name" do
+        expect(response.body).not_to include(group.name)
+      end
+    end
+
+    context "when requesting with organization token" do
+
+      let(:params) {
+        {
+          id: group.id,
+          token: group.organization.token
+        }
+      }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes group name" do
+        expect(response.body).to include(group.name)
+      end
+    end
+
+    context "when requesting with a different token" do
+
+      let(:params) {
+        {
+          id: group.id,
+          token: SecureRandom.hex
+        }
+      }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include group name" do
+        expect(response.body).not_to include(group.name)
+      end
     end
   end
 

@@ -67,9 +67,9 @@ export default {
     'title': 'My tasks'
   },
   'navbar': {
+    'home': 'Dashboard',
     'login': 'Login',
-    'logout': 'Logout',
-    'tasks': 'My tasks'
+    'logout': 'Logout'
   },
   'organizations': {
     'adminEmails': {

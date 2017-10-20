@@ -67,9 +67,9 @@ export default {
     'title': 'My tasks'
   },
   'navbar': {
+    'home': 'Inicio',
     'login': 'Entrar',
-    'logout': 'Salir',
-    'tasks': 'Mis tareas'
+    'logout': 'Salir'
   },
   'organizations': {
     'adminEmails': {

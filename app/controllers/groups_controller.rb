@@ -1,14 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
-  before_action :set_group, except: [ :index ]
-  before_action :organization_admin!, except: [ :index, :show ]
-
-  # GET /groups
-  def index
-    @groups = Group.all
-
-    render json: @groups
-  end
+  before_action :authenticate_user!, except: [ :show ]
+  before_action :set_group
+  before_action :organization_admin!, except: [ :show ]
 
   # GET /groups/1
   def show

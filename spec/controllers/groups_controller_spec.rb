@@ -3,14 +3,6 @@ require 'rails_helper'
 RSpec.describe GroupsController, type: :controller do
   fixtures :all
 
-  describe '#index' do
-    before { get :index }
-
-    it "responds successfully" do
-      expect(response).to be_success
-    end
-  end
-
   describe '#show' do
     let(:group) { groups(:pepe_lola) }
     before      { get :show, params: { id: group.id } }

@@ -44,6 +44,13 @@ class Organization < ApplicationRecord
     end
   end
 
+  # Let authenticate with two different methods
+  # user or token
+  def shows_to? user: nil, token: nil
+    authenticates_user?(user) ||
+      authenticates_token?(token)
+  end
+
   def refresh_token
     update_column :token, Devise.friendly_token
   end
@@ -60,4 +67,15 @@ class Organization < ApplicationRecord
       raise ActiveRecord::RecordInvalid, self
     end
   end
+
+  def authenticates_user? user
+    user &&
+      (admin_users | users).include?(user)
+  end
+
+  def authenticates_token? token
+    token &&
+      self.token == token
+  end
+
 end

@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :update, :destroy]
   before_action :authenticate_user!, except: [ :show ]
+  before_action :user_or_admin_or_token, only: [ :show ]
   before_action :organization_admin!, except: [ :index, :show, :create ]
 
   # GET /organizations
@@ -45,6 +46,14 @@ class OrganizationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_organization
     @organization = Organization.find(params[:id])
+  end
+
+  # Only render the organization when the authenticated user belongs to
+  # the organization, or it is using the organization token
+  def user_or_admin_or_token
+    unless @organization.shows_to?(user: current_user, token: params[:token])
+      render status: 403
+    end
   end
 
   def organization_admin!

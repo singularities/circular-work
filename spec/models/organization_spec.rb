@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
 
-  fixtures :users, :organizations, :admins
+  fixtures :users, :organizations, :admins, :groups
 
   describe "after creating" do
     let(:organization_params) {
@@ -56,6 +56,46 @@ RSpec.describe Organization, type: :model do
 
     it "raises an error" do
       expect { @organization.admin_emails = [] }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+
+  describe "#shows_to?" do
+    before do
+      @organization = organizations(:singularities)
+      # after_create callback is not triggered for fixtures
+      @organization.refresh_token
+    end
+
+    it "allows admin" do
+      expect(@organization.shows_to?(user: users(:pepe))).to be true
+    end
+
+    it "allows user" do
+      expect(@organization.shows_to?(user: users(:lola))).to be true
+    end
+
+    it "does not allow other user" do
+      expect(@organization.shows_to?(user: users(:maria))).to be_falsy
+    end
+
+    it "allows right token" do
+      expect(@organization.shows_to?(token: @organization.token)).to be true
+    end
+
+    it "does not allow wrong token" do
+      expect(@organization.shows_to?(token: SecureRandom.hex)).to be_falsy
+    end
+
+    it "allows admin and wrong token" do
+      expect(@organization.shows_to?(user: users(:pepe), token: SecureRandom.hex)).to be true
+    end
+
+    it "allows other user and right token" do
+      expect(@organization.shows_to?(user: users(:maria), token: @organization.token)).to be true
+    end
+
+    it "does not allow other user and wrong token" do
+      expect(@organization.shows_to?(user: users(:maria), token: SecureRandom.hex)).to be_falsy
     end
   end
 end

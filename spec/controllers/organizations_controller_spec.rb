@@ -52,6 +52,102 @@ RSpec.describe OrganizationsController, type: :controller do
     end
   end
 
+  describe '#show' do
+    let(:organization) {
+      o = organizations(:singularities)
+      # Fixtures does not call after_create callbacks
+      o.refresh_token
+      o
+    }
+
+    let(:params) { { id: organization.id } }
+
+    let(:response) { get :show, params: params }
+
+    context 'when it is not authenticated' do
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+    end
+
+    context "when logged in as admin" do
+      before { login_user }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes organization's name" do
+        expect(response.body).to include(organization.name)
+      end
+
+      it "includes author email" do
+        expect(response.body).to include(organizations(:singularities).author.email)
+      end
+    end
+
+    context "when logged in as member" do
+      before { login_user users(:lola) }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes organization's name" do
+        expect(response.body).to include(organization.name)
+      end
+    end
+
+    context "when logged in as external user" do
+      before { login_user users(:maria) }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include organization's name" do
+        expect(response.body).not_to include(organization.name)
+      end
+    end
+
+    context "when requesting with organization token" do
+
+      let(:params) {
+        {
+          id: organization.id,
+          token: organization.token
+        }
+      }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes organization's name" do
+        expect(response.body).to include(organization.name)
+      end
+    end
+
+    context "when requesting with a different token" do
+
+      let(:params) {
+        {
+          id: organization.id,
+          token: '123456'
+        }
+      }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include organization's name" do
+        expect(response.body).not_to include(organization.name)
+      end
+    end
+  end
+
   describe '#create' do
 
     let(:response) { post :create, params: organization_data }
@@ -112,20 +208,6 @@ RSpec.describe OrganizationsController, type: :controller do
     end
   end
 
-  describe '#show' do
-    let(:organization) { organizations(:singularities) }
-
-    before     { get :show, params: { id: organization.id } }
-
-    it "responds successfully" do
-      expect(response).to be_success
-    end
-
-    it "includes author email" do
-      expect(response.body).to include(organizations(:singularities).author.email)
-    end
-  end
-
   describe '#update' do
     let(:organization) { organizations(:singularities) }
     let(:new_name) { 'New Singularities' }
@@ -160,7 +242,7 @@ RSpec.describe OrganizationsController, type: :controller do
       before { login_user users(:lola)}
 
       it "responds forbidden" do
-        expect(response.response_code).to be(403)
+        expect(response.status).to be 403
       end
 
       it "does not update the organization" do
@@ -194,7 +276,7 @@ RSpec.describe OrganizationsController, type: :controller do
       before { login_user users(:lola)}
 
       it "responds forbidden" do
-        expect(response.response_code).to be(403)
+        expect(response.status).to be 403
       end
 
       it 'does not destroy the organization' do

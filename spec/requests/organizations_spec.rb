@@ -6,6 +6,8 @@ RSpec.describe "Organizations", type: :request do
     let(:path) { organizations_path }
     let(:data) { {} }
 
-    it_behaves_like 'is a valid request'
+    with_valid_user_and_token do
+      it_behaves_like 'is a valid request'
+    end
   end
 end

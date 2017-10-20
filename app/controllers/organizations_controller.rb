@@ -6,7 +6,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations
   def index
-    @organizations = Organization.for(current_user)
+    @organizations = Organization.for(current_user).includes(:tasks, :groups, :admin_users)
 
     render json: @organizations
   end

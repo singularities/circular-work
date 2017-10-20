@@ -11,9 +11,22 @@ class Organization < ApplicationRecord
            before_remove: :check_not_empty_admins
   has_many :tasks, dependent: :destroy
   has_many :groups, dependent: :destroy
+  has_many :users, through: :groups
 
   after_create :add_author_as_admin,
                :refresh_token
+
+  scope :with_admin, ->(user) {
+    joins(:admin_users).where(users: { id: user.id })
+  }
+
+  scope :with_member, ->(user) {
+    joins(:users).where(users: { id: user.id })
+  }
+
+  scope :for, ->(user) {
+    where(id: with_admin(user).pluck(:id) | with_member(user).pluck(:id))
+  }
 
   def admin_emails
     admin_users.pluck(:email)

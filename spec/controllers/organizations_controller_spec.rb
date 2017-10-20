@@ -2,13 +2,53 @@ require 'rails_helper'
 
 RSpec.describe OrganizationsController, type: :controller do
 
-  fixtures :organizations, :users, :admins
+  fixtures :organizations, :users, :admins, :groups
 
   describe '#index' do
-    before { get :index }
+    let(:response) { get :index }
 
-    it "responds successfully" do
-      expect(response).to be_success
+    let(:organization) { organizations(:singularities)}
+
+    context 'when it is not authenticated' do
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
+      end
+    end
+
+    context "when logged in as admin" do
+      before { login_user }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes admin's organization" do
+        expect(response.body).to include(organization.name)
+      end
+    end
+
+    context "when logged in as member" do
+      before { login_user users(:lola) }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes users's organization" do
+        expect(response.body).to include(organization.name)
+      end
+    end
+
+    context "when logged in as external user" do
+      before { login_user users(:maria) }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "does not include users's organization" do
+        expect(response.body).not_to include(organization.name)
+      end
     end
   end
 

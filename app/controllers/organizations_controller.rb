@@ -1,11 +1,11 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :authenticate_user!, except: [ :show ]
   before_action :organization_admin!, except: [ :index, :show, :create ]
 
   # GET /organizations
   def index
-    @organizations = Organization.all
+    @organizations = Organization.for(current_user)
 
     render json: @organizations
   end

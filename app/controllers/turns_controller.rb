@@ -1,14 +1,7 @@
 class TurnsController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
-  before_action :set_turn, except: [ :index ]
-  before_action :organization_admin!, except: [ :index, :show ]
-
-  # GET /turns
-  def index
-    @turns = Turn.all
-
-    render json: @turns
-  end
+  before_action :authenticate_user!, except: [ :show ]
+  before_action :set_turn
+  before_action :organization_admin!, except: [ :show ]
 
   # GET /turns/1
   def show

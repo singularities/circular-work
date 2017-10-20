@@ -3,14 +3,6 @@ require 'rails_helper'
 RSpec.describe TurnsController, type: :controller do
   fixtures :all
 
-  describe '#index' do
-    before { get :index }
-
-    it "responds successfully" do
-      expect(response).to be_success
-    end
-  end
-
   describe '#show' do
     let(:turn) { turns(:weekly_1) }
     before     { get :show, params: { id: turn.id } }

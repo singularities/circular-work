@@ -4,34 +4,114 @@ RSpec.describe TasksController, type: :controller do
   fixtures :all
 
   describe '#index' do
+    let(:response) { get :index }
+
     context "when it is not authenticated" do
-
-      before { get :index }
-
       it 'returns an unauthenticated response' do
-        pending "Allowing access to task until we implement index authorization"
-
         expect(response.status).to eq 401
-        expect(response.location).to eq "http://test.host/users/sign_in"
       end
     end
 
-    context "when authenticated" do
-      before { login_user }
-      before { get :index }
+    context "when authenticated as user" do
+      before { login_user users(:lola)}
 
       it "responds successfully" do
         expect(response).to be_success
+      end
+
+      it "returns the title task" do
+        expect(response.body).to include(tasks(:weekly).title)
+      end
+
+      it "does not return the monthly task" do
+        expect(response.body).not_to include(tasks(:monthly_with_author_only).title)
       end
     end
   end
 
   describe '#show' do
     let(:task) { tasks(:weekly) }
-    before     { get :show, params: { id: task.id } }
+    let(:params) { { id: task.id } }
+    let(:response) { get :show, params: params }
 
-    it "responds successfully" do
-      expect(response).to be_success
+    before { task.organization.refresh_token }
+
+    context 'when it is not authenticated' do
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+    end
+
+    context "when logged in as admin" do
+      before { login_user }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes task title" do
+        expect(response.body).to include(task.title)
+      end
+    end
+
+    context "when logged in as member" do
+      before { login_user users(:lola) }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes task title" do
+        expect(response.body).to include(task.title)
+      end
+    end
+
+    context "when logged in as external user" do
+      before { login_user users(:maria) }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include task title" do
+        expect(response.body).not_to include(task.title)
+      end
+    end
+
+    context "when requesting with organization token" do
+
+      let(:params) {
+        {
+          id: task.id,
+          token: task.organization.token
+        }
+      }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes task title" do
+        expect(response.body).to include(task.title)
+      end
+    end
+
+    context "when requesting with a different token" do
+
+      let(:params) {
+        {
+          id: task.id,
+          token: SecureRandom.hex
+        }
+      }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include task title" do
+        expect(response.body).not_to include(task.title)
+      end
     end
   end
 

@@ -1,14 +1,12 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :authenticate_user!, except: [ :show ]
   before_action :set_task, except: [ :index ]
+  before_action :user_or_admin_or_token, only: [ :show ]
   before_action :organization_admin!, except: [ :index, :show ]
 
   # GET /tasks
   def index
-    # Temporarily disabling task filtering, before we can asign
-    # external people to tasks
-    # @tasks = Task.for(current_user).includes(:turns)
-    @tasks = Task.all.includes(:turns)
+    @tasks = Task.for(current_user).includes(:turns)
 
     render json: @tasks
   end
@@ -47,6 +45,14 @@ class TasksController < ApplicationController
     @task = action_name == 'create' ?
       current_user.authored_tasks.build(task_params) :
       Task.find(params[:id])
+  end
+
+  # Only render the task when the authenticated user belongs to
+  # the organization, or it is using the organization token
+  def user_or_admin_or_token
+    unless @task.organization.shows_to?(user: current_user, token: params[:token])
+      render status: 403
+    end
   end
 
   def organization_admin!

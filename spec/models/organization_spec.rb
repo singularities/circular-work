@@ -24,6 +24,10 @@ RSpec.describe Organization, type: :model do
       expect(@organization.admin_emails).to include(users(:pepe).email)
     end
 
+    it "generates token" do
+      expect(@organization.token).not_to be nil
+    end
+
   end
 
   describe "assigning a different admin" do

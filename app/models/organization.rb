@@ -12,7 +12,8 @@ class Organization < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :groups, dependent: :destroy
 
-  after_create :add_author_as_admin
+  after_create :add_author_as_admin,
+               :refresh_token
 
   def admin_emails
     admin_users.pluck(:email)
@@ -28,6 +29,10 @@ class Organization < ApplicationRecord
     (admin_emails - list).each do |oldEmail|
       admin_users.destroy admin_users.find_by(email: oldEmail)
     end
+  end
+
+  def refresh_token
+    update_column :token, Devise.friendly_token
   end
 
   private

@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005114239) do
+ActiveRecord::Schema.define(version: 20171020070959) do
 
   create_table "admins", force: :cascade do |t|
-    t.integer  "organization_id"
-    t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer "organization_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_admins_on_organization_id"
     t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "organization_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "organization_id"
     t.index ["organization_id"], name: "index_groups_on_organization_id"
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
+    t.integer "user_id"
+    t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_memberships_on_group_id"
@@ -39,16 +39,17 @@ ActiveRecord::Schema.define(version: 20171005114239) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "author_id"
+    t.integer "author_id"
+    t.string "token"
     t.index ["author_id"], name: "index_organizations_on_author_id"
   end
 
   create_table "responsibilities", force: :cascade do |t|
-    t.integer  "turn_id"
-    t.integer  "group_id"
+    t.integer "turn_id"
+    t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_responsibilities_on_group_id"
@@ -56,46 +57,46 @@ ActiveRecord::Schema.define(version: 20171005114239) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "recurrence",           default: 0
-    t.string   "recurrence_match",     default: ""
-    t.string   "notification_email"
-    t.string   "notification_subject"
-    t.text     "notification_body"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "author_id"
-    t.integer  "organization_id"
+    t.string "title"
+    t.text "description"
+    t.integer "recurrence", default: 0
+    t.string "recurrence_match", default: ""
+    t.string "notification_email"
+    t.string "notification_subject"
+    t.text "notification_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "author_id"
+    t.integer "organization_id"
     t.index ["author_id"], name: "index_tasks_on_author_id"
     t.index ["organization_id"], name: "index_tasks_on_organization_id"
   end
 
   create_table "turns", force: :cascade do |t|
-    t.integer  "task_id"
+    t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "position"
+    t.integer "position"
     t.index ["task_id"], name: "index_turns_on_task_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",      null: false
-    t.string   "encrypted_password",     default: "",      null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,       null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "provider",               default: "email", null: false
-    t.string   "uid",                    default: "",      null: false
-    t.string   "name"
-    t.text     "tokens"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "name"
+    t.text "tokens"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true

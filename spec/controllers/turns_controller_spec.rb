@@ -5,10 +5,88 @@ RSpec.describe TurnsController, type: :controller do
 
   describe '#show' do
     let(:turn) { turns(:weekly_1) }
-    before     { get :show, params: { id: turn.id } }
+    let(:turn_position) { "\"position\":#{ turn.position }"}
+    let(:params) { { id: turn.id } }
+    let(:response) { get :show, params: params }
 
-    it "responds successfully" do
-      expect(response).to be_success
+    before { turn.organization.refresh_token }
+
+    context 'when it is not authenticated' do
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+    end
+
+    context "when logged in as admin" do
+      before { login_user }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes turn position" do
+        expect(response.body).to include(turn_position)
+      end
+    end
+
+    context "when logged in as member" do
+      before { login_user users(:lola) }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes turn position" do
+        expect(response.body).to include(turn_position)
+      end
+    end
+
+    context "when logged in as external user" do
+      before { login_user users(:maria) }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include turn position" do
+        expect(response.body).not_to include(turn_position)
+      end
+    end
+
+    context "when requesting with organization token" do
+
+      let(:params) {
+        {
+          id: turn.id,
+          token: turn.organization.token
+        }
+      }
+
+      it "responds successfully" do
+        expect(response).to be_success
+      end
+
+      it "includes turn position" do
+        expect(response.body).to include(turn_position)
+      end
+    end
+
+    context "when requesting with a different token" do
+
+      let(:params) {
+        {
+          id: turn.id,
+          token: SecureRandom.hex
+        }
+      }
+
+      it "responds forbidden" do
+        expect(response.status).to be 403
+      end
+
+      it "does not include turn position" do
+        expect(response.body).not_to include(turn_position)
+      end
     end
   end
 

@@ -1,6 +1,7 @@
 class TurnsController < ApplicationController
   before_action :authenticate_user!, except: [ :show ]
   before_action :set_turn
+  before_action :user_or_admin_or_token, only: [ :show ]
   before_action :organization_admin!, except: [ :show ]
 
   # GET /turns/1
@@ -38,6 +39,14 @@ class TurnsController < ApplicationController
     @turn = action_name == 'create' ?
       Turn.new(turn_params) :
       Turn.find(params[:id])
+  end
+
+  # Only render the turn when the authenticated user belongs to
+  # the organization, or it is using the organization token
+  def user_or_admin_or_token
+    unless @turn.organization.shows_to?(user: current_user, token: params[:token])
+      render status: 403
+    end
   end
 
   def organization_admin!

@@ -4,8 +4,9 @@ Feature: User sessions
   I want to be able to login
   (register, recover password soon)
 
+@logs_in
 Scenario: Login
-  Given I am in the home page
+  Given I am in the organization page with token
   And I click the login button
   When I login with pepe credentials
   Then I should be at the home page

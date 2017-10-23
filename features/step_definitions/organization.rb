@@ -6,6 +6,13 @@ Given(/^I am in the organization page$/) do
   visit organization_path(organizations(:singularities))
 end
 
+Given(/^I am in the organization page with token$/) do
+  organizations(:singularities).refresh_token
+  token = organizations(:singularities).token
+
+  visit organization_path(organizations(:singularities), token: token)
+end
+
 Given(/^I click in the (.*) tab$/) do |tab|
   organization_page.show_tab(tab)
 end

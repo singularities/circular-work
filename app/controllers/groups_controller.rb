@@ -45,7 +45,7 @@ class GroupsController < ApplicationController
   # the organization, or it is using the organization token
   def user_or_admin_or_token
     unless @group.organization.shows_to?(user: current_user, token: params[:token])
-      render status: 403
+      render status: (user_signed_in? ? :forbidden : :unauthorized)
     end
   end
 

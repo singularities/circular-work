@@ -12,8 +12,8 @@ RSpec.describe TurnsController, type: :controller do
     before { turn.organization.refresh_token }
 
     context 'when it is not authenticated' do
-      it "responds forbidden" do
-        expect(response.status).to be 403
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
       end
     end
 
@@ -80,8 +80,8 @@ RSpec.describe TurnsController, type: :controller do
         }
       }
 
-      it "responds forbidden" do
-        expect(response.status).to be 403
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
       end
 
       it "does not include turn position" do

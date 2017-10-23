@@ -66,8 +66,8 @@ RSpec.describe OrganizationsController, type: :controller do
 
     context 'when it is not authenticated' do
 
-      it "responds forbidden" do
-        expect(response.status).to be 403
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
       end
     end
 
@@ -138,8 +138,8 @@ RSpec.describe OrganizationsController, type: :controller do
         }
       }
 
-      it "responds forbidden" do
-        expect(response.status).to be 403
+      it 'returns an unauthenticated response' do
+        expect(response.status).to eq 401
       end
 
       it "does not include organization's name" do

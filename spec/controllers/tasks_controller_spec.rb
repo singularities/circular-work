@@ -37,8 +37,8 @@ RSpec.describe TasksController, type: :controller do
     before { task.organization.refresh_token }
 
     context 'when it is not authenticated' do
-      it "responds forbidden" do
-        expect(response.status).to be 403
+      it "responds unauthenticated response" do
+        expect(response.status).to be 401
       end
     end
 
@@ -105,8 +105,8 @@ RSpec.describe TasksController, type: :controller do
         }
       }
 
-      it "responds forbidden" do
-        expect(response.status).to be 403
+      it "responds unauthenticated response" do
+        expect(response.status).to be 401
       end
 
       it "does not include task title" do

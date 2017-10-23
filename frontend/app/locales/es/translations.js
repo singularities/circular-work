@@ -15,7 +15,7 @@ export default {
   'frontpage' : {
     'action': {
       'index': 'Ver tus tareas',
-      'new': 'Crear nuevo colectivo'
+      'new': 'Registrar nueva organización'
     },
     'description' : 'Distribuye las tareas de tu colectivo'
   },
@@ -80,11 +80,11 @@ export default {
       'title': 'Admins'
     },
     'create': {
-      'button': 'Crear nueva organización',
+      'button': 'Registrar nueva organización',
       'modal': {
         'cancel': 'Cancelar',
-        'submit': 'Crear',
-        'title': 'Crear nueva organización'
+        'submit': 'Registrar',
+        'title': 'Registrar nueva organización'
       }
     },
     'form': {
@@ -251,7 +251,7 @@ export default {
           'tip': 'Arrastra para reordenar el turno'
         },
         'newGroup': {
-          'create': 'Crear un grupo nuevo'
+          'create': 'Registrar un grupo nuevo'
         },
         'noMatches': 'No hay más grupos',
         'remove': {

@@ -15,7 +15,7 @@ export default {
   'frontpage' : {
     'action': {
       'index': 'View your tasks',
-      'new': 'Create new organization'
+      'new': 'Register new organization'
     },
     'description' : 'Your community tasks,<br/>distributed.'
   },
@@ -80,11 +80,11 @@ export default {
       'title': 'Admins'
     },
     'create': {
-      'button': 'Create new organization',
+      'button': 'Register new organization',
       'modal': {
         'cancel': 'Cancel',
-        'submit': 'Create',
-        'title': 'Create new organization'
+        'submit': 'Register',
+        'title': 'Register new organization'
       }
     },
     'form': {
@@ -251,7 +251,7 @@ export default {
           'tip': 'Drag and drop to sort the turn'
         },
         'newGroup': {
-          'create': 'Create new group'
+          'create': 'Register new group'
         },
         'noMatches': 'No more groups available',
         'remove': {

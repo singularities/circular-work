@@ -32,7 +32,7 @@ module Page
     end
 
     def new_organization
-      find_button 'Create new organization'
+      find_button 'Register new organization'
     end
 
     def name= value
@@ -40,7 +40,7 @@ module Page
     end
 
     def create_btn
-      find_button 'Create'
+      find_button 'Register'
     end
   end
 end

@@ -7,7 +7,7 @@ module Page
     self.path = '/home'
 
     def new_organization_button
-      find_button 'Create new organization'
+      find_button 'Register new organization'
     end
 
     def visit_new_organization

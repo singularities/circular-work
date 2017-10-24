@@ -1,5 +1,5 @@
 @javascript
-Feature: Creating new organization
+Feature: Register new organization
 
 Scenario: Login access required from the frontpage
   Given I am in the front page

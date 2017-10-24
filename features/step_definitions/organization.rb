@@ -24,3 +24,19 @@ end
 Then(/^I should see the new organization$/) do
   expect(page).to have_content(organization_page.new_organization_name)
 end
+
+Then("I should see my organization") do
+  expect(page).to have_content(organizations(:singularities).name)
+end
+
+Then("I see my organization details") do
+  organization_page.view_details
+end
+
+Then("I see the organization edit button") do
+  expect(page).to have_content('Edit')
+end
+
+Then("I don't see the organization edit button") do
+  expect(page).not_to have_content('Edit')
+end

@@ -42,5 +42,11 @@ module Page
     def create_btn
       find_button 'Register'
     end
+
+    def view_details
+      %w{ Tasks Groups Admins }.each do |tab|
+        page.should have_content(tab)
+      end
+    end
   end
 end

@@ -13,5 +13,9 @@ module Page
     def visit_new_organization
       new_organization_button.click
     end
+
+    def visit_view_more
+      click_link 'View more'
+    end
   end
 end

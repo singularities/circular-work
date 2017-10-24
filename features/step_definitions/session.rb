@@ -5,7 +5,7 @@ Given(/^I login with (\w+) credentials$/) do |user|
   # FIXME get password from fixture
   # current error:
   # table "users" has no column named "password". (ActiveRecord::Fixture::FixtureError)
-  @password = 'pepepepe'
+  @password = user * 2
 
   session_login_page.login_with_credentials @email, @password
 end

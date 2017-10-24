@@ -6,6 +6,10 @@ Given(/^I click in the home page new organization button$/) do
   home_page.visit_new_organization
 end
 
+Then("I click the organization link") do
+  home_page.visit_view_more
+end
+
 
 Then(/^I should be at the home page$/) do
   expect(page).to have_current_path(Page::Home.path)

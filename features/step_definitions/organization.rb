@@ -25,8 +25,12 @@ Then(/^I should see the new organization$/) do
   expect(page).to have_content(organization_page.new_organization_name)
 end
 
-Then("I should see my organization") do
-  expect(page).to have_content(organizations(:singularities).name)
+Then(/^I should see "([^"]*)" organization/) do |name|
+  expect(page).to have_content(organizations(name).name)
+end
+
+Then(/^I shouldn't see "([^"]*)" organization/) do |name|
+  expect(page).not_to have_content(organizations(name).name)
 end
 
 Then("I see my organization details") do

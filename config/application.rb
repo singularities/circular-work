@@ -29,5 +29,12 @@ module CircularWorks
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Set default locale to Spanish
+    # Will love to receive contributions to revert it to English:
+    # it needs to support preferred language per organization
+    # to send notifications in that preferred language
+    config.i18n.default_locale = :es
+    config.i18n.available_locales = :es
   end
 end

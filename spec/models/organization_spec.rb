@@ -33,6 +33,7 @@ RSpec.describe Organization, type: :model do
   describe "assigning a different admin" do
     before do
       @organization = organizations(:singularities)
+      @organization.current_admin = @organization.admin_users.first
 
       @old_admin_email = @organization.admin_emails.first
       @new_admin_email = Faker::Internet.email
@@ -52,6 +53,7 @@ RSpec.describe Organization, type: :model do
   describe "when removing all admins" do
     before do
       @organization = organizations(:singularities)
+      @organization.current_admin = @organization.admin_users.first
     end
 
     it "raises an error" do

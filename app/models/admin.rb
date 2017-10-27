@@ -1,8 +1,10 @@
 class Admin < ApplicationRecord
+  attr_accessor :skip_email
+
   belongs_to :organization
   belongs_to :user
 
-  after_create :send_email
+  after_create :send_email, unless: Proc.new { |admin| admin.skip_email }
 
   private
 

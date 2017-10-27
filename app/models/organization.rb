@@ -60,7 +60,8 @@ class Organization < ApplicationRecord
   private
 
   def add_author_as_admin
-    self.admin_users << author
+    admins.create user: author,
+                  skip_email: true
   end
 
   def check_not_empty_admins user

@@ -35,6 +35,6 @@ module CircularWorks
     # it needs to support preferred language per organization
     # to send notifications in that preferred language
     config.i18n.default_locale = :es
-    config.i18n.available_locales = :es
+    config.i18n.available_locales = %i{ en es }
   end
 end

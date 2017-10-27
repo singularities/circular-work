@@ -1,4 +1,6 @@
 class Organization < ApplicationRecord
+  attr_accessor :current_admin
+
   validates_presence_of :name
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'

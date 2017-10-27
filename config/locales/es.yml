@@ -4,3 +4,17 @@ es:
       footer:
         button: Ver tarea
         message: ¿Quieres ver más información sobre la tarea? ¿Tu próximo turno?
+  user_mailer:
+    admin:
+      subject: Eres administrador de las tareas de %{organization}
+      body:
+        cheers: Un saludo.
+        greeting: Hola %{email}
+        invite: '%{inviter} te ha hecho admin de %{organization} en la aplicación Circular Work'
+        invite_html: '%{inviter} te ha hecho admin de %{organization} en la aplicación <a href="https://circular.work">Circular Work</a>'
+        what_to_do: Ahora puedes gestionar las tareas repetitivas de tu organización, añadir y modificar turnos, cambiar el correo de recordatorio, etc..
+        wish: Esperamos que Circular Work ayude a vuestra organización a conseguir una participación más horizontal
+        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización a conseguir una participación más horizontal
+      footer:
+        button: Ver organización
+        message: Gestiona las tareas, añade y modificar turnos, etc..

@@ -1,0 +1,30 @@
+<p>
+  <%= t 'user_mailer.admin.body.greeting', email: @new_admin_email %>
+</p>
+
+<p>
+  <%= t 'user_mailer.admin.body.invite_html',
+        inviter: @current_admin_email,
+        organization: link_to(@organization.name, @organization) %>
+</p>
+
+<p>
+  <%= t 'user_mailer.admin.body.what_to_do' %>
+</p>
+
+<p>
+  <%= t 'user_mailer.admin.body.wish_html' %>
+</p>
+
+<p>
+  <%= t 'user_mailer.admin.body.cheers' %>
+</p>
+
+<% content_for :footer do %>
+  <div class="message">
+    <%= t 'user_mailer.admin.footer.message' %>
+  </div>
+  <%= link_to t('user_mailer.admin.footer.button'),
+              @organization,
+              class: "btn btn-lg btn-accent float-right" %>
+<% end %>

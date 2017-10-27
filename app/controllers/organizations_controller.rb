@@ -29,6 +29,8 @@ class OrganizationsController < ApplicationController
 
   # PATCH/PUT /organizations/1
   def update
+    @organization.current_admin = current_user
+    
     if @organization.update(organization_params)
       render json: @organization
     else

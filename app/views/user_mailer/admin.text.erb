@@ -1,0 +1,16 @@
+<%= t 'user_mailer.admin.body.greeting', email: @new_admin_email %>
+
+<%= t 'user_mailer.admin.body.invite',
+      inviter: @current_admin_email,
+      organization: @organization.name %>
+
+<%= t 'user_mailer.admin.body.what_to_do' %>
+
+<%= t 'user_mailer.admin.body.wish' %>
+
+<%= t 'user_mailer.admin.body.cheers' %>
+
+<% content_for :footer do %>
+<%= t 'user_mailer.admin.footer.message' %>
+<%= t 'user_mailer.admin.footer.button' %> - <%= organization_url @organization %>
+<% end %>

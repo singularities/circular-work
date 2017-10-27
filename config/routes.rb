@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount_ember_app :frontend, to: "/"
+  mount_ember_app :frontend, to: "/", as: 'root'
 
   resources :organizations
   resources :tasks

@@ -42,6 +42,8 @@ Rails.application.configure do
 
   config.action_mailer.default_options = { from: 'no-reply@example.com' }
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   # Debug tests using logging
   config.logger = Logger.new(STDOUT)
   config.log_level = :WARN

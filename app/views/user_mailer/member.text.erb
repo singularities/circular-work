@@ -1,3 +1,15 @@
-User#member
+<%= t 'user_mailer.member.body.greeting', email: @member_email %>
 
-<%= @greeting %>, find me in app/views/user_mailer/member.text.erb
+<%= t 'user_mailer.member.body.added',
+      organization: @organization.name %>
+
+<%= t 'user_mailer.member.body.what_to_do' %>
+
+<%= t 'user_mailer.member.body.wish' %>
+
+<%= t 'user_mailer.member.body.cheers' %>
+
+<% content_for :footer do %>
+<%= t 'user_mailer.member.footer.message' %>
+<%= t 'user_mailer.member.footer.button' %> - <%= organization_url @organization %>
+<% end %>

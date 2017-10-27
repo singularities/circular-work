@@ -22,9 +22,11 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.member.subject
   #
-  def member
-    @greeting = "Hi"
+  def member membership
+    @member_email = membership.user.email
+    @organization = membership.organization
 
-    mail to: "to@example.org"
+    mail to: @member_email,
+         subject: I18n.t('user_mailer.member.subject', organization: @organization.name)
   end
 end

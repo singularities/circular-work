@@ -18,3 +18,16 @@ es:
       footer:
         button: Ver organización
         message: Gestiona las tareas, añade y modificar turnos, etc..
+    member:
+      subject: Te han añadido a las tareas de %{organization}
+      body:
+        cheers: Un saludo.
+        greeting: Hola %{email}
+        added: Un admin de %{organization} en la aplicación Circular Work te ha añadido a la gestión de tareas
+        added_html: Un admin de %{organization} en la aplicación <a href="https://circular.work">Circular Work</a> te ha añadido a la gestión de tareas
+        what_to_do: Allí puedes consultar las tareas repetitivas de tu organización, los próximos turnos, el texto de recordatorio, etc..
+        wish: Esperamos que Circular Work ayude a vuestra organización a conseguir una participación más horizontal
+        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización a conseguir una participación más horizontal
+      footer:
+        button: Ver organización
+        message: Consulta las tareas, próximos turnos, etc..

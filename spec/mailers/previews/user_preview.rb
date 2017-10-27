@@ -11,7 +11,7 @@ class UserPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/user/member
   def member
-    UserMailer.member
+    UserMailer.member Membership.first
   end
 
 end

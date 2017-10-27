@@ -2,12 +2,24 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <%= render partial: 'layouts/style' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+      <div class="container">
+        <%= link_to root_url do %>
+          <%= image_tag '/images/logo_color_flattened.svg', alt: 'Circular Work' %>
+        <% end %>
+
+        <div class="float-right">
+          <%= yield :footer %>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+    </footer>
   </body>
 </html>

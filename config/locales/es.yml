@@ -1,0 +1,6 @@
+es:
+  task:
+    notification:
+      footer:
+        button: Ver tarea
+        message: ¿Quieres ver más información sobre la tarea? ¿Tu próximo turno?

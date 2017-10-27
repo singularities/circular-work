@@ -1,1 +1,10 @@
 <%= simple_format @body %>
+
+<% content_for :footer do %>
+  <div class="message">
+    <%= t 'task.notification.footer.message' %>
+  </div>
+  <%= link_to t('task.notification.footer.button'),
+              task_url(@task, token: @task.organization.token),
+              class: "btn btn-lg btn-accent float-right" %>
+<% end %>

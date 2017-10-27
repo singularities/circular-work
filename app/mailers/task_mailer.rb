@@ -3,6 +3,7 @@ class TaskMailer < ApplicationMailer
     headers 'reply-to' => task.notification_reply_to
 
     @body = task.parsed_notification_body
+    @task = task
 
     mail to: task.notification_to,
          cc: task.notification_cc,

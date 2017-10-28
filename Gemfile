@@ -73,4 +73,3 @@ gem 'clockwork', require: false
 
 # Localization
 gem 'rails-i18n'
-gem 'devise-i18n'

@@ -37,6 +37,9 @@ module Page
 
     def name= value
       fill_in 'Name', with: value
+
+      # Wait for the field to be filled
+      find_field('Name').value.should have_content(value)
     end
 
     def create_btn

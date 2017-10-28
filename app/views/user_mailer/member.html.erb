@@ -21,7 +21,8 @@
 
 <% content_for :footer do %>
   <div class="message">
-    <%= t 'user_mailer.member.footer.message' %>
+    <%= link_to t('user_mailer.member.footer.message'),
+                @organization %>
   </div>
   <%= link_to t('user_mailer.member.footer.button'),
               @organization,

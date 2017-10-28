@@ -5,6 +5,7 @@ services:
     ports:
       - "127.0.0.1:8030:3000"
     environment:
+      CI: 1
       DATABASE_URL: postgres://postgres:dbpass@db:5432?pool=10
       DEFAULT_HOST: example.com
       RAILS_ENV: production

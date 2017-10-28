@@ -39,6 +39,8 @@ after_success:
   - docker tag singularitiesorg/circular-work "singularitiesorg/circular-work:$TRAVIS_COMMIT"
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push "singularitiesorg/circular-work:$TRAVIS_COMMIT"
+after_failure:
+  - docker-compose logs app
 
 notifications:
   webhooks:

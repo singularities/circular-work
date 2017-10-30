@@ -2,6 +2,13 @@
 
 <div class="container">
   <div class="home">
+    {{#if success}}
+      <div class="row">
+        {{#bs-alert type="success"}}
+          {{ success }}
+        {{/bs-alert}}
+      </div>
+    {{/if}}
     <div class="row">
       {{#each model as |organization index| }}
         <div class="col-md-6">

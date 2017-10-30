@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :turns
   resources :groups
 
+  get '/echo', to: 'echo#show'
+
   unless ENV['PRECOMPILE']
     mount_devise_token_auth_for 'User', at: 'users', skip: [:omniauth_callbacks]
   end

@@ -126,7 +126,11 @@ export default {
       'placeholder': 'Your password'
     },
     'password_forgotten': {
-      'button': 'Send me recovery email'
+      'button': 'Send me recovery email',
+      'clear': 'Ok'
+    },
+    'password_recover': {
+      'button': 'Set new password'
     },
     'register': {
       'button': 'Register'

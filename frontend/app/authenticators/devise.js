@@ -11,8 +11,13 @@ export default DeviseAuthenticator.extend({
    *
    * devise-token-auth sends the credentials (token, client_id, uid) as
    * headers, while ember-simple-auth expects them inside the json data
+   *
+   * We are also adding a third parameter, dataFromPasswordRecovery.
+   * It is used after exchanging the recover password token
+   * devise-token-auth logs in the user and returns all the data
+   * (token, client_id, uid), so no password is required
    */
-  authenticate(identification, password) {
+  authenticate(identification, password, dataFromPasswordRecovery) {
     return new Promise((resolve, reject) => {
       const useResponse = this.get('rejectWithResponse');
       const { identificationAttributeName, tokenAttributeName } = this.getProperties('resourceName', 'identificationAttributeName', 'tokenAttributeName');
@@ -20,6 +25,15 @@ export default DeviseAuthenticator.extend({
         email: identification,
         password: password
       };
+
+      // Authenticates from password recovery token exchange
+      if (dataFromPasswordRecovery) {
+        let data = this.setDataFromPasswordRecovery(dataFromPasswordRecovery);
+
+        run(null, resolve, data);
+
+        return;
+      }
 
       this.makeRequest(data).then((response) => {
         if (response.ok) {
@@ -48,4 +62,19 @@ export default DeviseAuthenticator.extend({
       }).catch((error) => run(null, reject, error));
     });
   },
+
+  /*
+   * Sets the appropriate parameters
+   * from the data returned by password recovery token exchange
+   */
+  setDataFromPasswordRecovery(data) {
+    return {
+      client: data.client_id,
+      email: data.uid,
+      provider: 'email',
+      token: data.token,
+      type: 'user',
+      uid: data.uid
+    };
+  }
 });

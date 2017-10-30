@@ -29,6 +29,7 @@ Router.map(function() {
     this.route('login');
     this.route('register');
     this.route('password_forgotten');
+    this.route('password_recover');
   });
 
   this.route('tasks', function() {
@@ -42,6 +43,9 @@ Router.map(function() {
     this.route('new');
     this.route('show', { path: ":organization_id" });
   });
+
+  // Define devise_token_auth recover password route
+  this.route('devise_token_auth_password_recover', { path: '/users/password/edit' });
 });
 
 export default Router;

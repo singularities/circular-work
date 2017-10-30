@@ -2,5 +2,7 @@
 
 <% content_for :footer do %>
 <%= t 'task.notification.footer.message' %>
-<%= t 'task.notification.footer.button' %> - <%= task_url @task, token: @task.organization.token %>
+<%= t 'task.notification.footer.button' %> - <%= task_url @task,
+                                                          token: @task.organization.token,
+                                                          pk_campaign: 'Email-TaskNotification'%>
 <% end %>

@@ -3,9 +3,13 @@
 <% content_for :footer do %>
   <div class="message">
     <%= link_to t('task.notification.footer.message'),
-                task_url(@task, token: @task.organization.token) %>
+                task_url(@task,
+                         token: @task.organization.token,
+                         pk_campaign: 'Email-TaskNotification') %>
   </div>
   <%= link_to t('task.notification.footer.button'),
-              task_url(@task, token: @task.organization.token),
+              task_url(@task,
+                       token: @task.organization.token,
+                       pk_campaign: 'Email-TaskNotification'),
               class: "btn btn-lg btn-accent float-right" %>
 <% end %>

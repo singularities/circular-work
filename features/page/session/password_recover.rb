@@ -8,10 +8,11 @@ module Page
 
       class << self
         def path_for_token token
-          host = Capybara.current_session.server.host
-          port = Capybara.current_session.server.port
+          current_host =
+            Capybara.app_host ||
+            "http://#{ Capybara.current_session.server.host }:#{ Capybara.current_session.server.port }"
 
-          "/users/password/edit?config=default&redirect_url=http%3A%2F%2F#{ host }%3A#{ port }%2Fecho.json&reset_password_token=#{ token }"
+          "/users/password/edit?config=default&#{ URI.encode_www_form redirect_url: current_host }%2Fecho.json&reset_password_token=#{ token }"
         end
       end
 

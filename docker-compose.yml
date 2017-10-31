@@ -10,7 +10,7 @@ services:
       DEFAULT_HOST: example.com
       RAILS_ENV: production
       RAILS_LOG_TO_STDOUT: 1
-      SECRET_KEY_BASE: cf9ee5b6300d945af5b86e0f85edc2f3f730314b3115833beadea5aa7c0851cef06cf8acaf60e452891c686d2de6c5084213603c625f26f4830aabf78cfa8853
+      SECRET_KEY_BASE: c07bb904a05890a16cb532e299c83bd944bb58f6300c0e7f45902bf3fc19a51f954a5a93b0bcf639c307d0fcf5961d2b3e42634295d168aa547a346aa3145d0f
     restart: on-failure
     depends_on:
       - db

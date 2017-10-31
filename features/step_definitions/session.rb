@@ -28,6 +28,13 @@ Given(/I am in the recovery password page for (\w+)/) do |user|
 
   token = fixture.send :set_reset_password_token
 
+  puts '++++++++++ In step'
+  puts token.inspect
+
+  u = User.find_by(email: fixture.email)
+  puts u.inspect
+  puts u.reset_password_token
+
   visit Page::Session::PasswordRecover.path_for_token token
 end
 

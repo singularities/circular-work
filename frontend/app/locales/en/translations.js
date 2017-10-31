@@ -4,7 +4,10 @@ export default {
       'edit': {
         'button': 'Edit admins'
       },
-      'message': 'The admins in this organization can register new groups, modify tasks and turns. Contact with them if you have any request!'
+      'message': {
+        'admins': 'Add new admins that help you with tasks and turns',
+        'users': 'The admins in this organization can register new groups, modify tasks and turns. Contact with them if you have any request!'
+      }
     },
     'modal': {
       'cancel': 'Cancel',

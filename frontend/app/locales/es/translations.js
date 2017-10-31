@@ -4,7 +4,10 @@ export default {
       'edit': {
         'button': 'Editar admins'
       },
-      'message': 'Lxs admins de esta organización pueden dar de alta nuevos grupos, modificar las tareas y los turnos. ¡Contacta con ellxs si tienes alguna cuestión!'
+      'message': {
+        'admins': 'Añade más admis que te ayuden a gestionar las tareas y los turnos',
+        'users': 'Lxs admins de esta organización pueden dar de alta nuevos grupos, modificar las tareas y los turnos. ¡Contacta con ellxs si tienes alguna cuestión!'
+      }
     },
     'modal': {
       'cancel': 'Cancelar',

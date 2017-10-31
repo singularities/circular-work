@@ -13,6 +13,12 @@
       {{ t "groups.tasks.length" count=group.tasks.length }}
     </div>
   </div>
+  {{ else }}
+    <div class="list-group-item">
+      {{#bs-alert type="info" dismissible=false}}
+        {{t 'groups.list.empty.message'}}
+      {{/bs-alert}}
+    </div>
 {{/each}}
 
 <div class="new-group">

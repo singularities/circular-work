@@ -42,6 +42,9 @@ export default {
       'edit': {
         'button': 'Editar'
       },
+      'empty': {
+        'message': 'Esta organización no tiene grupos. Regístra grupos para asignarlos a tareas después',
+      },
       'new': {
         'button': 'Nuevo grupo'
       }
@@ -172,7 +175,7 @@ export default {
     'index': {
       'empty': {
         'button': "Crea una tarea",
-        'message': "Esta organización no tiene ninguna tarea"
+        'message': "Esta organización no tiene ninguna tarea.<br/>Empieza creando una, o registrando grupos de trabajo y asígnalos a tareas más tarde. Lo que te venga mejor"
       },
       'new': {
         'button': 'Nueva tarea'

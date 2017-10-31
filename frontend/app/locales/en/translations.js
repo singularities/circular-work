@@ -42,6 +42,9 @@ export default {
       'edit': {
         'button': 'Edit'
       },
+      'empty': {
+        'message': 'This organization hasn\'t any group. Register them and assign them later to a task'
+      },
       'new': {
         'button': 'New group'
       }
@@ -172,7 +175,7 @@ export default {
     'index': {
       'empty': {
         'button': "Create a task",
-        'message': "This organization hasn't any task"
+        'message': "This organization hasn't any task.<br/>Start creating one or register working groups and assign them to a task later. Whatever it suits you better"
       },
       'new': {
         'button': 'New task'

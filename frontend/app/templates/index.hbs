@@ -1,26 +1,56 @@
 <div class="frontpage">
-
-  <div class="logo">
-    <img src="images/logo_white.svg" />
-  </div>
-
-  <div class="description">
-    {{ t "frontpage.description"}}
-  </div>
-
-  <div class="actions">
-
-    <div class="action-list">
-      {{#link-to 'home' class="btn btn-accent btn-lg"}}
-        {{t "frontpage.action.index"}}
-      {{/link-to}}
+  <section class="header">
+    <div class="logo">
+      <img src="images/logo_white.svg" />
     </div>
 
-    <div class="action-create">
-      {{#link-to 'organizations.new' class="btn btn-accent btn-lg"}}
-        {{t "frontpage.action.new"}}
-      {{/link-to}}
+    <div class="description">
+      {{ t "frontpage.header.description"}}
     </div>
-  </div>
 
+    <div class="actions">
+
+      <div class="action-list">
+        {{#link-to 'home' class="btn btn-accent btn-lg"}}
+          {{t "frontpage.action.index"}}
+        {{/link-to}}
+      </div>
+    </div>
+  </section>
+
+  <section class="participation" id="participation">
+    <div class="opacity">
+      <div class="container">
+        <h2>{{t 'frontpage.participation.title'}}</h2>
+
+        <div class="description">
+          <p>
+            {{t 'frontpage.participation.problem' }}
+          </p>
+
+          <p>
+            {{t 'frontpage.participation.valueProposition' }}
+          </p>
+
+          <p>
+            {{t 'frontpage.participation.usedAt' }}
+          </p>
+        </div>
+
+        <div class="actions">
+          <div class="action-create">
+            {{#link-to 'organizations.new' class="btn btn-accent btn-lg"}}
+              {{t "frontpage.action.new"}}
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="text-muted">
+    {{t 'frontpage.footer.made'}} ·
+    {{t 'frontpage.footer.source'}} ·
+    {{t 'frontpage.footer.host'}} ·
+    {{t 'frontpage.footer.contact'}}
+  </footer>
 </div>

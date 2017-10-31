@@ -15,9 +15,23 @@ export default {
   'frontpage' : {
     'action': {
       'index': 'View your tasks',
-      'new': 'Register new organization'
+      'new': 'Use it in your organization'
     },
-    'description' : 'Your community tasks,<br/>distributed.'
+    'footer': {
+      'contact': '<a href="mailto:info@circular.work">Contact</a>',
+      'host': 'Hosted by <a href="https://www.lapiluka.org/">La Piluka</a>',
+      'made': 'Made with <img src="/images/heart.png" alt="love" /> by <a href="http://singularities.org/">Singularites</a>',
+      'source': '<a href="https://github.com/singularities/circular-work/">Source code at Github</a>'
+    },
+    'header': {
+      'description': 'Your community tasks,<br/>distributed'
+    },
+    'participation': {
+      'problem': 'Despite communities expect horizontal participation among their members, the same behaviour is reproduced: only few people do most of the work, and most participants contribute little.',
+      'title': 'The myth of horizontal participation',
+      'usedAt': 'Circular Work is currently used to distribute tasks in organizations such as <a href="https://www.lapiluka.org/consumo/sas-2/">SaS Piluka</a>, <a href="https://www.lapiluka.org/">La Piluka</a> and <a href="http://www.radioalmenara.net/">Radio Almenara</a>',
+      'valueProposition': 'Circular Work helps organizations to be more participative through recurrent tasks. Within this tool, organzations can setup up turns and send reminder emils to the responsibles each week, automatically rotating turns and ofering a visible place where looking at them at any time.'
+    }
   },
   'groups': {
     'emails': {

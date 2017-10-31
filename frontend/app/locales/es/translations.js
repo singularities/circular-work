@@ -15,9 +15,23 @@ export default {
   'frontpage' : {
     'action': {
       'index': 'Ver tus tareas',
-      'new': 'Registrar nueva organización'
+      'new': 'Úsalo en tu colectivo'
     },
-    'description' : 'Distribuye las tareas de tu colectivo'
+    'footer': {
+      'contact': '<a href="mailto:info@circular.work">Contacto</a>',
+      'host': 'Hospedado en <a href="https://www.lapiluka.org/">La Piluka</a>',
+      'made': 'Hecho con <img src="/images/heart.png" alt="love" /> por <a href="http://singularities.org/">Singularites</a>',
+      'source': '<a href="https://github.com/singularities/circular-work/">Código fuente en Github</a>'
+    },
+    'header': {
+      'description': 'Distribuye las tareas<br/>de tu colectivo'
+    },
+    'participation': {
+      'problem': 'Nuestros colectivos aspiran a ser igualitarios. Sin embargo, la tendencia natural es que unas pocas personas se ocupen de casi todo el trabajo, y la mayoría de las participantes contribuya muy poco.',
+      'title': 'El mito de la participación horizontal',
+      'usedAt': 'Circular Work se usa actualmente para distribuir las tareas en colectivos como <a href="https://www.lapiluka.org/consumo/sas-2/">SaS Piluka</a>, <a href="https://www.lapiluka.org/">La Piluka</a> o <a href="http://www.radioalmenara.net/">Radio Almenara</a>',
+      'valueProposition': 'Circular Work ayuda a los colectivos a ser más participativos a través de las tareas repetitivas. Esta herramienta permite establecer turnos y mandar correos de recordatorio a las personas responsables cada semana, rotando automáticamente los turnos y ofreciendo un sitio visible donde consultarlos en todo momento.'
+    }
   },
   'groups': {
     'emails': {

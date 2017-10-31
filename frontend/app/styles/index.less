@@ -1,50 +1,81 @@
 .frontpage {
-  background-image: url(../images/frontpage-background.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  text-align: center;
-
-  .logo {
-    position: fixed;
-    top: 12.75%;
-    left: 0;
-    right: 0;
-    bottom: 65%;
-
-    img {
-      height: 100%;
-    }
-  }
+  color: @frontpage-color;
 
   .description {
-    position: fixed;
-    top: 35%;
-    left: 0;
-    right: 0;
-    bottom: 50%;
-  }
-
-  .actions {
-    position: fixed;
-    top: 59%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    a {
-      margin: 10px;
-      min-width: 250px;
-    }
-  }
-
-  .description {
-    color: @frontpage-color;
     font-size: 20px;
+    margin-bottom: 30px;
+    @media screen and (min-height: 700px) {
+      margin-bottom: 90px;
+    }
+  }
+  .header {
+    background-image: url(../images/frontpage-background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    .logo {
+      img {
+        max-width: 100%;
+        width: 460px;
+        @media screen and (min-height: 700px) {
+          margin: 60px 0;
+        }
+      }
+    }
+
+    .actions {
+      a {
+        margin: 10px;
+        min-width: 250px;
+      }
+    }
+    @media screen and (min-height: 700px) {
+      padding-bottom: 70px;
+    }
+  }
+  .participation {
+    background-image: url(../images/participation-background.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+    h2 {
+      margin: 50px;
+    }
+
+    .opacity {
+      background-color: rgba(0, 0, 0, 0.3);
+
+      @media screen and (min-height: 700px) {
+        padding-bottom: 70px;
+      }
+    }
+    .description {
+      text-align: left;
+
+      a {
+        color: @frontpage-color;
+        font-weight: bold;
+      }
+    }
+
+    p {
+      margin: 0 0 40px;
+    }
+
+    .actions {
+      a {
+        margin-bottom: 50px;
+      }
+    }
+  }
+  footer {
+    text-align: center;
+    background-color: @frontpage-footer-background-color;
+    padding: 10px 0;
   }
 }

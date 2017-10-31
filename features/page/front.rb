@@ -6,20 +6,15 @@ module Page
 
     self.path = '/'
 
-    def task_list
-      find '.action-list'
-    end
-
     def visit_task_list
-      task_list.click_link
-    end
-
-    def create_item
-      find '.action-create'
+      click_link 'View your tasks'
     end
 
     def visit_create_item
-      create_item.click_link
+      # Scroll to element
+      visit '#participation'
+
+      click_link 'Use it in your organization'
     end
   end
 end

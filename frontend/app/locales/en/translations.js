@@ -133,7 +133,9 @@ export default {
       'button': 'Set new password'
     },
     'register': {
-      'button': 'Register'
+      'how': 'Ask a registered user to invite you or drop an email to <a href="mailto:admin@circular.work">admin@circular.work</a>',
+      'status': 'You need an invitation to use <b>Circular Work</b>, by the moment',
+      'welcome': 'If you want to use <b>Circular Work</b>, you are welcome!'
     }
   },
   'tasks' : {

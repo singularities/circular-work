@@ -1,32 +1,13 @@
 <div class="session-register">
-  <!--
-  {{#if errorMessage}}
-    <p class="alert alert-danger">{{errorMessage}}</p>
-  {{/if}}
-
-  {{#bs-form action="authenticate" submitOnEnter=true}}
-    {{bs-form-element label=(t 'session.email.label')
-                      controlType="email"
-                      placeholder=(t 'session.email.placeholder')
-                      value=identification}}
-    {{bs-form-element label=(t 'session.password.label')
-                      controlType="password"
-                      placeholder=(t 'session.password.placeholder')
-                      value=password}}
-    {{#bs-button type="accent" block="true" action="authenticate"}}
-      {{ t 'session.register.button' }}
-    {{/bs-button}}
-  {{/bs-form}}
--->
   {{#bs-alert type="info" dismissible=false}}
     <p>
-      Circular Work funciona por invitaciones, por el momento.
+      {{t 'session.register.status'}}
     </p>
     <p>
-      Si quieres probar Circular Work.. ¡bienvenidx!
+      {{t 'session.register.welcome'}}
     </p>
     <p>
-      Ponte en contacto en <a href="mailto:info@circular.work">info@circular.work</a>
+      {{t 'session.register.how'}}
     </p>
   {{/bs-alert}}
 </div>

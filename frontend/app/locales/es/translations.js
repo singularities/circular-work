@@ -133,7 +133,9 @@ export default {
       'button': 'Establecer contraseña'
     },
     'register': {
-      'button': 'Registrase'
+      'how': 'Pídele a alguien que lo usa que te invite o ponte en contacto con <a href="mailto:admin@circular.work">admin@circular.work</a>',
+      'status': '<b>Circular Work</b> funciona por invitaciones, por el momento.',
+      'welcome': 'Si quieres probar Circular Work.. ¡bienvenidx!'
     }
   },
   'tasks' : {

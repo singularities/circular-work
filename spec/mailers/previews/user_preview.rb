@@ -14,4 +14,8 @@ class UserPreview < ActionMailer::Preview
     UserMailer.member Membership.first
   end
 
+  # Preview this email at http://localhost:3000/rails/mailers/user/invite
+  def invite
+    UserMailer.invite User.last, User.first
+  end
 end

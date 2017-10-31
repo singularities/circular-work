@@ -29,4 +29,15 @@ class UserMailer < ApplicationMailer
     mail to: @member_email,
          subject: I18n.t('user_mailer.member.subject', organization: @organization.name)
   end
+
+  def invite user, inviter
+    @user, @inviter = user, inviter
+
+    unless @user.reset_password_token
+      @token = @user.send :set_reset_password_token
+    end
+
+    mail to: @user.email,
+         subject: I18n.t('user_mailer.invite.subject')
+  end
 end

@@ -37,6 +37,8 @@ Router.map(function() {
     this.route('show', { path: ":organization_id" });
   });
 
+  this.route('share');
+
   this.route('session', function() {
     this.route('login');
     this.route('register');

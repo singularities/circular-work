@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :turns
   resources :groups
 
+  post 'invitations', to: 'invitations#create'
+
   get '/echo', to: 'echo#show'
 
   unless ENV['PRECOMPILE']

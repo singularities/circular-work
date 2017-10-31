@@ -1,0 +1,18 @@
+<%= t 'user_mailer.invite.body.greeting', email: @user.email %>
+
+<%= t 'user_mailer.invite.body.invite',
+      inviter: @inviter.email %>
+
+<%= t 'user_mailer.invite.body.value_proposition' %>
+
+<%= t 'user_mailer.invite.body.wish' %>
+
+<%= t 'user_mailer.invite.body.cheers' %>
+
+<% content_for :footer do %>
+<%= t('user_mailer.invite.footer.message') %>
+
+<%= t('user_mailer.invite.footer.button') %> -> <%= @token ?
+                                                    edit_password_url(@user, reset_password_token: @token) :
+                                                    root_url %>
+<% end %>

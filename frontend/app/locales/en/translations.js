@@ -89,7 +89,8 @@ export default {
   'navbar': {
     'home': 'Dashboard',
     'login': 'Login',
-    'logout': 'Logout'
+    'logout': 'Logout',
+    'share': 'Share'
   },
   'organizations': {
     'adminEmails': {
@@ -157,6 +158,20 @@ export default {
       'status': 'You need an invitation to use <b>Circular Work</b>, by the moment',
       'welcome': 'If you want to use <b>Circular Work</b>, you are welcome!'
     }
+  },
+  'share': {
+    'invite': {
+      'button': 'Send invitation',
+      'email': {
+        'label': 'Email',
+        'placeholder': 'Email to send the invitation to',
+        'sent': 'Invitation email sent to <b>{{email}}</b>'
+      }
+    },
+    'reason': 'Registration in Circular Work works by invitation only',
+    'title': 'Do you know someone interested in Circular Work?',
+    'warning': 'Please, don\'t add here people participating in your own organization. Add them directly from your organization tasks and groups',
+    'whatToDo': 'Here you can invite other organizations to join and use this tool so they can improve their participation'
   },
   'tasks' : {
     'attributes' : {

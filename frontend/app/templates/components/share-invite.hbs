@@ -1,0 +1,19 @@
+{{#if sentEmail}}
+  <p class="alert alert-success">
+    {{ t 'share.invite.email.sent' email=sentEmail }}
+  </p>
+{{/if}}
+
+{{#if errorMessage}}
+  <p class="alert alert-danger">{{errorMessage}}</p>
+{{/if}}
+
+{{#bs-form action="sendInvitation" submitOnEnter=true}}
+  {{bs-form-element label=(t 'share.invite.email.label')
+                    controlType="email"
+                    placeholder=(t 'share.invite.email.placeholder')
+                    value=email}}
+  {{#bs-button type="primary" action="sendInvitation" class="pull-right"}}
+    {{ t 'share.invite.button'}}
+  {{/bs-button}}
+{{/bs-form}}

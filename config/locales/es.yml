@@ -13,11 +13,25 @@ es:
         invite: '%{inviter} te ha hecho admin de %{organization} en la aplicación Circular Work'
         invite_html: '%{inviter} te ha hecho admin de %{organization} en la aplicación <a href="https://circular.work">Circular Work</a>'
         what_to_do: Ahora puedes gestionar las tareas repetitivas de tu organización, añadir y modificar turnos, cambiar el correo de recordatorio, etc..
-        wish: Esperamos que Circular Work ayude a vuestra organización a conseguir una participación más horizontal
-        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización a conseguir una participación más horizontal
+        wish: Esperamos que Circular Work ayude a vuestra organización o colectivo a conseguir una participación más horizontal
+        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización o colectivo a conseguir una participación más horizontal
       footer:
         button: Ver organización
         message: Gestiona las tareas, añade y modificar turnos, etc..
+    invite:
+      subject: Te han invitado a Circular Work
+      body:
+        cheers: Un saludo.
+        greeting: Hola %{email}
+        invite: '%{inviter} te ha invitado a la aplicación Circular Work'
+        invite_html: '<a href="mailto:%{inviter}">%{inviter}</a> te ha invitado a la aplicación <a href="https://circular.work">Circular Work</a>'
+        value_proposition: Circular Work ayuda a los colectivos a ser más participativos a través de las tareas repetitivas. Permite establecer turnos y mandar correos de recordatorio a las personas responsables cada semana, rotando automáticamente los turnos y ofreciendo un sitio visible donde consultarlos en todo momento.
+        value_proposition_html: <a href="https://circular.work">Circular Work</a> ayuda a los colectivos a ser más participativos a través de las tareas repetitivas. Permite establecer turnos y mandar correos de recordatorio a las personas responsables cada semana, rotando automáticamente los turnos y ofreciendo un sitio visible donde consultarlos en todo momento.
+        wish: Esperamos que Circular Work ayude a vuestra organización o colectivo a conseguir una participación más horizontal
+        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización o colectivo a conseguir una participación más horizontal
+      footer:
+        button: Empezar
+        message: Gestiona las tareas de tu organización o colectivo
     member:
       subject: Te han añadido a las tareas de %{organization}
       body:
@@ -26,8 +40,8 @@ es:
         added: Un admin de %{organization} en la aplicación Circular Work te ha añadido a la gestión de tareas
         added_html: Un admin de %{organization} en la aplicación <a href="https://circular.work">Circular Work</a> te ha añadido a la gestión de tareas
         what_to_do: Allí puedes consultar las tareas repetitivas de tu organización, los próximos turnos, el texto de recordatorio, etc..
-        wish: Esperamos que Circular Work ayude a vuestra organización a conseguir una participación más horizontal
-        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización a conseguir una participación más horizontal
+        wish: Esperamos que Circular Work ayude a vuestra organización o colectivo a conseguir una participación más horizontal
+        wish_html: Esperamos que <a href="https://circular.work">Circular Work</a> ayude a vuestra organización o colectivo a conseguir una participación más horizontal
       footer:
         button: Ver organización
         message: Consulta las tareas, próximos turnos, etc..

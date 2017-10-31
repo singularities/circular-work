@@ -1,0 +1,30 @@
+<p>
+  <%= t 'user_mailer.invite.body.greeting', email: @user.email %>
+</p>
+
+<p>
+  <%= t 'user_mailer.invite.body.invite_html',
+        inviter: @inviter.email %>
+</p>
+
+<p>
+  <%= t 'user_mailer.invite.body.value_proposition_html' %>
+</p>
+
+<p>
+  <%= t 'user_mailer.invite.body.wish_html' %>
+</p>
+
+<p>
+  <%= t 'user_mailer.invite.body.cheers' %>
+</p>
+
+<% content_for :footer do %>
+  <div class="message">
+    <%= link_to t('user_mailer.invite.footer.message'),
+                @token ? edit_password_url(@user, reset_password_token: @token) : :root %>
+  </div>
+  <%= link_to t('user_mailer.invite.footer.button'),
+              @token ? edit_password_url(@user, reset_password_token: @token) : :root,
+              class: "btn btn-lg btn-accent float-right" %>
+<% end %>

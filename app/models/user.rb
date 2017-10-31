@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :authored_organizations, class_name: 'Organization', foreign_key: 'author_id'
   has_many :admins, dependent: :destroy
   has_many :admin_organizations, through: :admins, source: :organization
+  has_many :invitees, class_name: "User",
+                      foreign_key: "inviter_id"
+  belongs_to :inviter, class_name: "User",
+                       optional: true
 
   before_validation :set_password, on: :create
 

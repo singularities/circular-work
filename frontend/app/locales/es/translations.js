@@ -89,7 +89,8 @@ export default {
   'navbar': {
     'home': 'Inicio',
     'login': 'Entrar',
-    'logout': 'Salir'
+    'logout': 'Salir',
+    'share': 'Compartir'
   },
   'organizations': {
     'adminEmails': {
@@ -157,6 +158,20 @@ export default {
       'status': '<b>Circular Work</b> funciona por invitaciones, por el momento.',
       'welcome': 'Si quieres probar Circular Work.. ¡bienvenidx!'
     }
+  },
+  'share': {
+    'invite': {
+      'button': 'Enviar invitación',
+      'email': {
+        'label': 'Email',
+        'placeholder': 'Email de la persona a invitar',
+        'sent': 'Correo de invitación enviado a <b>{{email}}</b>'
+      }
+    },
+    'reason': 'El registro de Circular Work funciona solo por invitación.',
+    'title': '¿Conoces alguna persona interesada en Circular Work?',
+    'warning': 'Por favor, no añadas aquí a gente para que participe en las tareas de tu organización o colectivo. Hazlo directamente desde las tareas o grupos de tu organización',
+    'whatToDo': 'Aquí puedes invitar a otras organizaciones o colectivos a usar la herramienta para que mejoren su participación'
   },
   'tasks' : {
     'attributes' : {

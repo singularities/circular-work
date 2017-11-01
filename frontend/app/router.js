@@ -25,13 +25,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('home');
 
-  this.route('session', function() {
-    this.route('login');
-    this.route('register');
-    this.route('password_forgotten');
-    this.route('password_recover');
-  });
-
   this.route('tasks', function() {
     this.route('index');
     this.route('new');
@@ -42,6 +35,13 @@ Router.map(function() {
   this.route('organizations', function() {
     this.route('new');
     this.route('show', { path: ":organization_id" });
+  });
+
+  this.route('session', function() {
+    this.route('login');
+    this.route('register');
+    this.route('password_forgotten');
+    this.route('password_recover');
   });
 
   // Define devise_token_auth recover password route

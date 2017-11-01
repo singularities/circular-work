@@ -1,9 +1,3 @@
-{{navigation-bar}}
-
-<div class="container">
-  {{outlet}}
-</div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-  {{footer-bar}}
-</nav>
+{{#within-navbars}}
+    {{outlet}}
+{{/within-navbars}}
